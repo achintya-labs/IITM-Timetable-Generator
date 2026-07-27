@@ -163,6 +163,30 @@ function getNextDate(dayName) {
   return resultDate;
 }
 
+// Get the first occurance of the class from the first day to prevent one sunday having all the classes
+function getFirstOccurrence(startDate, day) {
+  const weekdayMap = {
+    MO: 1,
+    TU: 2,
+    WE: 3,
+    TH: 4,
+    FR: 5,
+    SA: 6,
+    SU: 0,
+  };
+
+  const date = new Date(startDate);
+
+  const targetDay = weekdayMap[day.slice(0, 2).toUpperCase()];
+  const currentDay = date.getDay();
+
+  let diff = targetDay - currentDay;
+  if (diff < 0) diff += 7;
+
+  date.setDate(date.getDate() + diff);
+  return date;
+}
+
 function generateICS(schedule, MtechData, startDate, endDate) {
   let icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
@@ -184,9 +208,10 @@ METHOD:PUBLISH
     }
     if (!times) continue;
 
-    // const startDate = getNextDate(day);
-    const dtStart = formatICSDate(new Date(startDate), times.start);
-    const dtEnd = formatICSDate(new Date(startDate), times.end);
+    const firstDate = getFirstOccurrence(startDate, day);
+
+    const dtStart = formatICSDate(firstDate, times.start);
+    const dtEnd = formatICSDate(firstDate, times.end);
     const dtSemEnd = formatICSDate(new Date(endDate), times.end);
 
     const uid = `${code}-${day}-${slot}-${Math.random().toString(36).slice(2)}@example.com`;
@@ -206,9 +231,7 @@ END:VEVENT
   icsContent += "END:VCALENDAR";
 
   return icsContent;
-
 }
-
 
 function downloadICS(schedule, MtechData, startDate, endDate) {
 
