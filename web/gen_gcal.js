@@ -3,8 +3,6 @@
 //   "Tuesday-B": ["PH101", "Physics", "LH105"],
 // };
 
-const startDate = new Date("2026-07-26T00:00:00.000+05:30");
-
 const slotTimes = {
   "Monday": {
     "A": { start: "08:00", end: "08:50" },
@@ -165,7 +163,7 @@ function getNextDate(dayName) {
   return resultDate;
 }
 
-function generateICS(schedule, MtechData) {
+function generateICS(schedule, MtechData, startDate, endDate) {
   let icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
 CALSCALE:GREGORIAN
@@ -178,8 +176,8 @@ METHOD:PUBLISH
     }
     const [day, slot] = key.split("-");
     const [code, name, venue] = [schedule[key].courseNo, schedule[key].name, schedule[key].venue];
-    var times;
-    if (MtechData[day]["slot"] == slot && MtechData[day]["value"] == true) {
+    let times;
+    if (MtechData[day]["slot"] == slot && MtechData[day]["value"]) {
       times = slotTimes_PG[day][slot];
     } else {
       times = slotTimes[day][slot];
@@ -189,6 +187,7 @@ METHOD:PUBLISH
     // const startDate = getNextDate(day);
     const dtStart = formatICSDate(new Date(startDate), times.start);
     const dtEnd = formatICSDate(new Date(startDate), times.end);
+    const dtSemEnd = formatICSDate(new Date(endDate), times.end);
 
     const uid = `${code}-${day}-${slot}-${Math.random().toString(36).slice(2)}@example.com`;
 
@@ -196,7 +195,7 @@ METHOD:PUBLISH
 SUMMARY: (${slot}) ${code} - ${name}
 DTSTART:${dtStart}
 DTEND:${dtEnd}
-RRULE:FREQ=WEEKLY;BYDAY=${day.slice(0, 2).toUpperCase()}
+RRULE:FREQ=WEEKLY;BYDAY=${day.slice(0, 2).toUpperCase()};UNTIL=${dtSemEnd}
 LOCATION:${venue}
 UID:${uid}
 DESCRIPTION:${code} - ${name} at ${venue}
@@ -211,9 +210,9 @@ END:VEVENT
 }
 
 
-function downloadICS(schedule, MtechData) {
+function downloadICS(schedule, MtechData, startDate, endDate) {
 
-  icsContent = generateICS(schedule, MtechData);
+  const icsContent = generateICS(schedule, MtechData, startDate, endDate);
   const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
   const link = document.createElement("a");
   link.href = URL.createObjectURL(blob);
@@ -223,7 +222,7 @@ function downloadICS(schedule, MtechData) {
   document.body.removeChild(link);
 }
 
-async function importICSgcal(schedule, MtechData) {
-  icsContent = generateICS(schedule, MtechData);
+async function importICSgcal(schedule, MtechData, startDate, endDate) {
+  const icsContent = generateICS(schedule, MtechData, startDate, endDate);
   return importICS(icsContent);
 }

@@ -6,6 +6,10 @@ const slotLayout = {
     "Friday": ["F", "G", "A", "B", "C", "PG", "T", "E", "K", "L"]
 };
 
+const defaultDate = "2026-07-26T00:00:00.000+05:30";
+let STARTDATE = "";
+let ENDDATE = "";
+
 const colorList = {
     "A": "lite_green",
     "B": "lavender",
@@ -305,8 +309,8 @@ function gen_gcal() {
 }
 
 function download_gcal() {
-    data = gen_gcal();
-    downloadICS(data, MtechData);
+    const data = gen_gcal();
+    downloadICS(data, MtechData, STARTDATE, ENDDATE);
 }
 
 
@@ -314,7 +318,7 @@ async function import_gcal() {
     message_field = document.getElementById('gcal_import_mesg');
     data = gen_gcal();
     message_field.innerHTML = `<b>Status:</b> Running import. Please wait ... <br><br>`
-    let result = await importICSgcal(data, MtechData);
+    let result = await importICSgcal(data, MtechData, STARTDATE, ENDDATE);
     if (result == true) {
         message_field.innerHTML = `<b>Status:</b> Successfully imported! <br><br>`
     }
@@ -406,6 +410,7 @@ async function initializeSemesterSelector() {
     // heading.innerText = `Semester: ${CURRENT_SEMESTER}`;
 
     ACADS_COURSES = await fetch_courses_json(CURRENT_SEMESTER);
+    [STARTDATE, ENDDATE] = await fetch_startenddate_json(CURRENT_SEMESTER);
 
     selector.addEventListener("change", async function () {
         CURRENT_SEMESTER = this.value;
@@ -415,13 +420,27 @@ async function initializeSemesterSelector() {
         // heading.innerText = `Semester: ${CURRENT_SEMESTER}`;
 
         ACADS_COURSES = await fetch_courses_json(CURRENT_SEMESTER);
+        const [startDateString, endDateString] = await fetch_startenddate_json(CURRENT_SEMESTER);
+
+        STARTDATE = Date(startDateString);
+        ENDDATE = Date(endDateString);
     });
+}
+
+async function fetch_startenddate_json(semester) {
+    if (!semester) return {};
+
+    const startDate = SEMESTER_DATA_FILES[semester]["startdate"] || defaultDate;
+    const endDate = SEMESTER_DATA_FILES[semester]["enddate"] || defaultDate;
+    
+    return [startDate, endDate];
+
 }
 
 async function fetch_courses_json(semester) {
     if (!semester) return {};
 
-    const filePath = SEMESTER_DATA_FILES[semester];
+    const filePath = SEMESTER_DATA_FILES[semester]["datafile"];
 
     if (!filePath) {
         console.error(`No JSON mapped for semester: ${semester}`);
