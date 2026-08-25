@@ -725,7 +725,18 @@ function setupDarkMode() {
 }
 
 
+function switchTab(tab) {
+    document.querySelectorAll(".tab-page").forEach(p => {
+        p.hidden = p.id !== `tab-${tab}`;
+    });
+    document.querySelectorAll(".nav-tab").forEach(b => {
+        b.classList.toggle("active", b.id === `tab-btn-${tab}`);
+    });
+    localStorage.setItem("activeTab", tab);
+}
+
 document.addEventListener("DOMContentLoaded", async function () {
+    switchTab(localStorage.getItem("activeTab") || "timetable");
     load_from_cookie();
     await initializeSemesterSelector();
     setupDarkMode();

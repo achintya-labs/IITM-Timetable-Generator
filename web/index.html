@@ -34,24 +34,31 @@
 </head>
 
 <body>
-  <div class="page-title">
-    <h1 class="no-print">
-      <span>Timetable Generator</span>
-    </h1>
-    <div class="semester-selector">
-      <label for="semesterSelect">Semester: </label>
-      <select id="semesterSelect"></select>
-    <span class="theme-toggle no-print" id="themeToggle">
-      <label class="theme-switch">
-        <input type="checkbox" id="darkModeToggle">
-        <span class="slider">
-          <span class="icon sun">☀️</span>
-          <span class="icon moon">🌙</span>
-        </span>
-      </label>
-    </span>
+  <nav class="navbar no-print">
+    <span class="brand">Timetable Generator</span>
+    <div class="nav-tabs">
+      <button type="button" class="nav-tab active" id="tab-btn-timetable" onclick="switchTab('timetable')">Timetable</button>
+      <button type="button" class="nav-tab" id="tab-btn-quiz" onclick="switchTab('quiz')">Quiz Schedule</button>
     </div>
-  </div>
+    <div class="navbar-right">
+      <div class="semester-selector">
+        <label for="semesterSelect">Semester: </label>
+        <select id="semesterSelect"></select>
+      </div>
+      <span class="theme-toggle" id="themeToggle">
+        <label class="theme-switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+          </span>
+        </label>
+      </span>
+    </div>
+  </nav>
+
+  <!-- ==================== TAB: TIMETABLE ==================== -->
+  <div id="tab-timetable" class="tab-page">
   <h1 class="only-print" style="text-align: center;">Timetable</h1>
   <!-- Add Slot Section -->
   <div class="form-section no-print">
@@ -230,6 +237,18 @@
   </div>
 
   <div id="timetableContainer"></div>
+  </div>
+  <!-- ==================== END TAB: TIMETABLE ==================== -->
+
+  <!-- ==================== TAB: QUIZ SCHEDULE ==================== -->
+  <div id="tab-quiz" class="tab-page" hidden>
+    <h1 class="only-print" style="text-align: center;">Quiz Schedule</h1>
+    <div class="form-section">
+      <h3>Quiz Schedule</h3>
+      <p>Exam dates for your courses will appear here.</p>
+    </div>
+  </div>
+  <!-- ==================== END TAB: QUIZ SCHEDULE ==================== -->
 
   <br>
   <footer class="no-print">

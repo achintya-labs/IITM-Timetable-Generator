@@ -71,22 +71,62 @@
     }
 
     /* =====================
-    TITLE + SEMESTER ROW
+    NAVBAR
     ===================== */
 
-    .page-title {
+    .navbar {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        flex-wrap: wrap;
         gap: 1rem;
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         margin-bottom: 1.5rem;
-        text-align: left;
     }
 
-    /* keep title text from stretching weirdly */
-    .page-title span {
-        flex: 1;
+    .navbar .brand {
+        font-family: "Oxanium", "Inter", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        flex-shrink: 0;
+    }
+
+    .nav-tabs {
+        display: flex;
+        gap: 0.35rem;
+        background: #ececec;
+        border-radius: 8px;
+        padding: 0.25rem;
+    }
+
+    .nav-tab {
+        border: none;
+        background: transparent;
+        padding: 0.4rem 0.9rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #555;
+    }
+
+    .nav-tab.active {
+        background: #ffffff;
+        color: #222;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .nav-tab:not(.active):hover {
+            color: #222;
+        }
+    }
+
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-left: auto;
+        flex-shrink: 0;
     }
 
     /* =====================
@@ -118,14 +158,19 @@
     ===================== */
 
     @media (max-width: 768px) {
-        .page-title {
+        .navbar {
             flex-direction: column;
             align-items: stretch;
             text-align: center;
         }
 
-        .page-title span {
-            flex: unset;
+        .nav-tabs {
+            justify-content: center;
+        }
+
+        .navbar-right {
+            margin-left: unset;
+            justify-content: center;
         }
 
         .semester-selector {
@@ -528,6 +573,29 @@
 
     body:not(.light-mode) .semester-selector label {
         color: #e5e5e5;
+    }
+
+    body:not(.light-mode) .navbar .brand {
+        color: #f0f0f0;
+    }
+
+    body:not(.light-mode) .nav-tabs {
+        background: #2a2a2a;
+    }
+
+    body:not(.light-mode) .nav-tab {
+        color: #b5b5b5;
+    }
+
+    body:not(.light-mode) .nav-tab.active {
+        background: #3a3a3a;
+        color: #f0f0f0;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        body:not(.light-mode) .nav-tab:not(.active):hover {
+            color: #f0f0f0;
+        }
     }
 
     /* =====================
