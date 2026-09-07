@@ -199,7 +199,8 @@
 
     /* Dynamic backend-injected rows */
     #slotInputs,
-    #overrideInputs {
+    #overrideInputs,
+    #quizInputs {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -248,6 +249,21 @@
             /* Course Name */
             minmax(140px, 1fr)
             /* Venue */
+            28px;
+        /* Close */
+    }
+
+    /* Quiz rows: Slot + Course No + Course Name + Exam Type */
+    .form-row:has(select.row_slot_quiz) {
+        grid-template-columns:
+            minmax(80px, 100px)
+            /* Slot */
+            minmax(100px, 130px)
+            /* Course No */
+            minmax(260px, 2fr)
+            /* Course Name */
+            minmax(140px, 160px)
+            /* Exam Type */
             28px;
         /* Close */
     }

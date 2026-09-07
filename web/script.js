@@ -34,9 +34,28 @@ const colorList = {
 var slotData = {}; // { slot: { courseNo, name, venue } }
 var overrideData = {}; // { "Monday-A": { courseNo, name, venue } }
 var MtechData = {}
+var quizData = {}; // { slot: { courseNo, name, examType } }
 
 let ACADS_COURSES = {}; // Add courses after pulling from file
 let CURRENT_SEMESTER = "";
+
+// Quiz-eligible slots and their exam dates (update dates per semester)
+const QUIZ_ELIGIBLE_SLOTS = ["E", "F", "L", "K", "A", "H", "B", "M", "C", "J", "D", "G"];
+
+const QUIZ_DATES_CALENDAR = {
+    "A": { quiz1Date: "31/08/26", quiz2Date: "12/10/26", endsemDate: "10/11/26" },
+    "B": { quiz1Date: "01/09/26", quiz2Date: "06/10/26", endsemDate: "13/11/26" },
+    "C": { quiz1Date: "02/09/26", quiz2Date: "07/10/26", endsemDate: "14/11/26" },
+    "D": { quiz1Date: "03/09/26", quiz2Date: "15/10/26", endsemDate: "16/11/26" },
+    "E": { quiz1Date: "27/08/26", quiz2Date: "08/10/26", endsemDate: "17/11/26" },
+    "F": { quiz1Date: "28/08/26", quiz2Date: "13/10/26", endsemDate: "18/11/26" },
+    "G": { quiz1Date: "04/09/26", quiz2Date: "09/10/26", endsemDate: "19/11/26" },
+    "H": { quiz1Date: "31/08/26", quiz2Date: "12/10/26", endsemDate: "11/11/26" },
+    "J": { quiz1Date: "02/09/26", quiz2Date: "07/10/26", endsemDate: "11/11/26" },
+    "K": { quiz1Date: "28/08/26", quiz2Date: "08/10/26", endsemDate: "12/11/26" },
+    "L": { quiz1Date: "27/08/26", quiz2Date: "08/10/26", endsemDate: "12/11/26" },
+    "M": { quiz1Date: "01/09/26", quiz2Date: "06/10/26", endsemDate: "" }
+};
 
 function printTimetable() {
     captureFullTimetable((wrapper) => {
@@ -553,9 +572,10 @@ function process_saved_data(jsondata) {
     // jsondata = '{"slotData":{"A":{"courseNo":"asas","name":"aaa","venue":"aaa"}},"overrideData":{}}'
 
     data = JSON.parse(jsondata);
-    slotData = data.slotData;
-    overrideData = data.overrideData;
-    MtechData = data.MtechData;
+    slotData = data.slotData || {};
+    overrideData = data.overrideData || {};
+    MtechData = data.MtechData || {};
+    quizData = data.quizData || {};
 
     Object.keys(slotData).forEach(slot => {
         addSlotRow(slot, slotData[slot].courseNo, slotData[slot].name, slotData[slot].venue);
@@ -565,6 +585,10 @@ function process_saved_data(jsondata) {
         [day, slot] = override.split("-");
         console.log(day, slot);
         addOverrideRow(day, slot, overrideData[override].courseNo, overrideData[override].name, overrideData[override].venue);
+    })
+
+    Object.keys(quizData).forEach(slot => {
+        addQuizRow(slot, quizData[slot].courseNo, quizData[slot].name, quizData[slot].examType);
     })
 
     setMtechInputs();
@@ -585,7 +609,8 @@ function download_data() {
 
 function save_data() {
     parseInputs();
-    data = { slotData: slotData, overrideData: overrideData, MtechData: MtechData };
+    parseQuizInputs();
+    data = { slotData: slotData, overrideData: overrideData, MtechData: MtechData, quizData: quizData };
     return JSON.stringify(data);
 }
 
@@ -733,6 +758,11 @@ function switchTab(tab) {
         b.classList.toggle("active", b.id === `tab-btn-${tab}`);
     });
     localStorage.setItem("activeTab", tab);
+    
+    // Auto-populate quiz tab from timetable if switching to quiz and quizData is empty
+    if (tab === "quiz") {
+        autoPopulateQuizFromTimetable();
+    }
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -774,3 +804,219 @@ window.addEventListener("beforeprint", () => {
     // Redirect to your custom print
     printTimetable();
 });
+
+
+// ==================== QUIZ SCHEDULE FUNCTIONS ====================
+
+function addQuizRow(slot = "", courseNo = "", courseName = "", examType = "quiz") {
+    const container = document.getElementById("quizInputs");
+    const div = document.createElement("div");
+    
+    function get_selected_slot(check_slot) {
+        return slot === check_slot ? "selected" : "";
+    }
+    
+    function get_selected_exam_type(check_type) {
+        return examType === check_type ? "selected" : "";
+    }
+    
+    div.className = "form-row";
+    div.innerHTML = `<span class="tt-data">
+                    <select class="row_slot_quiz">
+                        <option ${get_selected_slot('')}>Slot</option>
+                        ${QUIZ_ELIGIBLE_SLOTS.map(s => `<option ${get_selected_slot(s)}>${s}</option>`).join('')}
+                    </select>
+                    <input placeholder="Course No." class="row_course_number_quiz" value="${courseNo}">
+                    <input placeholder="Course Name" class="row_course_name_quiz" value="${courseName}">
+                    <select class="row_exam_type">
+                        <option ${get_selected_exam_type('quiz')}>Quiz-based</option>
+                        <option ${get_selected_exam_type('midsem')}>Midsem-based</option>
+                    </select>
+                    </span>
+                    <span class="close-btn" value="" onclick="this.parentElement.remove()">×</span>`;
+    container.appendChild(div);
+}
+
+function clearQuizRows() {
+    const ele = document.getElementById("quizInputs");
+    ele.innerHTML = "";
+}
+
+function parseQuizInputs() {
+    quizData = {};
+    document.querySelectorAll("#quizInputs .tt-data").forEach(row => {
+        const slot = row.querySelector(".row_slot_quiz").value.trim();
+        const courseNo = row.querySelector(".row_course_number_quiz").value.trim();
+        const name = row.querySelector(".row_course_name_quiz").value.trim();
+        const examType = row.querySelector(".row_exam_type").value;
+        
+        if (slot && slot !== "Slot") {
+            quizData[slot] = { courseNo, name, examType };
+        }
+    });
+}
+
+function autoPopulateQuizFromTimetable() {
+    // Check if cookie and slotData exist
+    if (!document.cookie || Object.keys(slotData).length === 0) {
+        return;
+    }
+    
+    // Check if quizData already has entries
+    const existingQuizInputs = document.querySelectorAll("#quizInputs .tt-data");
+    if (existingQuizInputs.length > 0) {
+        return; // Already populated
+    }
+    
+    // Auto-populate from slotData
+    Object.keys(slotData).forEach(slot => {
+        if (QUIZ_ELIGIBLE_SLOTS.includes(slot)) {
+            const course = slotData[slot];
+            addQuizRow(slot, course.courseNo, course.name, "quiz");
+        }
+    });
+}
+
+function generateQuizTable() {
+    parseQuizInputs();
+    
+    if (Object.keys(quizData).length === 0) {
+        document.getElementById("quizTableContainer").innerHTML = "<p><i>No courses added. Please add courses above.</i></p>";
+        return;
+    }
+    
+    // Sort slots by QUIZ_ELIGIBLE_SLOTS order
+    const sortedSlots = Object.keys(quizData).sort((a, b) => {
+        return QUIZ_ELIGIBLE_SLOTS.indexOf(a) - QUIZ_ELIGIBLE_SLOTS.indexOf(b);
+    });
+    
+    let tableHTML = `
+        <table class="timetable quiz-table" id="quizTable" style="margin-top: 20px;">
+            <thead>
+                <tr class="gray_light">
+                    <th>Slot</th>
+                    <th>Course Code</th>
+                    <th>Course Name</th>
+                    <th>Quiz 1 / Midsem</th>
+                    <th>Quiz 2</th>
+                    <th>End Sem</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+    
+    sortedSlots.forEach(slot => {
+        const course = quizData[slot];
+        const dates = QUIZ_DATES_CALENDAR[slot] || { quiz1Date: "", quiz2Date: "", endsemDate: "" };
+        
+        let quiz1Cell, quiz2Cell;
+        
+        if (course.examType === "midsem") {
+            quiz1Cell = dates.quiz1Date ? `${dates.quiz1Date} <br><small>(Midsem)</small>` : "—";
+            quiz2Cell = "—";
+        } else {
+            quiz1Cell = dates.quiz1Date || "—";
+            quiz2Cell = dates.quiz2Date || "—";
+        }
+        
+        const endsemCell = dates.endsemDate || "—";
+        
+        tableHTML += `
+            <tr>
+                <td class="${colorList[slot] || 'gray_light'}">${slot}</td>
+                <td>${course.courseNo}</td>
+                <td>${course.name}</td>
+                <td>${quiz1Cell}</td>
+                <td>${quiz2Cell}</td>
+                <td>${endsemCell}</td>
+            </tr>
+        `;
+    });
+    
+    tableHTML += `
+            </tbody>
+        </table>
+    `;
+    
+    document.getElementById("quizTableContainer").innerHTML = tableHTML;
+    save_to_cookie();
+}
+
+function printQuizSchedule() {
+    const table = document.getElementById("quizTable");
+    
+    if (!table) {
+        alert("Please generate the quiz schedule first!");
+        return;
+    }
+    
+    const printWindow = window.open("", "_blank");
+    
+    let styles = "";
+    Array.from(document.styleSheets).forEach(sheet => {
+        try {
+            Array.from(sheet.cssRules).forEach(rule => {
+                styles += rule.cssText;
+            });
+        } catch (e) {}
+    });
+    
+    const tableWidth = table.scrollWidth;
+    const tableHeight = table.scrollHeight;
+    
+    printWindow.document.write(`
+        <html>
+          <head>
+            <title>Quiz Schedule</title>
+            <style>
+              ${styles}
+              
+              * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              }
+              
+              @page {
+                size: A4 portrait;
+                margin: 10mm;
+              }
+              
+              html, body {
+                margin: 0;
+                padding: 0;
+                background: white;
+              }
+              
+              table {
+                display: table !important;
+                overflow: visible !important;
+                width: 100%;
+              }
+            </style>
+          </head>
+          <body>
+            <h1 style="margin: 0 auto; text-align: center;">Quiz Schedule</h1>
+            ${table.outerHTML}
+          </body>
+        </html>
+    `);
+    
+    printWindow.document.close();
+    printWindow.focus();
+    
+    printWindow.onload = async () => {
+        try {
+            if (printWindow.document.fonts) {
+                await printWindow.document.fonts.ready;
+            }
+            await new Promise(resolve => setTimeout(resolve, 50));
+            printWindow.requestAnimationFrame(() => {
+                printWindow.print();
+                printWindow.close();
+            });
+        } catch {
+            printWindow.print();
+            printWindow.close();
+        }
+    };
+}

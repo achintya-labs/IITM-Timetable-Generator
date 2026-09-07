@@ -243,9 +243,23 @@
   <!-- ==================== TAB: QUIZ SCHEDULE ==================== -->
   <div id="tab-quiz" class="tab-page" hidden>
     <h1 class="only-print" style="text-align: center;">Quiz Schedule</h1>
+    
+    <!-- Add Quiz/Exam Entry Section -->
+    <div class="form-section no-print">
+      <h3 style="margin-bottom: 1px;">Add Quiz/Exam Details</h3>
+      <p>Select courses from your timetable or add manually. Choose the exam type for each course.</p>
+      <p><b><i>Note: </i></b>Only quiz-eligible slots (E, F, L, K, A, H, B, M, C, J, D, G) can be added here.</p>
+      <div id="quizInputs"></div>
+      <button onclick="addQuizRow()">+ Add Course</button>
+      <button onclick="clearQuizRows()">Clear All</button>
+    </div>
+
+    <!-- Quiz Schedule Display -->
     <div class="form-section">
-      <h3>Quiz Schedule</h3>
-      <p>Exam dates for your courses will appear here.</p>
+      <h3>Exam Schedule</h3>
+      <button class="no-print" onclick="generateQuizTable()">Generate Schedule</button>
+      <button class="no-print print-btn" onclick="printQuizSchedule()">Print PDF</button>
+      <div id="quizTableContainer"></div>
     </div>
   </div>
   <!-- ==================== END TAB: QUIZ SCHEDULE ==================== -->
