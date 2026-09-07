@@ -601,6 +601,9 @@ function process_saved_data(jsondata) {
 
     setMtechInputs();
     generateTable();
+    
+    // Sync timetable to quiz (one-way: TT -> Quiz for eligible slots only)
+    syncTimetableToQuiz();
 
 }
 
@@ -692,6 +695,7 @@ function generateTable() {
     });
 
     save_to_cookie();
+    syncTimetableToQuiz();
 
 }
 
@@ -911,6 +915,36 @@ function autoPopulateQuizFromTimetable() {
     });
 }
 
+function populateQuizData() {
+    // Populate course name and slot from course database based on course number
+    document.querySelectorAll("#quizInputs .tt-data").forEach((row) => {
+        const courseNoInput = row.querySelector(".row_course_number_quiz");
+        const courseNo = courseNoInput.value.trim().toUpperCase();
+        
+        if (!courseNo) return;
+        
+        const courseData = getCourseDataAcads(courseNo);
+        
+        const elements = {
+            slot: row.querySelector(".row_slot_quiz"),
+            courseNo: courseNoInput,
+            name: row.querySelector(".row_course_name_quiz")
+        };
+        
+        if (elements.slot.value === "Slot" || !elements.slot.value) {
+            if (courseData.slot && QUIZ_ELIGIBLE_SLOTS.includes(courseData.slot)) {
+                elements.slot.value = courseData.slot;
+            }
+        }
+        
+        if (!elements.name.value && courseData.name) {
+            elements.name.value = courseData.name;
+        }
+        
+        elements.courseNo.value = courseNo;
+    });
+}
+
 function generateQuizTable() {
     parseQuizInputs();
     parseQuizOverrides();
@@ -1035,6 +1069,7 @@ function generateQuizTable() {
     
     document.getElementById("quizTableContainer").innerHTML = tableHTML;
     save_to_cookie();
+    syncQuizToTimetable();
 }
 
 function getEffectiveDate(slot, dateType) {
@@ -1190,4 +1225,321 @@ function parseQuizOverrides() {
             quizDateOverrides[slot] = { quiz1Date, quiz2Date, endsemDate };
         }
     });
+}
+
+function download_quiz_data() {
+    parseQuizInputs();
+    parseQuizOverrides();
+    const data = { quizData: quizData, quizDateOverrides: quizDateOverrides };
+    const jsondata = JSON.stringify(data);
+    const blob = new Blob([jsondata], { type: "text/json;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "quiz_schedule_save.json";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+async function upload_saved_quiz_data_file() {
+    const upload_field = document.getElementById('upload_quiz_save');
+
+    const file = await new Promise((resolve) => {
+        const handler = () => {
+            upload_field.removeEventListener('change', handler);
+            resolve(upload_field.files[0]);
+        };
+        upload_field.addEventListener('change', handler);
+        upload_field.click();
+    });
+
+    if (!file) return;
+
+    const GetFile = new FileReader();
+    GetFile.readAsText(file);
+    GetFile.onloadend = load_saved_quiz_data;
+}
+
+function load_saved_quiz_data(event) {
+    clearQuizRows();
+    clearQuizOverrideRows();
+    
+    let jsondata = event.target.result;
+    process_saved_quiz_data(jsondata);
+}
+
+function process_saved_quiz_data(jsondata) {
+    const data = JSON.parse(jsondata);
+    quizData = data.quizData || {};
+    quizDateOverrides = data.quizDateOverrides || {};
+
+    Object.keys(quizData).forEach(slot => {
+        const course = quizData[slot];
+        addQuizRow(slot, course.courseNo, course.name, course.examType, course.midsemDate, course.endsemDate);
+    });
+
+    Object.keys(quizDateOverrides).forEach(slot => {
+        const override = quizDateOverrides[slot];
+        addQuizOverrideRow(slot, override.quiz1Date, override.quiz2Date, override.endsemDate);
+    });
+}
+
+function download_quiz_ics() {
+    parseQuizInputs();
+    parseQuizOverrides();
+    
+    if (Object.keys(quizData).length === 0) {
+        alert("No quiz data found. Please add courses first.");
+        return;
+    }
+    
+    // Build events array
+    const events = [];
+    
+    Object.keys(quizData).forEach(slot => {
+        const course = quizData[slot];
+        
+        if (course.examType === "Midsem-based") {
+            // Midsem event
+            if (course.midsemDate) {
+                events.push({
+                    summary: `${course.courseNo} - Midsem`,
+                    description: `${course.name} (Slot ${slot})`,
+                    date: course.midsemDate
+                });
+            }
+            // Endsem from calendar/override
+            const endsemDate = getEffectiveDate(slot, 'endsemDate');
+            if (endsemDate) {
+                events.push({
+                    summary: `${course.courseNo} - Endsem`,
+                    description: `${course.name} (Slot ${slot})`,
+                    date: endsemDate
+                });
+            }
+        } else {
+            // Quiz-based events
+            const quiz1Date = getEffectiveDate(slot, 'quiz1Date');
+            const quiz2Date = getEffectiveDate(slot, 'quiz2Date');
+            const endsemDate = getEffectiveDate(slot, 'endsemDate');
+            
+            if (quiz1Date) {
+                events.push({
+                    summary: `${course.courseNo} - Quiz 1`,
+                    description: `${course.name} (Slot ${slot})`,
+                    date: quiz1Date
+                });
+            }
+            if (quiz2Date) {
+                events.push({
+                    summary: `${course.courseNo} - Quiz 2`,
+                    description: `${course.name} (Slot ${slot})`,
+                    date: quiz2Date
+                });
+            }
+            if (endsemDate) {
+                events.push({
+                    summary: `${course.courseNo} - Endsem`,
+                    description: `${course.name} (Slot ${slot})`,
+                    date: endsemDate
+                });
+            }
+        }
+    });
+    
+    if (events.length === 0) {
+        alert("No exam dates found to export.");
+        return;
+    }
+    
+    // Generate ICS content
+    let icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//IITM Timetable Generator//Exam Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Exam Schedule
+X-WR-TIMEZONE:Asia/Kolkata
+`;
+
+    events.forEach(event => {
+        const dateStr = event.date.replace(/-/g, ''); // YYYY-MM-DD -> YYYYMMDD
+        const uid = `${dateStr}-${event.summary.replace(/\s+/g, '-')}@iitm-timetable`;
+        
+        icsContent += `BEGIN:VEVENT
+UID:${uid}
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+DTSTART;VALUE=DATE:${dateStr}
+DTEND;VALUE=DATE:${dateStr}
+SUMMARY:${event.summary}
+DESCRIPTION:${event.description}
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:${event.summary} tomorrow
+END:VALARM
+END:VEVENT
+`;
+    });
+
+    icsContent += `END:VCALENDAR`;
+
+    // Download
+    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "exam_schedule.ics";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+async function exportQuizToGoogleCalendar() {
+    parseQuizInputs();
+    parseQuizOverrides();
+    
+    if (Object.keys(quizData).length === 0) {
+        alert("No quiz data found. Please add courses and generate the schedule first.");
+        return;
+    }
+    
+    const messageField = document.getElementById('quizGcalMessage');
+    messageField.innerHTML = `<b>Status:</b> Preparing export to Google Calendar... <br><br>`;
+    
+    // Build events array
+    const events = [];
+    
+    Object.keys(quizData).forEach(slot => {
+        const course = quizData[slot];
+        
+        if (course.examType === "Midsem-based") {
+            // Midsem event
+            if (course.midsemDate) {
+                events.push({
+                    summary: `${course.courseNo} - Midsem`,
+                    description: `${course.name} (Slot ${slot})`,
+                    start: { date: course.midsemDate },
+                    end: { date: course.midsemDate }
+                });
+            }
+            // Endsem from calendar/override
+            const endsemDate = getEffectiveDate(slot, 'endsemDate');
+            if (endsemDate) {
+                events.push({
+                    summary: `${course.courseNo} - Endsem`,
+                    description: `${course.name} (Slot ${slot})`,
+                    start: { date: endsemDate },
+                    end: { date: endsemDate }
+                });
+            }
+        } else {
+            // Quiz-based events
+            const quiz1Date = getEffectiveDate(slot, 'quiz1Date');
+            const quiz2Date = getEffectiveDate(slot, 'quiz2Date');
+            const endsemDate = getEffectiveDate(slot, 'endsemDate');
+            
+            if (quiz1Date) {
+                events.push({
+                    summary: `${course.courseNo} - Quiz 1`,
+                    description: `${course.name} (Slot ${slot})`,
+                    start: { date: quiz1Date },
+                    end: { date: quiz1Date }
+                });
+            }
+            if (quiz2Date) {
+                events.push({
+                    summary: `${course.courseNo} - Quiz 2`,
+                    description: `${course.name} (Slot ${slot})`,
+                    start: { date: quiz2Date },
+                    end: { date: quiz2Date }
+                });
+            }
+            if (endsemDate) {
+                events.push({
+                    summary: `${course.courseNo} - Endsem`,
+                    description: `${course.name} (Slot ${slot})`,
+                    start: { date: endsemDate },
+                    end: { date: endsemDate }
+                });
+            }
+        }
+    });
+    
+    if (events.length === 0) {
+        messageField.innerHTML = `<b>Status:</b> No exam dates found to export. <br><br>`;
+        return;
+    }
+    
+    messageField.innerHTML = `<b>Status:</b> Exporting ${events.length} events to Google Calendar. Please wait... <br><br>`;
+    
+    try {
+        await loadGapi();
+        await authenticate();
+        
+        const calendarId = await createCalendar("Exam Schedule");
+        await insertEvents(calendarId, events);
+        
+        messageField.innerHTML = `<b>Status:</b> Successfully exported ${events.length} exam events to Google Calendar! <br><br>`;
+    } catch (error) {
+        console.error(error);
+        messageField.innerHTML = `<b>Status:</b> Failed to export to Google Calendar. ${error.message || ''} <br><br>`;
+    }
+}
+
+// ==================== TIMETABLE-QUIZ SYNC FUNCTIONS ====================
+
+function syncTimetableToQuiz() {
+    // Sync from timetable to quiz (one-way: TT -> Quiz for eligible slots only)
+    // Only updates quiz if slot doesn't already exist in quizData
+    
+    parseInputs(); // Refresh slotData
+    
+    Object.keys(slotData).forEach(slot => {
+        if (QUIZ_ELIGIBLE_SLOTS.includes(slot)) {
+            // Check if this slot already exists in quizData
+            if (!quizData[slot]) {
+                // Add to quizData if not present
+                quizData[slot] = {
+                    courseNo: slotData[slot].courseNo,
+                    name: slotData[slot].name,
+                    examType: "quiz"
+                };
+            } else {
+                // Update course info but keep exam type and dates
+                quizData[slot].courseNo = slotData[slot].courseNo;
+                quizData[slot].name = slotData[slot].name;
+            }
+        }
+    });
+    
+    // Remove quiz entries for slots no longer in timetable
+    Object.keys(quizData).forEach(slot => {
+        if (!slotData[slot]) {
+            delete quizData[slot];
+        }
+    });
+    
+    save_to_cookie();
+}
+
+function syncQuizToTimetable() {
+    // Sync from quiz back to timetable (for eligible slots only)
+    // Updates course info in slotData if changed in quizData
+    
+    parseQuizInputs(); // Refresh quizData
+    
+    Object.keys(quizData).forEach(slot => {
+        if (QUIZ_ELIGIBLE_SLOTS.includes(slot)) {
+            if (slotData[slot]) {
+                // Update course info in timetable
+                slotData[slot].courseNo = quizData[slot].courseNo;
+                slotData[slot].name = quizData[slot].name;
+                // Keep venue from timetable
+            }
+        }
+    });
+    
+    save_to_cookie();
 }
