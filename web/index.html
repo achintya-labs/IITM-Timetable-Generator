@@ -34,24 +34,31 @@
 </head>
 
 <body>
-  <div class="page-title">
-    <h1 class="no-print">
-      <span>Timetable Generator</span>
-    </h1>
-    <div class="semester-selector">
-      <label for="semesterSelect">Semester: </label>
-      <select id="semesterSelect"></select>
-    <span class="theme-toggle no-print" id="themeToggle">
-      <label class="theme-switch">
-        <input type="checkbox" id="darkModeToggle">
-        <span class="slider">
-          <span class="icon sun">☀️</span>
-          <span class="icon moon">🌙</span>
-        </span>
-      </label>
-    </span>
+  <nav class="navbar no-print">
+    <span class="brand">Timetable Generator</span>
+    <div class="nav-tabs">
+      <button type="button" class="nav-tab active" id="tab-btn-timetable" onclick="switchTab('timetable')">Timetable</button>
+      <button type="button" class="nav-tab" id="tab-btn-quiz" onclick="switchTab('quiz')">Quiz Schedule</button>
     </div>
-  </div>
+    <div class="navbar-right">
+      <div class="semester-selector">
+        <label for="semesterSelect">Semester: </label>
+        <select id="semesterSelect"></select>
+      </div>
+      <span class="theme-toggle" id="themeToggle">
+        <label class="theme-switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+          </span>
+        </label>
+      </span>
+    </div>
+  </nav>
+
+  <!-- ==================== TAB: TIMETABLE ==================== -->
+  <div id="tab-timetable" class="tab-page">
   <h1 class="only-print" style="text-align: center;">Timetable</h1>
   <!-- Add Slot Section -->
   <div class="form-section no-print">
@@ -230,6 +237,66 @@
   </div>
 
   <div id="timetableContainer"></div>
+  </div>
+  <!-- ==================== END TAB: TIMETABLE ==================== -->
+
+  <!-- ==================== TAB: QUIZ SCHEDULE ==================== -->
+  <div id="tab-quiz" class="tab-page" hidden>
+    <h1 class="only-print" style="text-align: center;">Quiz Schedule</h1>
+    
+    <!-- Add Quiz/Exam Entry Section -->
+    <div class="form-section no-print">
+      <h3 style="margin-bottom: 1px;">Add Quiz/Exam Details</h3>
+      <p>Select courses from your timetable or add manually. Choose the exam type for each course.</p>
+      <p><b><i>Note: </i></b>Only quiz-eligible slots (E, F, L, K, A, H, B, M, C, J, D, G) can be added here. For midsem-based courses, enter dates manually. The populate button attempts to fetch <b>unfilled</b> information from the course database using the course number.</p>
+      <div id="quizInputs"></div>
+      <button onclick="addQuizRow()">+ Add Course</button>
+      <button onclick="clearQuizRows()">Clear All</button>
+      <button onclick="populateQuizData()">Populate</button>
+    </div>
+
+    <!-- Override Quiz Dates Section -->
+    <div class="form-section no-print">
+      <h3 style="margin-bottom: 1px;">Override Quiz Dates</h3>
+      <p>Override specific quiz or endsem dates for individual slots. Leave blank to use default calendar dates.</p>
+      <p><i>Note: To change endsem dates for midsem-based courses, add the slot below and modify only the endsem date field, leaving quiz 1 and quiz 2 blank.</i></p>
+      <div id="quizOverrideInputs"></div>
+      <button onclick="addQuizOverrideRow()">+ Add Override</button>
+      <button onclick="clearQuizOverrideRows()">Clear Overrides</button>
+    </div>
+
+    <!-- Save/Load Quiz Data Section -->
+    <div class="form-section no-print">
+      <h3 style="margin-bottom: 1px;">Save/Load Quiz Schedule Data</h3>
+      <p>You may save your current quiz schedule or load a previously saved schedule.</p>
+      <p><i>Warning: Making modifications to the downloaded file might lead to unpredictable results!</i></p>
+      <button onclick="download_quiz_data()">Save Quiz Data</button>
+      <button onclick="upload_saved_quiz_data_file()">Load Quiz Data</button>
+      <input id='upload_quiz_save' type='file' hidden />
+    </div>
+
+    <!-- Quiz Schedule Display -->
+    <div class="form-section">
+      <h3>Exam Schedule</h3>
+      <button class="no-print" onclick="generateQuizTable()">Generate Schedule</button>
+      <button class="no-print print-btn" onclick="printQuizSchedule()">Print PDF</button>
+      <div class="form-section no-print" style="margin-top: 1rem;">
+        <h3>Import into your Calendar</h3>
+        <p>Directly import your exam schedule into Google Calendar (smail only) using the below button (certain permissions will be asked).</p>
+        <p><i>Note: This will take ~ 20 seconds.</i></p>
+        <div id="quizGcalMessage"></div>
+        <button onclick="exportQuizToGoogleCalendar()">Import to Google Calendar</button>
+        <br><br>
+        <p>Alternatively, download an .ics calendar file compatible with all Calendars. Refer <a
+            href="https://support.google.com/calendar/answer/37118" target="_blank">here</a> for an .ics import guide for
+          Google Calendar.</p>
+        <p><i>Tip: Make a new calendar while importing the file to allow for easy modification/deletion later.</i></p>
+        <button onclick="download_quiz_ics()">Download .ics file</button>
+      </div>
+      <div id="quizTableContainer"></div>
+    </div>
+  </div>
+  <!-- ==================== END TAB: QUIZ SCHEDULE ==================== -->
 
   <br>
   <footer class="no-print">

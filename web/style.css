@@ -71,22 +71,62 @@
     }
 
     /* =====================
-    TITLE + SEMESTER ROW
+    NAVBAR
     ===================== */
 
-    .page-title {
+    .navbar {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        flex-wrap: wrap;
         gap: 1rem;
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         margin-bottom: 1.5rem;
-        text-align: left;
     }
 
-    /* keep title text from stretching weirdly */
-    .page-title span {
-        flex: 1;
+    .navbar .brand {
+        font-family: "Oxanium", "Inter", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        flex-shrink: 0;
+    }
+
+    .nav-tabs {
+        display: flex;
+        gap: 0.35rem;
+        background: #ececec;
+        border-radius: 8px;
+        padding: 0.25rem;
+    }
+
+    .nav-tab {
+        border: none;
+        background: transparent;
+        padding: 0.4rem 0.9rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #555;
+    }
+
+    .nav-tab.active {
+        background: #ffffff;
+        color: #222;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .nav-tab:not(.active):hover {
+            color: #222;
+        }
+    }
+
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-left: auto;
+        flex-shrink: 0;
     }
 
     /* =====================
@@ -118,14 +158,19 @@
     ===================== */
 
     @media (max-width: 768px) {
-        .page-title {
+        .navbar {
             flex-direction: column;
             align-items: stretch;
             text-align: center;
         }
 
-        .page-title span {
-            flex: unset;
+        .nav-tabs {
+            justify-content: center;
+        }
+
+        .navbar-right {
+            margin-left: unset;
+            justify-content: center;
         }
 
         .semester-selector {
@@ -154,7 +199,9 @@
 
     /* Dynamic backend-injected rows */
     #slotInputs,
-    #overrideInputs {
+    #overrideInputs,
+    #quizInputs,
+    #quizOverrideInputs {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -205,6 +252,68 @@
             /* Venue */
             28px;
         /* Close */
+    }
+
+    /* Quiz rows: Slot + Course No + Course Name + Exam Type */
+    .form-row:has(select.row_slot_quiz) {
+        grid-template-columns:
+            minmax(80px, 100px)
+            /* Slot */
+            minmax(100px, 130px)
+            /* Course No */
+            minmax(260px, 2fr)
+            /* Course Name */
+            minmax(140px, 160px)
+            /* Exam Type */
+            28px;
+        /* Close */
+    }
+
+    /* Quiz rows with midsem dates: Slot + Course No + Course Name + Exam Type + Midsem Date + Hint */
+    .form-row:has(input.midsem_date_input) {
+        grid-template-columns:
+            minmax(80px, 100px)
+            /* Slot */
+            minmax(100px, 130px)
+            /* Course No */
+            minmax(200px, 2fr)
+            /* Course Name */
+            minmax(140px, 160px)
+            /* Exam Type */
+            minmax(140px, 150px)
+            /* Midsem Date */
+            minmax(140px, 160px)
+            /* Hint */
+            28px;
+        /* Close */
+    }
+
+    /* Override rows: Slot + Quiz 1 + Quiz 2 + Endsem */
+    .form-row:has(select.override_slot) {
+        grid-template-columns:
+            minmax(80px, 100px)
+            /* Slot */
+            minmax(140px, 150px)
+            /* Quiz 1 */
+            minmax(140px, 150px)
+            /* Quiz 2 */
+            minmax(140px, 150px)
+            /* Endsem */
+            28px;
+        /* Close */
+    }
+
+    /* Date input with label wrapper */
+    .date-with-label {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .date-with-label label {
+        font-size: 0.75rem;
+        color: #666;
+        font-weight: 500;
     }
 
 
@@ -498,6 +607,14 @@
             color: #fff;
         }
 
+        body:not(.light-mode) .date-with-label label {
+            color: #b5b5b5;
+        }
+
+        body:not(.light-mode) .midsem_hint {
+            color: #999 !important;
+        }
+
         body:not(.light-mode) th,
         body:not(.light-mode) td {
             border-color: #3a3a3a;
@@ -528,6 +645,29 @@
 
     body:not(.light-mode) .semester-selector label {
         color: #e5e5e5;
+    }
+
+    body:not(.light-mode) .navbar .brand {
+        color: #f0f0f0;
+    }
+
+    body:not(.light-mode) .nav-tabs {
+        background: #2a2a2a;
+    }
+
+    body:not(.light-mode) .nav-tab {
+        color: #b5b5b5;
+    }
+
+    body:not(.light-mode) .nav-tab.active {
+        background: #3a3a3a;
+        color: #f0f0f0;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        body:not(.light-mode) .nav-tab:not(.active):hover {
+            color: #f0f0f0;
+        }
     }
 
     /* =====================

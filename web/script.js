@@ -34,9 +34,29 @@ const colorList = {
 var slotData = {}; // { slot: { courseNo, name, venue } }
 var overrideData = {}; // { "Monday-A": { courseNo, name, venue } }
 var MtechData = {}
+var quizData = {}; // { slot: { courseNo, name, examType, midsemDate?, endsemDate? } }
+var quizDateOverrides = {}; // { slot: { quiz1Date, quiz2Date, endsemDate } }
 
 let ACADS_COURSES = {}; // Add courses after pulling from file
 let CURRENT_SEMESTER = "";
+
+// Quiz-eligible slots and their exam dates (update dates per semester)
+const QUIZ_ELIGIBLE_SLOTS = ["E", "F", "L", "K", "A", "H", "B", "M", "C", "J", "D", "G"];
+
+const QUIZ_DATES_CALENDAR = {
+    "A": { quiz1Date: "2026-08-31", quiz2Date: "2026-10-12", endsemDate: "2026-11-10" },
+    "B": { quiz1Date: "2026-09-01", quiz2Date: "2026-10-06", endsemDate: "2026-11-13" },
+    "C": { quiz1Date: "2026-09-02", quiz2Date: "2026-10-07", endsemDate: "2026-11-14" },
+    "D": { quiz1Date: "2026-09-03", quiz2Date: "2026-10-15", endsemDate: "2026-11-16" },
+    "E": { quiz1Date: "2026-08-27", quiz2Date: "2026-10-08", endsemDate: "2026-11-17" },
+    "F": { quiz1Date: "2026-08-28", quiz2Date: "2026-10-13", endsemDate: "2026-11-18" },
+    "G": { quiz1Date: "2026-09-04", quiz2Date: "2026-10-09", endsemDate: "2026-11-19" },
+    "H": { quiz1Date: "2026-08-31", quiz2Date: "2026-10-12", endsemDate: "2026-11-11" },
+    "J": { quiz1Date: "2026-09-02", quiz2Date: "2026-10-07", endsemDate: "2026-11-11" },
+    "K": { quiz1Date: "2026-08-28", quiz2Date: "2026-10-08", endsemDate: "2026-11-12" },
+    "L": { quiz1Date: "2026-08-27", quiz2Date: "2026-10-08", endsemDate: "2026-11-12" },
+    "M": { quiz1Date: "2026-09-01", quiz2Date: "2026-10-06", endsemDate: "" }
+};
 
 function printTimetable() {
     captureFullTimetable((wrapper) => {
@@ -553,9 +573,11 @@ function process_saved_data(jsondata) {
     // jsondata = '{"slotData":{"A":{"courseNo":"asas","name":"aaa","venue":"aaa"}},"overrideData":{}}'
 
     data = JSON.parse(jsondata);
-    slotData = data.slotData;
-    overrideData = data.overrideData;
-    MtechData = data.MtechData;
+    slotData = data.slotData || {};
+    overrideData = data.overrideData || {};
+    MtechData = data.MtechData || {};
+    quizData = data.quizData || {};
+    quizDateOverrides = data.quizDateOverrides || {};
 
     Object.keys(slotData).forEach(slot => {
         addSlotRow(slot, slotData[slot].courseNo, slotData[slot].name, slotData[slot].venue);
@@ -567,8 +589,21 @@ function process_saved_data(jsondata) {
         addOverrideRow(day, slot, overrideData[override].courseNo, overrideData[override].name, overrideData[override].venue);
     })
 
+    Object.keys(quizData).forEach(slot => {
+        const course = quizData[slot];
+        addQuizRow(slot, course.courseNo, course.name, course.examType, course.midsemDate, course.endsemDate);
+    })
+
+    Object.keys(quizDateOverrides).forEach(slot => {
+        const override = quizDateOverrides[slot];
+        addQuizOverrideRow(slot, override.quiz1Date, override.quiz2Date, override.endsemDate);
+    })
+
     setMtechInputs();
     generateTable();
+    
+    // Sync timetable to quiz (one-way: TT -> Quiz for eligible slots only)
+    syncTimetableToQuiz();
 
 }
 
@@ -585,7 +620,9 @@ function download_data() {
 
 function save_data() {
     parseInputs();
-    data = { slotData: slotData, overrideData: overrideData, MtechData: MtechData };
+    parseQuizInputs();
+    parseQuizOverrides();
+    data = { slotData: slotData, overrideData: overrideData, MtechData: MtechData, quizData: quizData, quizDateOverrides: quizDateOverrides };
     return JSON.stringify(data);
 }
 
@@ -658,6 +695,7 @@ function generateTable() {
     });
 
     save_to_cookie();
+    syncTimetableToQuiz();
 
 }
 
@@ -725,7 +763,23 @@ function setupDarkMode() {
 }
 
 
+function switchTab(tab) {
+    document.querySelectorAll(".tab-page").forEach(p => {
+        p.hidden = p.id !== `tab-${tab}`;
+    });
+    document.querySelectorAll(".nav-tab").forEach(b => {
+        b.classList.toggle("active", b.id === `tab-btn-${tab}`);
+    });
+    localStorage.setItem("activeTab", tab);
+    
+    // Auto-populate quiz tab from timetable if switching to quiz and quizData is empty
+    if (tab === "quiz") {
+        autoPopulateQuizFromTimetable();
+    }
+}
+
 document.addEventListener("DOMContentLoaded", async function () {
+    switchTab(localStorage.getItem("activeTab") || "timetable");
     load_from_cookie();
     await initializeSemesterSelector();
     setupDarkMode();
@@ -763,3 +817,729 @@ window.addEventListener("beforeprint", () => {
     // Redirect to your custom print
     printTimetable();
 });
+
+
+// ==================== QUIZ SCHEDULE FUNCTIONS ====================
+
+function addQuizRow(slot = "", courseNo = "", courseName = "", examType = "quiz", midsemDate = "", endsemDate = "") {
+    const container = document.getElementById("quizInputs");
+    const div = document.createElement("div");
+    
+    function get_selected_slot(check_slot) {
+        return slot === check_slot ? "selected" : "";
+    }
+    
+    function get_selected_exam_type(check_type) {
+        return examType === check_type ? "selected" : "";
+    }
+    
+    const showMidsemDate = examType === "midsem" || examType === "Midsem-based" ? "" : "none";
+    
+    div.className = "form-row";
+    div.innerHTML = `<span class="tt-data">
+                    <select class="row_slot_quiz">
+                        <option ${get_selected_slot('')}>Slot</option>
+                        ${QUIZ_ELIGIBLE_SLOTS.map(s => `<option ${get_selected_slot(s)}>${s}</option>`).join('')}
+                    </select>
+                    <input placeholder="Course No." class="row_course_number_quiz" value="${courseNo}">
+                    <input placeholder="Course Name" class="row_course_name_quiz" value="${courseName}">
+                    <select class="row_exam_type" onchange="toggleMidsemDates(this)">
+                        <option ${get_selected_exam_type('quiz')}>Quiz-based</option>
+                        <option ${get_selected_exam_type('midsem')}>Midsem-based</option>
+                    </select>
+                    <input type="date" class="midsem_date_input" placeholder="Midsem Date" value="${midsemDate}" style="display: ${showMidsemDate}">
+                    <span class="midsem_hint" style="display: ${showMidsemDate}; font-size: 0.85rem; color: #666; white-space: nowrap;">Enter midsem date</span>
+                    </span>
+                    <span class="close-btn" value="" onclick="this.parentElement.remove()">×</span>`;
+    container.appendChild(div);
+}
+
+function toggleMidsemDates(selectElement) {
+    const row = selectElement.closest('.form-row');
+    const midsemInput = row.querySelector('.midsem_date_input');
+    const midsemHint = row.querySelector('.midsem_hint');
+    
+    if (selectElement.value === "Midsem-based") {
+        midsemInput.style.display = "";
+        if (midsemHint) midsemHint.style.display = "";
+    } else {
+        midsemInput.style.display = "none";
+        if (midsemHint) midsemHint.style.display = "none";
+        midsemInput.value = "";
+    }
+}
+
+function clearQuizRows() {
+    const ele = document.getElementById("quizInputs");
+    ele.innerHTML = "";
+}
+
+function parseQuizInputs() {
+    quizData = {};
+    document.querySelectorAll("#quizInputs .tt-data").forEach(row => {
+        const slot = row.querySelector(".row_slot_quiz").value.trim();
+        const courseNo = row.querySelector(".row_course_number_quiz").value.trim();
+        const name = row.querySelector(".row_course_name_quiz").value.trim();
+        const examType = row.querySelector(".row_exam_type").value;
+        
+        if (slot && slot !== "Slot") {
+            quizData[slot] = { courseNo, name, examType };
+            
+            // If midsem-based, store the midsem date (endsem comes from calendar)
+            if (examType === "Midsem-based") {
+                const midsemDate = row.querySelector(".midsem_date_input").value;
+                quizData[slot].midsemDate = midsemDate;
+            }
+        }
+    });
+}
+
+function autoPopulateQuizFromTimetable() {
+    // Check if cookie and slotData exist
+    if (!document.cookie || Object.keys(slotData).length === 0) {
+        return;
+    }
+    
+    // Check if quizData already has entries
+    const existingQuizInputs = document.querySelectorAll("#quizInputs .tt-data");
+    if (existingQuizInputs.length > 0) {
+        return; // Already populated
+    }
+    
+    // Auto-populate from slotData
+    Object.keys(slotData).forEach(slot => {
+        if (QUIZ_ELIGIBLE_SLOTS.includes(slot)) {
+            const course = slotData[slot];
+            addQuizRow(slot, course.courseNo, course.name, "quiz");
+        }
+    });
+}
+
+function populateQuizData() {
+    // Populate course name and slot from course database based on course number
+    document.querySelectorAll("#quizInputs .tt-data").forEach((row) => {
+        const courseNoInput = row.querySelector(".row_course_number_quiz");
+        const courseNo = courseNoInput.value.trim().toUpperCase();
+        
+        if (!courseNo) return;
+        
+        const courseData = getCourseDataAcads(courseNo);
+        
+        const elements = {
+            slot: row.querySelector(".row_slot_quiz"),
+            courseNo: courseNoInput,
+            name: row.querySelector(".row_course_name_quiz")
+        };
+        
+        if (elements.slot.value === "Slot" || !elements.slot.value) {
+            if (courseData.slot && QUIZ_ELIGIBLE_SLOTS.includes(courseData.slot)) {
+                elements.slot.value = courseData.slot;
+            }
+        }
+        
+        if (!elements.name.value && courseData.name) {
+            elements.name.value = courseData.name;
+        }
+        
+        elements.courseNo.value = courseNo;
+    });
+}
+
+function generateQuizTable() {
+    parseQuizInputs();
+    parseQuizOverrides();
+    
+    if (Object.keys(quizData).length === 0) {
+        document.getElementById("quizTableContainer").innerHTML = "<p><i>No courses added. Please add courses above.</i></p>";
+        return;
+    }
+    
+    // Separate quiz-based and midsem-based courses
+    const quizBasedCourses = [];
+    const midsemBasedCourses = [];
+    
+    Object.keys(quizData).forEach(slot => {
+        const course = quizData[slot];
+        if (course.examType === "Midsem-based") {
+            midsemBasedCourses.push({ slot, ...course });
+        } else {
+            quizBasedCourses.push({ slot, ...course });
+        }
+    });
+    
+    let tableHTML = "";
+    
+    // Generate Quiz-based table
+    if (quizBasedCourses.length > 0) {
+        // Sort by Quiz 1 date
+        quizBasedCourses.sort((a, b) => {
+            const dateA = getEffectiveDate(a.slot, 'quiz1Date');
+            const dateB = getEffectiveDate(b.slot, 'quiz1Date');
+            if (!dateA) return 1;
+            if (!dateB) return -1;
+            return dateA.localeCompare(dateB);
+        });
+        
+        tableHTML += `
+            <h3 style="margin-top: 1.5rem;">Quiz-based Courses</h3>
+            <table class="timetable quiz-table" id="quizTable" style="margin-top: 20px;">
+                <thead>
+                    <tr class="gray_light">
+                        <th>Slot</th>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Quiz 1</th>
+                        <th>Quiz 2</th>
+                        <th>End Sem</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+        
+        quizBasedCourses.forEach(course => {
+            const quiz1Date = formatDateDisplay(getEffectiveDate(course.slot, 'quiz1Date'));
+            const quiz2Date = formatDateDisplay(getEffectiveDate(course.slot, 'quiz2Date'));
+            const endsemDate = formatDateDisplay(getEffectiveDate(course.slot, 'endsemDate'));
+            
+            tableHTML += `
+                <tr>
+                    <td class="${colorList[course.slot] || 'gray_light'}">${course.slot}</td>
+                    <td>${course.courseNo}</td>
+                    <td>${course.name}</td>
+                    <td>${quiz1Date}</td>
+                    <td>${quiz2Date}</td>
+                    <td>${endsemDate}</td>
+                </tr>
+            `;
+        });
+        
+        tableHTML += `
+                </tbody>
+            </table>
+        `;
+    }
+    
+    // Generate Midsem-based table
+    if (midsemBasedCourses.length > 0) {
+        // Sort by Midsem date
+        midsemBasedCourses.sort((a, b) => {
+            const dateA = a.midsemDate || "";
+            const dateB = b.midsemDate || "";
+            if (!dateA) return 1;
+            if (!dateB) return -1;
+            return dateA.localeCompare(dateB);
+        });
+        
+        tableHTML += `
+            <h3 style="margin-top: 1.5rem;">Midsem-based Courses</h3>
+            <table class="timetable midsem-table" id="midsemTable" style="margin-top: 20px;">
+                <thead>
+                    <tr class="gray_light">
+                        <th>Slot</th>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Midsem</th>
+                        <th>End Sem</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+        
+        midsemBasedCourses.forEach(course => {
+            const midsemDate = formatDateDisplay(course.midsemDate);
+            // Get endsem from calendar or override
+            const endsemDate = formatDateDisplay(getEffectiveDate(course.slot, 'endsemDate'));
+            
+            tableHTML += `
+                <tr>
+                    <td class="${colorList[course.slot] || 'gray_light'}">${course.slot}</td>
+                    <td>${course.courseNo}</td>
+                    <td>${course.name}</td>
+                    <td>${midsemDate}</td>
+                    <td>${endsemDate}</td>
+                </tr>
+            `;
+        });
+        
+        tableHTML += `
+                </tbody>
+            </table>
+        `;
+    }
+    
+    document.getElementById("quizTableContainer").innerHTML = tableHTML;
+    save_to_cookie();
+    syncQuizToTimetable();
+}
+
+function getEffectiveDate(slot, dateType) {
+    // Check override first
+    if (quizDateOverrides[slot] && quizDateOverrides[slot][dateType]) {
+        return quizDateOverrides[slot][dateType];
+    }
+    // Fallback to calendar
+    if (QUIZ_DATES_CALENDAR[slot] && QUIZ_DATES_CALENDAR[slot][dateType]) {
+        return QUIZ_DATES_CALENDAR[slot][dateType];
+    }
+    return "";
+}
+
+function formatDateDisplay(isoDate) {
+    if (!isoDate) return "—";
+    
+    // Convert YYYY-MM-DD to DD/MM/YYYY
+    const parts = isoDate.split("-");
+    if (parts.length === 3) {
+        return `${parts[2]}/${parts[1]}/${parts[0]}`;
+    }
+    return isoDate;
+}
+
+function printQuizSchedule() {
+    const quizTable = document.getElementById("quizTable");
+    const midsemTable = document.getElementById("midsemTable");
+    
+    if (!quizTable && !midsemTable) {
+        alert("Please generate the quiz schedule first!");
+        return;
+    }
+    
+    const printWindow = window.open("", "_blank");
+    
+    let styles = "";
+    Array.from(document.styleSheets).forEach(sheet => {
+        try {
+            Array.from(sheet.cssRules).forEach(rule => {
+                styles += rule.cssText;
+            });
+        } catch (e) {}
+    });
+    
+    const container = document.getElementById("quizTableContainer");
+    
+    printWindow.document.write(`
+        <html>
+          <head>
+            <title>Quiz Schedule</title>
+            <style>
+              ${styles}
+              
+              * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              }
+              
+              @page {
+                size: A4 portrait;
+                margin: 10mm;
+              }
+              
+              html, body {
+                margin: 0;
+                padding: 0;
+                background: white;
+              }
+              
+              table {
+                display: table !important;
+                overflow: visible !important;
+                width: 100%;
+              }
+            </style>
+          </head>
+          <body>
+            <h1 style="margin: 0 auto; text-align: center;">Quiz Schedule</h1>
+            ${container.innerHTML}
+          </body>
+        </html>
+    `);
+    
+    printWindow.document.close();
+    printWindow.focus();
+    
+    printWindow.onload = async () => {
+        try {
+            if (printWindow.document.fonts) {
+                await printWindow.document.fonts.ready;
+            }
+            await new Promise(resolve => setTimeout(resolve, 50));
+            printWindow.requestAnimationFrame(() => {
+                printWindow.print();
+                printWindow.close();
+            });
+        } catch {
+            printWindow.print();
+            printWindow.close();
+        }
+    };
+}
+
+function addQuizOverrideRow(slot = "", quiz1Date = "", quiz2Date = "", endsemDate = "") {
+    const container = document.getElementById("quizOverrideInputs");
+    const div = document.createElement("div");
+    
+    function get_selected_slot(check_slot) {
+        return slot === check_slot ? "selected" : "";
+    }
+    
+    div.className = "form-row";
+    div.innerHTML = `<span class="tt-data">
+                    <div class=date-with-label>
+                        <label>Slot</label>
+                        <select class="override_slot">
+                            <option ${get_selected_slot('')}>Slot</option>
+                            ${QUIZ_ELIGIBLE_SLOTS.map(s => `<option ${get_selected_slot(s)}>${s}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div class="date-with-label">
+                        <label>Quiz 1</label>
+                        <input type="date" class="override_quiz1_date" value="${quiz1Date}">
+                    </div>
+                    <div class="date-with-label">
+                        <label>Quiz 2</label>
+                        <input type="date" class="override_quiz2_date" value="${quiz2Date}">
+                    </div>
+                    <div class="date-with-label">
+                        <label>Endsem</label>
+                        <input type="date" class="override_endsem_date" value="${endsemDate}">
+                    </div>
+                    </span>
+                    <span class="close-btn" value="" onclick="this.parentElement.remove()">×</span>`;
+    container.appendChild(div);
+}
+
+function clearQuizOverrideRows() {
+    const ele = document.getElementById("quizOverrideInputs");
+    ele.innerHTML = "";
+}
+
+function parseQuizOverrides() {
+    quizDateOverrides = {};
+    document.querySelectorAll("#quizOverrideInputs .tt-data").forEach(row => {
+        const slot = row.querySelector(".override_slot").value.trim();
+        const quiz1Date = row.querySelector(".override_quiz1_date").value;
+        const quiz2Date = row.querySelector(".override_quiz2_date").value;
+        const endsemDate = row.querySelector(".override_endsem_date").value;
+        
+        if (slot && slot !== "Slot") {
+            quizDateOverrides[slot] = { quiz1Date, quiz2Date, endsemDate };
+        }
+    });
+}
+
+function download_quiz_data() {
+    parseQuizInputs();
+    parseQuizOverrides();
+    const data = { quizData: quizData, quizDateOverrides: quizDateOverrides };
+    const jsondata = JSON.stringify(data);
+    const blob = new Blob([jsondata], { type: "text/json;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "quiz_schedule_save.json";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+async function upload_saved_quiz_data_file() {
+    const upload_field = document.getElementById('upload_quiz_save');
+
+    const file = await new Promise((resolve) => {
+        const handler = () => {
+            upload_field.removeEventListener('change', handler);
+            resolve(upload_field.files[0]);
+        };
+        upload_field.addEventListener('change', handler);
+        upload_field.click();
+    });
+
+    if (!file) return;
+
+    const GetFile = new FileReader();
+    GetFile.readAsText(file);
+    GetFile.onloadend = load_saved_quiz_data;
+}
+
+function load_saved_quiz_data(event) {
+    clearQuizRows();
+    clearQuizOverrideRows();
+    
+    let jsondata = event.target.result;
+    process_saved_quiz_data(jsondata);
+}
+
+function process_saved_quiz_data(jsondata) {
+    const data = JSON.parse(jsondata);
+    quizData = data.quizData || {};
+    quizDateOverrides = data.quizDateOverrides || {};
+
+    Object.keys(quizData).forEach(slot => {
+        const course = quizData[slot];
+        addQuizRow(slot, course.courseNo, course.name, course.examType, course.midsemDate, course.endsemDate);
+    });
+
+    Object.keys(quizDateOverrides).forEach(slot => {
+        const override = quizDateOverrides[slot];
+        addQuizOverrideRow(slot, override.quiz1Date, override.quiz2Date, override.endsemDate);
+    });
+}
+
+function download_quiz_ics() {
+    parseQuizInputs();
+    parseQuizOverrides();
+    
+    if (Object.keys(quizData).length === 0) {
+        alert("No quiz data found. Please add courses first.");
+        return;
+    }
+    
+    // Build events array
+    const events = [];
+    
+    Object.keys(quizData).forEach(slot => {
+        const course = quizData[slot];
+        
+        if (course.examType === "Midsem-based") {
+            // Midsem event
+            if (course.midsemDate) {
+                events.push({
+                    summary: `${course.courseNo} - Midsem`,
+                    description: `${course.name} (Slot ${slot})`,
+                    date: course.midsemDate
+                });
+            }
+            // Endsem from calendar/override
+            const endsemDate = getEffectiveDate(slot, 'endsemDate');
+            if (endsemDate) {
+                events.push({
+                    summary: `${course.courseNo} - Endsem`,
+                    description: `${course.name} (Slot ${slot})`,
+                    date: endsemDate
+                });
+            }
+        } else {
+            // Quiz-based events
+            const quiz1Date = getEffectiveDate(slot, 'quiz1Date');
+            const quiz2Date = getEffectiveDate(slot, 'quiz2Date');
+            const endsemDate = getEffectiveDate(slot, 'endsemDate');
+            
+            if (quiz1Date) {
+                events.push({
+                    summary: `${course.courseNo} - Quiz 1`,
+                    description: `${course.name} (Slot ${slot})`,
+                    date: quiz1Date
+                });
+            }
+            if (quiz2Date) {
+                events.push({
+                    summary: `${course.courseNo} - Quiz 2`,
+                    description: `${course.name} (Slot ${slot})`,
+                    date: quiz2Date
+                });
+            }
+            if (endsemDate) {
+                events.push({
+                    summary: `${course.courseNo} - Endsem`,
+                    description: `${course.name} (Slot ${slot})`,
+                    date: endsemDate
+                });
+            }
+        }
+    });
+    
+    if (events.length === 0) {
+        alert("No exam dates found to export.");
+        return;
+    }
+    
+    // Generate ICS content
+    let icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//IITM Timetable Generator//Exam Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Exam Schedule
+X-WR-TIMEZONE:Asia/Kolkata
+`;
+
+    events.forEach(event => {
+        const dateStr = event.date.replace(/-/g, ''); // YYYY-MM-DD -> YYYYMMDD
+        const uid = `${dateStr}-${event.summary.replace(/\s+/g, '-')}@iitm-timetable`;
+        
+        icsContent += `BEGIN:VEVENT
+UID:${uid}
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+DTSTART;VALUE=DATE:${dateStr}
+DTEND;VALUE=DATE:${dateStr}
+SUMMARY:${event.summary}
+DESCRIPTION:${event.description}
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:${event.summary} tomorrow
+END:VALARM
+END:VEVENT
+`;
+    });
+
+    icsContent += `END:VCALENDAR`;
+
+    // Download
+    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "exam_schedule.ics";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+async function exportQuizToGoogleCalendar() {
+    parseQuizInputs();
+    parseQuizOverrides();
+    
+    if (Object.keys(quizData).length === 0) {
+        alert("No quiz data found. Please add courses and generate the schedule first.");
+        return;
+    }
+    
+    const messageField = document.getElementById('quizGcalMessage');
+    messageField.innerHTML = `<b>Status:</b> Preparing export to Google Calendar... <br><br>`;
+    
+    // Build events array
+    const events = [];
+    
+    Object.keys(quizData).forEach(slot => {
+        const course = quizData[slot];
+        
+        if (course.examType === "Midsem-based") {
+            // Midsem event
+            if (course.midsemDate) {
+                events.push({
+                    summary: `${course.courseNo} - Midsem`,
+                    description: `${course.name} (Slot ${slot})`,
+                    start: { date: course.midsemDate },
+                    end: { date: course.midsemDate }
+                });
+            }
+            // Endsem from calendar/override
+            const endsemDate = getEffectiveDate(slot, 'endsemDate');
+            if (endsemDate) {
+                events.push({
+                    summary: `${course.courseNo} - Endsem`,
+                    description: `${course.name} (Slot ${slot})`,
+                    start: { date: endsemDate },
+                    end: { date: endsemDate }
+                });
+            }
+        } else {
+            // Quiz-based events
+            const quiz1Date = getEffectiveDate(slot, 'quiz1Date');
+            const quiz2Date = getEffectiveDate(slot, 'quiz2Date');
+            const endsemDate = getEffectiveDate(slot, 'endsemDate');
+            
+            if (quiz1Date) {
+                events.push({
+                    summary: `${course.courseNo} - Quiz 1`,
+                    description: `${course.name} (Slot ${slot})`,
+                    start: { date: quiz1Date },
+                    end: { date: quiz1Date }
+                });
+            }
+            if (quiz2Date) {
+                events.push({
+                    summary: `${course.courseNo} - Quiz 2`,
+                    description: `${course.name} (Slot ${slot})`,
+                    start: { date: quiz2Date },
+                    end: { date: quiz2Date }
+                });
+            }
+            if (endsemDate) {
+                events.push({
+                    summary: `${course.courseNo} - Endsem`,
+                    description: `${course.name} (Slot ${slot})`,
+                    start: { date: endsemDate },
+                    end: { date: endsemDate }
+                });
+            }
+        }
+    });
+    
+    if (events.length === 0) {
+        messageField.innerHTML = `<b>Status:</b> No exam dates found to export. <br><br>`;
+        return;
+    }
+    
+    messageField.innerHTML = `<b>Status:</b> Exporting ${events.length} events to Google Calendar. Please wait... <br><br>`;
+    
+    try {
+        await loadGapi();
+        await authenticate();
+        
+        const calendarId = await createCalendar("Exam Schedule");
+        await insertEvents(calendarId, events);
+        
+        messageField.innerHTML = `<b>Status:</b> Successfully exported ${events.length} exam events to Google Calendar! <br><br>`;
+    } catch (error) {
+        console.error(error);
+        messageField.innerHTML = `<b>Status:</b> Failed to export to Google Calendar. ${error.message || ''} <br><br>`;
+    }
+}
+
+// ==================== TIMETABLE-QUIZ SYNC FUNCTIONS ====================
+
+function syncTimetableToQuiz() {
+    // Sync from timetable to quiz (one-way: TT -> Quiz for eligible slots only)
+    // Only updates quiz if slot doesn't already exist in quizData
+    
+    parseInputs(); // Refresh slotData
+    
+    Object.keys(slotData).forEach(slot => {
+        if (QUIZ_ELIGIBLE_SLOTS.includes(slot)) {
+            // Check if this slot already exists in quizData
+            if (!quizData[slot]) {
+                // Add to quizData if not present
+                quizData[slot] = {
+                    courseNo: slotData[slot].courseNo,
+                    name: slotData[slot].name,
+                    examType: "quiz"
+                };
+            } else {
+                // Update course info but keep exam type and dates
+                quizData[slot].courseNo = slotData[slot].courseNo;
+                quizData[slot].name = slotData[slot].name;
+            }
+        }
+    });
+    
+    // Remove quiz entries for slots no longer in timetable
+    Object.keys(quizData).forEach(slot => {
+        if (!slotData[slot]) {
+            delete quizData[slot];
+        }
+    });
+    
+    save_to_cookie();
+}
+
+function syncQuizToTimetable() {
+    // Sync from quiz back to timetable (for eligible slots only)
+    // Updates course info in slotData if changed in quizData
+    
+    parseQuizInputs(); // Refresh quizData
+    
+    Object.keys(quizData).forEach(slot => {
+        if (QUIZ_ELIGIBLE_SLOTS.includes(slot)) {
+            if (slotData[slot]) {
+                // Update course info in timetable
+                slotData[slot].courseNo = quizData[slot].courseNo;
+                slotData[slot].name = quizData[slot].name;
+                // Keep venue from timetable
+            }
+        }
+    });
+    
+    save_to_cookie();
+}
