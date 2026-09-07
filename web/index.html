@@ -248,10 +248,20 @@
     <div class="form-section no-print">
       <h3 style="margin-bottom: 1px;">Add Quiz/Exam Details</h3>
       <p>Select courses from your timetable or add manually. Choose the exam type for each course.</p>
-      <p><b><i>Note: </i></b>Only quiz-eligible slots (E, F, L, K, A, H, B, M, C, J, D, G) can be added here.</p>
+      <p><b><i>Note: </i></b>Only quiz-eligible slots (E, F, L, K, A, H, B, M, C, J, D, G) can be added here. For midsem-based courses, enter dates manually.</p>
       <div id="quizInputs"></div>
       <button onclick="addQuizRow()">+ Add Course</button>
       <button onclick="clearQuizRows()">Clear All</button>
+    </div>
+
+    <!-- Override Quiz Dates Section -->
+    <div class="form-section no-print">
+      <h3 style="margin-bottom: 1px;">Override Quiz Dates</h3>
+      <p>Override specific quiz or endsem dates for individual slots. Leave blank to use default calendar dates.</p>
+      <p><i>Note: To change endsem dates for midsem-based courses, add the slot below and modify only the endsem date field, leaving quiz 1 and quiz 2 blank.</i></p>
+      <div id="quizOverrideInputs"></div>
+      <button onclick="addQuizOverrideRow()">+ Add Override</button>
+      <button onclick="clearQuizOverrideRows()">Clear Overrides</button>
     </div>
 
     <!-- Quiz Schedule Display -->

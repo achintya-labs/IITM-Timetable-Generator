@@ -34,7 +34,8 @@ const colorList = {
 var slotData = {}; // { slot: { courseNo, name, venue } }
 var overrideData = {}; // { "Monday-A": { courseNo, name, venue } }
 var MtechData = {}
-var quizData = {}; // { slot: { courseNo, name, examType } }
+var quizData = {}; // { slot: { courseNo, name, examType, midsemDate?, endsemDate? } }
+var quizDateOverrides = {}; // { slot: { quiz1Date, quiz2Date, endsemDate } }
 
 let ACADS_COURSES = {}; // Add courses after pulling from file
 let CURRENT_SEMESTER = "";
@@ -43,18 +44,18 @@ let CURRENT_SEMESTER = "";
 const QUIZ_ELIGIBLE_SLOTS = ["E", "F", "L", "K", "A", "H", "B", "M", "C", "J", "D", "G"];
 
 const QUIZ_DATES_CALENDAR = {
-    "A": { quiz1Date: "31/08/26", quiz2Date: "12/10/26", endsemDate: "10/11/26" },
-    "B": { quiz1Date: "01/09/26", quiz2Date: "06/10/26", endsemDate: "13/11/26" },
-    "C": { quiz1Date: "02/09/26", quiz2Date: "07/10/26", endsemDate: "14/11/26" },
-    "D": { quiz1Date: "03/09/26", quiz2Date: "15/10/26", endsemDate: "16/11/26" },
-    "E": { quiz1Date: "27/08/26", quiz2Date: "08/10/26", endsemDate: "17/11/26" },
-    "F": { quiz1Date: "28/08/26", quiz2Date: "13/10/26", endsemDate: "18/11/26" },
-    "G": { quiz1Date: "04/09/26", quiz2Date: "09/10/26", endsemDate: "19/11/26" },
-    "H": { quiz1Date: "31/08/26", quiz2Date: "12/10/26", endsemDate: "11/11/26" },
-    "J": { quiz1Date: "02/09/26", quiz2Date: "07/10/26", endsemDate: "11/11/26" },
-    "K": { quiz1Date: "28/08/26", quiz2Date: "08/10/26", endsemDate: "12/11/26" },
-    "L": { quiz1Date: "27/08/26", quiz2Date: "08/10/26", endsemDate: "12/11/26" },
-    "M": { quiz1Date: "01/09/26", quiz2Date: "06/10/26", endsemDate: "" }
+    "A": { quiz1Date: "2026-08-31", quiz2Date: "2026-10-12", endsemDate: "2026-11-10" },
+    "B": { quiz1Date: "2026-09-01", quiz2Date: "2026-10-06", endsemDate: "2026-11-13" },
+    "C": { quiz1Date: "2026-09-02", quiz2Date: "2026-10-07", endsemDate: "2026-11-14" },
+    "D": { quiz1Date: "2026-09-03", quiz2Date: "2026-10-15", endsemDate: "2026-11-16" },
+    "E": { quiz1Date: "2026-08-27", quiz2Date: "2026-10-08", endsemDate: "2026-11-17" },
+    "F": { quiz1Date: "2026-08-28", quiz2Date: "2026-10-13", endsemDate: "2026-11-18" },
+    "G": { quiz1Date: "2026-09-04", quiz2Date: "2026-10-09", endsemDate: "2026-11-19" },
+    "H": { quiz1Date: "2026-08-31", quiz2Date: "2026-10-12", endsemDate: "2026-11-11" },
+    "J": { quiz1Date: "2026-09-02", quiz2Date: "2026-10-07", endsemDate: "2026-11-11" },
+    "K": { quiz1Date: "2026-08-28", quiz2Date: "2026-10-08", endsemDate: "2026-11-12" },
+    "L": { quiz1Date: "2026-08-27", quiz2Date: "2026-10-08", endsemDate: "2026-11-12" },
+    "M": { quiz1Date: "2026-09-01", quiz2Date: "2026-10-06", endsemDate: "" }
 };
 
 function printTimetable() {
@@ -576,6 +577,7 @@ function process_saved_data(jsondata) {
     overrideData = data.overrideData || {};
     MtechData = data.MtechData || {};
     quizData = data.quizData || {};
+    quizDateOverrides = data.quizDateOverrides || {};
 
     Object.keys(slotData).forEach(slot => {
         addSlotRow(slot, slotData[slot].courseNo, slotData[slot].name, slotData[slot].venue);
@@ -588,7 +590,13 @@ function process_saved_data(jsondata) {
     })
 
     Object.keys(quizData).forEach(slot => {
-        addQuizRow(slot, quizData[slot].courseNo, quizData[slot].name, quizData[slot].examType);
+        const course = quizData[slot];
+        addQuizRow(slot, course.courseNo, course.name, course.examType, course.midsemDate, course.endsemDate);
+    })
+
+    Object.keys(quizDateOverrides).forEach(slot => {
+        const override = quizDateOverrides[slot];
+        addQuizOverrideRow(slot, override.quiz1Date, override.quiz2Date, override.endsemDate);
     })
 
     setMtechInputs();
@@ -610,7 +618,8 @@ function download_data() {
 function save_data() {
     parseInputs();
     parseQuizInputs();
-    data = { slotData: slotData, overrideData: overrideData, MtechData: MtechData, quizData: quizData };
+    parseQuizOverrides();
+    data = { slotData: slotData, overrideData: overrideData, MtechData: MtechData, quizData: quizData, quizDateOverrides: quizDateOverrides };
     return JSON.stringify(data);
 }
 
@@ -808,7 +817,7 @@ window.addEventListener("beforeprint", () => {
 
 // ==================== QUIZ SCHEDULE FUNCTIONS ====================
 
-function addQuizRow(slot = "", courseNo = "", courseName = "", examType = "quiz") {
+function addQuizRow(slot = "", courseNo = "", courseName = "", examType = "quiz", midsemDate = "", endsemDate = "") {
     const container = document.getElementById("quizInputs");
     const div = document.createElement("div");
     
@@ -820,6 +829,8 @@ function addQuizRow(slot = "", courseNo = "", courseName = "", examType = "quiz"
         return examType === check_type ? "selected" : "";
     }
     
+    const showMidsemDate = examType === "midsem" || examType === "Midsem-based" ? "" : "none";
+    
     div.className = "form-row";
     div.innerHTML = `<span class="tt-data">
                     <select class="row_slot_quiz">
@@ -828,13 +839,30 @@ function addQuizRow(slot = "", courseNo = "", courseName = "", examType = "quiz"
                     </select>
                     <input placeholder="Course No." class="row_course_number_quiz" value="${courseNo}">
                     <input placeholder="Course Name" class="row_course_name_quiz" value="${courseName}">
-                    <select class="row_exam_type">
+                    <select class="row_exam_type" onchange="toggleMidsemDates(this)">
                         <option ${get_selected_exam_type('quiz')}>Quiz-based</option>
                         <option ${get_selected_exam_type('midsem')}>Midsem-based</option>
                     </select>
+                    <input type="date" class="midsem_date_input" placeholder="Midsem Date" value="${midsemDate}" style="display: ${showMidsemDate}">
+                    <span class="midsem_hint" style="display: ${showMidsemDate}; font-size: 0.85rem; color: #666; white-space: nowrap;">Enter midsem date</span>
                     </span>
                     <span class="close-btn" value="" onclick="this.parentElement.remove()">×</span>`;
     container.appendChild(div);
+}
+
+function toggleMidsemDates(selectElement) {
+    const row = selectElement.closest('.form-row');
+    const midsemInput = row.querySelector('.midsem_date_input');
+    const midsemHint = row.querySelector('.midsem_hint');
+    
+    if (selectElement.value === "Midsem-based") {
+        midsemInput.style.display = "";
+        if (midsemHint) midsemHint.style.display = "";
+    } else {
+        midsemInput.style.display = "none";
+        if (midsemHint) midsemHint.style.display = "none";
+        midsemInput.value = "";
+    }
 }
 
 function clearQuizRows() {
@@ -852,6 +880,12 @@ function parseQuizInputs() {
         
         if (slot && slot !== "Slot") {
             quizData[slot] = { courseNo, name, examType };
+            
+            // If midsem-based, store the midsem date (endsem comes from calendar)
+            if (examType === "Midsem-based") {
+                const midsemDate = row.querySelector(".midsem_date_input").value;
+                quizData[slot].midsemDate = midsemDate;
+            }
         }
     });
 }
@@ -879,73 +913,158 @@ function autoPopulateQuizFromTimetable() {
 
 function generateQuizTable() {
     parseQuizInputs();
+    parseQuizOverrides();
     
     if (Object.keys(quizData).length === 0) {
         document.getElementById("quizTableContainer").innerHTML = "<p><i>No courses added. Please add courses above.</i></p>";
         return;
     }
     
-    // Sort slots by QUIZ_ELIGIBLE_SLOTS order
-    const sortedSlots = Object.keys(quizData).sort((a, b) => {
-        return QUIZ_ELIGIBLE_SLOTS.indexOf(a) - QUIZ_ELIGIBLE_SLOTS.indexOf(b);
+    // Separate quiz-based and midsem-based courses
+    const quizBasedCourses = [];
+    const midsemBasedCourses = [];
+    
+    Object.keys(quizData).forEach(slot => {
+        const course = quizData[slot];
+        if (course.examType === "Midsem-based") {
+            midsemBasedCourses.push({ slot, ...course });
+        } else {
+            quizBasedCourses.push({ slot, ...course });
+        }
     });
     
-    let tableHTML = `
-        <table class="timetable quiz-table" id="quizTable" style="margin-top: 20px;">
-            <thead>
-                <tr class="gray_light">
-                    <th>Slot</th>
-                    <th>Course Code</th>
-                    <th>Course Name</th>
-                    <th>Quiz 1 / Midsem</th>
-                    <th>Quiz 2</th>
-                    <th>End Sem</th>
-                </tr>
-            </thead>
-            <tbody>
-    `;
+    let tableHTML = "";
     
-    sortedSlots.forEach(slot => {
-        const course = quizData[slot];
-        const dates = QUIZ_DATES_CALENDAR[slot] || { quiz1Date: "", quiz2Date: "", endsemDate: "" };
-        
-        let quiz1Cell, quiz2Cell;
-        
-        if (course.examType === "midsem") {
-            quiz1Cell = dates.quiz1Date ? `${dates.quiz1Date} <br><small>(Midsem)</small>` : "—";
-            quiz2Cell = "—";
-        } else {
-            quiz1Cell = dates.quiz1Date || "—";
-            quiz2Cell = dates.quiz2Date || "—";
-        }
-        
-        const endsemCell = dates.endsemDate || "—";
+    // Generate Quiz-based table
+    if (quizBasedCourses.length > 0) {
+        // Sort by Quiz 1 date
+        quizBasedCourses.sort((a, b) => {
+            const dateA = getEffectiveDate(a.slot, 'quiz1Date');
+            const dateB = getEffectiveDate(b.slot, 'quiz1Date');
+            if (!dateA) return 1;
+            if (!dateB) return -1;
+            return dateA.localeCompare(dateB);
+        });
         
         tableHTML += `
-            <tr>
-                <td class="${colorList[slot] || 'gray_light'}">${slot}</td>
-                <td>${course.courseNo}</td>
-                <td>${course.name}</td>
-                <td>${quiz1Cell}</td>
-                <td>${quiz2Cell}</td>
-                <td>${endsemCell}</td>
-            </tr>
+            <h3 style="margin-top: 1.5rem;">Quiz-based Courses</h3>
+            <table class="timetable quiz-table" id="quizTable" style="margin-top: 20px;">
+                <thead>
+                    <tr class="gray_light">
+                        <th>Slot</th>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Quiz 1</th>
+                        <th>Quiz 2</th>
+                        <th>End Sem</th>
+                    </tr>
+                </thead>
+                <tbody>
         `;
-    });
+        
+        quizBasedCourses.forEach(course => {
+            const quiz1Date = formatDateDisplay(getEffectiveDate(course.slot, 'quiz1Date'));
+            const quiz2Date = formatDateDisplay(getEffectiveDate(course.slot, 'quiz2Date'));
+            const endsemDate = formatDateDisplay(getEffectiveDate(course.slot, 'endsemDate'));
+            
+            tableHTML += `
+                <tr>
+                    <td class="${colorList[course.slot] || 'gray_light'}">${course.slot}</td>
+                    <td>${course.courseNo}</td>
+                    <td>${course.name}</td>
+                    <td>${quiz1Date}</td>
+                    <td>${quiz2Date}</td>
+                    <td>${endsemDate}</td>
+                </tr>
+            `;
+        });
+        
+        tableHTML += `
+                </tbody>
+            </table>
+        `;
+    }
     
-    tableHTML += `
-            </tbody>
-        </table>
-    `;
+    // Generate Midsem-based table
+    if (midsemBasedCourses.length > 0) {
+        // Sort by Midsem date
+        midsemBasedCourses.sort((a, b) => {
+            const dateA = a.midsemDate || "";
+            const dateB = b.midsemDate || "";
+            if (!dateA) return 1;
+            if (!dateB) return -1;
+            return dateA.localeCompare(dateB);
+        });
+        
+        tableHTML += `
+            <h3 style="margin-top: 1.5rem;">Midsem-based Courses</h3>
+            <table class="timetable midsem-table" id="midsemTable" style="margin-top: 20px;">
+                <thead>
+                    <tr class="gray_light">
+                        <th>Slot</th>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Midsem</th>
+                        <th>End Sem</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+        
+        midsemBasedCourses.forEach(course => {
+            const midsemDate = formatDateDisplay(course.midsemDate);
+            // Get endsem from calendar or override
+            const endsemDate = formatDateDisplay(getEffectiveDate(course.slot, 'endsemDate'));
+            
+            tableHTML += `
+                <tr>
+                    <td class="${colorList[course.slot] || 'gray_light'}">${course.slot}</td>
+                    <td>${course.courseNo}</td>
+                    <td>${course.name}</td>
+                    <td>${midsemDate}</td>
+                    <td>${endsemDate}</td>
+                </tr>
+            `;
+        });
+        
+        tableHTML += `
+                </tbody>
+            </table>
+        `;
+    }
     
     document.getElementById("quizTableContainer").innerHTML = tableHTML;
     save_to_cookie();
 }
 
-function printQuizSchedule() {
-    const table = document.getElementById("quizTable");
+function getEffectiveDate(slot, dateType) {
+    // Check override first
+    if (quizDateOverrides[slot] && quizDateOverrides[slot][dateType]) {
+        return quizDateOverrides[slot][dateType];
+    }
+    // Fallback to calendar
+    if (QUIZ_DATES_CALENDAR[slot] && QUIZ_DATES_CALENDAR[slot][dateType]) {
+        return QUIZ_DATES_CALENDAR[slot][dateType];
+    }
+    return "";
+}
+
+function formatDateDisplay(isoDate) {
+    if (!isoDate) return "—";
     
-    if (!table) {
+    // Convert YYYY-MM-DD to DD/MM/YYYY
+    const parts = isoDate.split("-");
+    if (parts.length === 3) {
+        return `${parts[2]}/${parts[1]}/${parts[0]}`;
+    }
+    return isoDate;
+}
+
+function printQuizSchedule() {
+    const quizTable = document.getElementById("quizTable");
+    const midsemTable = document.getElementById("midsemTable");
+    
+    if (!quizTable && !midsemTable) {
         alert("Please generate the quiz schedule first!");
         return;
     }
@@ -961,8 +1080,7 @@ function printQuizSchedule() {
         } catch (e) {}
     });
     
-    const tableWidth = table.scrollWidth;
-    const tableHeight = table.scrollHeight;
+    const container = document.getElementById("quizTableContainer");
     
     printWindow.document.write(`
         <html>
@@ -996,7 +1114,7 @@ function printQuizSchedule() {
           </head>
           <body>
             <h1 style="margin: 0 auto; text-align: center;">Quiz Schedule</h1>
-            ${table.outerHTML}
+            ${container.innerHTML}
           </body>
         </html>
     `);
@@ -1019,4 +1137,57 @@ function printQuizSchedule() {
             printWindow.close();
         }
     };
+}
+
+function addQuizOverrideRow(slot = "", quiz1Date = "", quiz2Date = "", endsemDate = "") {
+    const container = document.getElementById("quizOverrideInputs");
+    const div = document.createElement("div");
+    
+    function get_selected_slot(check_slot) {
+        return slot === check_slot ? "selected" : "";
+    }
+    
+    div.className = "form-row";
+    div.innerHTML = `<span class="tt-data">
+                    <div class=date-with-label>
+                        <label>Slot</label>
+                        <select class="override_slot">
+                            <option ${get_selected_slot('')}>Slot</option>
+                            ${QUIZ_ELIGIBLE_SLOTS.map(s => `<option ${get_selected_slot(s)}>${s}</option>`).join('')}
+                        </select>
+                    </div>
+                    <div class="date-with-label">
+                        <label>Quiz 1</label>
+                        <input type="date" class="override_quiz1_date" value="${quiz1Date}">
+                    </div>
+                    <div class="date-with-label">
+                        <label>Quiz 2</label>
+                        <input type="date" class="override_quiz2_date" value="${quiz2Date}">
+                    </div>
+                    <div class="date-with-label">
+                        <label>Endsem</label>
+                        <input type="date" class="override_endsem_date" value="${endsemDate}">
+                    </div>
+                    </span>
+                    <span class="close-btn" value="" onclick="this.parentElement.remove()">×</span>`;
+    container.appendChild(div);
+}
+
+function clearQuizOverrideRows() {
+    const ele = document.getElementById("quizOverrideInputs");
+    ele.innerHTML = "";
+}
+
+function parseQuizOverrides() {
+    quizDateOverrides = {};
+    document.querySelectorAll("#quizOverrideInputs .tt-data").forEach(row => {
+        const slot = row.querySelector(".override_slot").value.trim();
+        const quiz1Date = row.querySelector(".override_quiz1_date").value;
+        const quiz2Date = row.querySelector(".override_quiz2_date").value;
+        const endsemDate = row.querySelector(".override_endsem_date").value;
+        
+        if (slot && slot !== "Slot") {
+            quizDateOverrides[slot] = { quiz1Date, quiz2Date, endsemDate };
+        }
+    });
 }
