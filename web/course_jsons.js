@@ -7,6 +7,11 @@ Only fetch when selected.
 */
 
 const SEMESTER_DATA_FILES = {
+    "Jan-May 2027": {
+        "datafile": "./data/JAN-MAY-2027.json",
+        "startdate": "2027-01-18T00:00:00.000+05:30",
+        "enddate": "2027-05-05T00:00:00.000+05:30"
+    },
     "Jul-Nov 2026": {
         "datafile": "./data/JUL-NOV-2026.json",
         "startdate": "2026-07-26T00:00:00.000+05:30",

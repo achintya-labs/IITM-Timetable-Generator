@@ -1,0 +1,4467 @@
+{
+  "AE6999": {
+    "name": "Special Topics in Aerospace Engineering",
+    "slot": "",
+    "venue": "CR 1"
+  },
+  "AE7999": {
+    "name": "Special Topics in Aerospace Engineering",
+    "slot": "",
+    "venue": "CR 1"
+  },
+  "AM1100": {
+    "name": "Engineering Mechanics",
+    "slot": "E",
+    "venue": ""
+  },
+  "AM2002": {
+    "name": "Data Science and Applications",
+    "slot": "C",
+    "venue": "Newton Hall"
+  },
+  "AM2100": {
+    "name": "Digital Systems for Biomedical Engineering",
+    "slot": "D",
+    "venue": "Newton Hall"
+  },
+  "AM2140": {
+    "name": "Biomedical instrumentation",
+    "slot": "E",
+    "venue": "Newton Hall"
+  },
+  "AM2141": {
+    "name": "Biomedical Measurements & Instrumentation Laboratory",
+    "slot": "P",
+    "venue": "Other"
+  },
+  "AM2200": {
+    "name": "Strength of Materials",
+    "slot": "B",
+    "venue": "CRC 203"
+  },
+  "AM2300": {
+    "name": "Foundations of Digital Signal Processing",
+    "slot": "B",
+    "venue": "Newton Hall"
+  },
+  "AM2560": {
+    "name": "Foundations of Heat Transfer",
+    "slot": "D",
+    "venue": "DCIF"
+  },
+  "AM4901": {
+    "name": "Undergraduate Research Project I",
+    "slot": "",
+    "venue": "NA"
+  },
+  "AM4902": {
+    "name": "Undergraduate Research  Project II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "AM5000": {
+    "name": "Physics of Machine Learning",
+    "slot": "J",
+    "venue": "MSB 208"
+  },
+  "AM5017": {
+    "name": "Statistics for Biomedical Engineers",
+    "slot": "B",
+    "venue": "MSB 208"
+  },
+  "AM5018": {
+    "name": "Experimental Techniques in Fluid Mechanics",
+    "slot": "B",
+    "venue": "FMSH"
+  },
+  "AM5019": {
+    "name": "Advanced BME Laboratory",
+    "slot": "Q",
+    "venue": "Other"
+  },
+  "AM5021": {
+    "name": "Materials, Mechanics and Design",
+    "slot": "A",
+    "venue": "Newton Hall"
+  },
+  "AM5022": {
+    "name": "Modelling and Simulation Laboratory",
+    "slot": "R",
+    "venue": "Other"
+  },
+  "AM5030": {
+    "name": "Linear Dynamical Systems",
+    "slot": "H",
+    "venue": "DCIF"
+  },
+  "AM5090": {
+    "name": "Flow Visualization & Imaging Techniques",
+    "slot": "K",
+    "venue": "DCIF"
+  },
+  "AM5117": {
+    "name": "Analytical Methods in Engineering Mechanics",
+    "slot": "C",
+    "venue": "DCIF"
+  },
+  "AM5140": {
+    "name": "Biomedical Instrumentation",
+    "slot": "D",
+    "venue": "MSB 112"
+  },
+  "AM5150": {
+    "name": "Biomedical Nanotechnology",
+    "slot": "G",
+    "venue": "MSB 112"
+  },
+  "AM5160": {
+    "name": "Biomedical Imaging System",
+    "slot": "A",
+    "venue": "MSB 208"
+  },
+  "AM5190": {
+    "name": "Haptics in Biomedical Engineering",
+    "slot": "M",
+    "venue": "MSB 112"
+  },
+  "AM5200": {
+    "name": "Summer Industrial Internship",
+    "slot": "",
+    "venue": "NA"
+  },
+  "AM5220": {
+    "name": "Summer Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "AM5240": {
+    "name": "Experimental Solid Mechanics",
+    "slot": "D",
+    "venue": "MSB 208"
+  },
+  "AM5340": {
+    "name": "Stochastic Processes in Mechanics",
+    "slot": "A",
+    "venue": "DCIF"
+  },
+  "AM5390": {
+    "name": "Advanced Solid Mechanics",
+    "slot": "B",
+    "venue": "CRC 205"
+  },
+  "AM5400": {
+    "name": "Experiemental Stress Analysis Lab",
+    "slot": "R",
+    "venue": "Other"
+  },
+  "AM5402": {
+    "name": "Project II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "AM5411": {
+    "name": "Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "AM5450": {
+    "name": "Fundamentals of Finite Element Analysis",
+    "slot": "B",
+    "venue": "DCIF"
+  },
+  "AM5530": {
+    "name": "Advanced Fluid Mechanics",
+    "slot": "E",
+    "venue": "CRC 201"
+  },
+  "AM5535": {
+    "name": "Bioinspired Engineering",
+    "slot": "J",
+    "venue": "CRC 203"
+  },
+  "AM5550": {
+    "name": "Vorticity Dynamics",
+    "slot": "H",
+    "venue": "FMSH"
+  },
+  "AM5640": {
+    "name": "Turbulence Modeling",
+    "slot": "G",
+    "venue": "FMSH"
+  },
+  "AM5650": {
+    "name": "Nonlinear Dynamics",
+    "slot": "G",
+    "venue": "Newton Hall"
+  },
+  "AM5820": {
+    "name": "Wind Tunnel and Numerical Experiments",
+    "slot": "Q",
+    "venue": "Other"
+  },
+  "AM5920": {
+    "name": "Deep Learning for Mechanics",
+    "slot": "G",
+    "venue": "CRC 201"
+  },
+  "AM6011": {
+    "name": "Theory of Free Surface Wave motion",
+    "slot": "F",
+    "venue": "FMSH"
+  },
+  "AM6110": {
+    "name": "Biofluid Mechanics",
+    "slot": "F",
+    "venue": "DCIF"
+  },
+  "AM6190": {
+    "name": "Cellular structures and mechanics",
+    "slot": "C",
+    "venue": "MSB 112"
+  },
+  "AM6999": {
+    "name": "Special Topics in Applied Mechanics",
+    "slot": "",
+    "venue": "NA"
+  },
+  "AM7999": {
+    "name": "Special Topics in Applied Mechanics",
+    "slot": "",
+    "venue": "NA"
+  },
+  "AS1020": {
+    "name": "Fluid Mechanics",
+    "slot": "",
+    "venue": "CR 3"
+  },
+  "AS1300": {
+    "name": "Thermodynamics for Aerospace Engineering",
+    "slot": "",
+    "venue": ""
+  },
+  "AS2040": {
+    "name": "Flight Dynamics I",
+    "slot": "",
+    "venue": ""
+  },
+  "AS2070": {
+    "name": "Aerospace Structural Mechanics",
+    "slot": "",
+    "venue": ""
+  },
+  "AS2080": {
+    "name": "Vibrations",
+    "slot": "",
+    "venue": ""
+  },
+  "AS2101": {
+    "name": "Introduction to Aerospace Engineering",
+    "slot": "Q",
+    "venue": "Other"
+  },
+  "AS3270": {
+    "name": "Propulsion I",
+    "slot": "",
+    "venue": ""
+  },
+  "AS3510": {
+    "name": "Aero Lab I",
+    "slot": "Q",
+    "venue": "Other"
+  },
+  "AS4545": {
+    "name": "Undergraduate Research",
+    "slot": "",
+    "venue": "CR 2"
+  },
+  "AS4546": {
+    "name": "Undergraduate Research - II",
+    "slot": "",
+    "venue": "CR 1"
+  },
+  "AS4600": {
+    "name": "Project II",
+    "slot": "",
+    "venue": "CR 3"
+  },
+  "AS5040": {
+    "name": "Flight Mechanics",
+    "slot": "",
+    "venue": "CR 4"
+  },
+  "AS5120": {
+    "name": "Labortaory II (Str. Lab)",
+    "slot": "S",
+    "venue": "Other"
+  },
+  "AS5150": {
+    "name": "M.Tech. Project",
+    "slot": "",
+    "venue": "Other"
+  },
+  "AS5193": {
+    "name": "DD Project",
+    "slot": "",
+    "venue": "Other"
+  },
+  "AS5211": {
+    "name": "Design of Subsonic Aircraft",
+    "slot": "R",
+    "venue": "CR 2"
+  },
+  "AS5213": {
+    "name": "Design of MAVs and UAVs",
+    "slot": "R",
+    "venue": "CR 4"
+  },
+  "AS5420": {
+    "name": "Introduction to CFD",
+    "slot": "A",
+    "venue": "CR 4"
+  },
+  "AS5470": {
+    "name": "Unsteady Aerodynamis of Moving Bodies",
+    "slot": "E",
+    "venue": "CR 3"
+  },
+  "AS5550": {
+    "name": "Aerospace Systems Control and Estimation",
+    "slot": "G",
+    "venue": "CR 2"
+  },
+  "AS5560": {
+    "name": "Dynamical Systems Stability & Bifurcations",
+    "slot": "A",
+    "venue": "CR 2"
+  },
+  "AS5580": {
+    "name": "Pseudo-Spectral Methods for Optimal Control",
+    "slot": "H",
+    "venue": "CR 3"
+  },
+  "AS5600": {
+    "name": "Introduction to Plasma and Its Applications",
+    "slot": "G",
+    "venue": "CR 4"
+  },
+  "AS5670": {
+    "name": "Transport Processes  in Reacting flows",
+    "slot": "A",
+    "venue": "CR 3"
+  },
+  "AS5720": {
+    "name": "Introduction to Rotorcraft Acoustics",
+    "slot": "M",
+    "venue": "CR 2"
+  },
+  "AS5830": {
+    "name": "Approx. Methods in Structural Analysis",
+    "slot": "H",
+    "venue": "CR 2"
+  },
+  "AS5860": {
+    "name": "Composite Structures",
+    "slot": "G",
+    "venue": "CR 3"
+  },
+  "AS5900": {
+    "name": "Elasticity",
+    "slot": "C",
+    "venue": "CR 4"
+  },
+  "AS5970": {
+    "name": "Structural Dynamics and Aero-elasticity",
+    "slot": "B",
+    "venue": "CR 4"
+  },
+  "AS5980": {
+    "name": "Contact Mechanics and Tribology",
+    "slot": "E",
+    "venue": "CR 1"
+  },
+  "AS6000": {
+    "name": "Basic Concepts in Aerospace Engineering",
+    "slot": "D",
+    "venue": "CR 1"
+  },
+  "AS6010": {
+    "name": "Hypersonic Flow Theory",
+    "slot": "B",
+    "venue": "CR 1"
+  },
+  "AS6060": {
+    "name": "Shockwave Dynamics",
+    "slot": "E",
+    "venue": "CR 2"
+  },
+  "AS6120": {
+    "name": "Compressible turbulent flows",
+    "slot": "C",
+    "venue": "CR 1"
+  },
+  "AS6510": {
+    "name": "Experimental Techniques in Struc. Mech.",
+    "slot": "M",
+    "venue": "CR 3"
+  },
+  "BT1010": {
+    "name": "Life Sciences",
+    "slot": "B",
+    "venue": ""
+  },
+  "BT1020": {
+    "name": "Material and Energy Balances",
+    "slot": "F",
+    "venue": "BT 108"
+  },
+  "BT2010": {
+    "name": "Microbiology",
+    "slot": "D",
+    "venue": "BT 110"
+  },
+  "BT2022": {
+    "name": "Biostatistics",
+    "slot": "A",
+    "venue": "BT Seminar Hall"
+  },
+  "BT2030": {
+    "name": "Biochemistry",
+    "slot": "E",
+    "venue": "BT 108"
+  },
+  "BT2041": {
+    "name": "Principles of Bioprocess Engineering",
+    "slot": "D",
+    "venue": "BT 108"
+  },
+  "BT2080": {
+    "name": "Programming for Biology",
+    "slot": "B",
+    "venue": "BT 108"
+  },
+  "BT3011": {
+    "name": "Molecular Biology and Genetic Engineering",
+    "slot": "E",
+    "venue": "BT 110"
+  },
+  "BT3012": {
+    "name": "Molecular Biology",
+    "slot": "C",
+    "venue": "BT 110"
+  },
+  "BT3092": {
+    "name": "Plant Biology",
+    "slot": "B",
+    "venue": "BT 003"
+  },
+  "BT3111": {
+    "name": "Basic Biology Lab",
+    "slot": "P",
+    "venue": "Other"
+  },
+  "BT3142": {
+    "name": "Cell Biology lab",
+    "slot": "S",
+    "venue": "Other"
+  },
+  "BT3900": {
+    "name": "Industrial Training (Summer)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "BT4230": {
+    "name": "Environmental Biotechnology",
+    "slot": "F",
+    "venue": "Other"
+  },
+  "BT5021": {
+    "name": "Metabolic Engineering",
+    "slot": "B",
+    "venue": "BT 110"
+  },
+  "BT5040": {
+    "name": "Advanced Bioprocess Technology",
+    "slot": "C",
+    "venue": "BT 003"
+  },
+  "BT5041": {
+    "name": "Downstream Processing",
+    "slot": "A",
+    "venue": "BT 108"
+  },
+  "BT5121": {
+    "name": "Bioprocess Engineering Lab 2",
+    "slot": "R",
+    "venue": "Other"
+  },
+  "BT5130": {
+    "name": "Tissue Engineering",
+    "slot": "C",
+    "venue": "Other"
+  },
+  "BT5180": {
+    "name": "Biological Vision",
+    "slot": "A",
+    "venue": "BT 003"
+  },
+  "BT5210": {
+    "name": "Bioprocess Control",
+    "slot": "D",
+    "venue": "BT 003"
+  },
+  "BT5240": {
+    "name": "Computational Systems Biology",
+    "slot": "F",
+    "venue": "CRC 201"
+  },
+  "BT5270": {
+    "name": "Principles of Neuroscience",
+    "slot": "K",
+    "venue": "CRC 201"
+  },
+  "BT5330": {
+    "name": "Human Physiology",
+    "slot": "A",
+    "venue": "BT 110"
+  },
+  "BT5340": {
+    "name": "Protein Folding and Stability",
+    "slot": "E",
+    "venue": "Other"
+  },
+  "BT5360": {
+    "name": "Reactive Species in Medical and Related Technologies",
+    "slot": "F",
+    "venue": "BT 110"
+  },
+  "BT5390": {
+    "name": "Introduction to Developmental Biology",
+    "slot": "",
+    "venue": "NA"
+  },
+  "BT5440": {
+    "name": "Quantitative and Population Genetics",
+    "slot": "F",
+    "venue": "Other"
+  },
+  "BT5441": {
+    "name": "Elements of Biopharmaceutical Manufacturing",
+    "slot": "C",
+    "venue": "Other"
+  },
+  "BT5480": {
+    "name": "Stem cells and Regenerative Medicine",
+    "slot": "G",
+    "venue": "BT 110"
+  },
+  "BT5520": {
+    "name": "Biorefineries",
+    "slot": "G",
+    "venue": "BT 003"
+  },
+  "BT5703": {
+    "name": "Biological Engineering DD Project (Phase III)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "BT5803": {
+    "name": "Biological Sciences DD Project (Phase III)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "BT5933": {
+    "name": "MTech Bioprocess Engineering Project III",
+    "slot": "",
+    "venue": "NA"
+  },
+  "BT6021": {
+    "name": "Introduction to Research",
+    "slot": "",
+    "venue": "NA"
+  },
+  "BT6310": {
+    "name": "Cancer Biology",
+    "slot": "G",
+    "venue": "Other"
+  },
+  "BT6320": {
+    "name": "Protein Interactions: Computational Techniques",
+    "slot": "G",
+    "venue": "BT 108"
+  },
+  "BT6780": {
+    "name": "Human Genetics",
+    "slot": "C",
+    "venue": "BT 108"
+  },
+  "BT6999": {
+    "name": "Special Topics in Biotechnology",
+    "slot": "",
+    "venue": "NA"
+  },
+  "BT7001": {
+    "name": "Advanced Topics in Cell Signaling",
+    "slot": "F",
+    "venue": "BT 003"
+  },
+  "BT7210": {
+    "name": "Protein Structure and Functions",
+    "slot": "D",
+    "venue": "Other"
+  },
+  "BT7230": {
+    "name": "Advanced Molecular and Cellular Biology",
+    "slot": "E",
+    "venue": "BT 003"
+  },
+  "BT7999": {
+    "name": "Special Topics in Biotechnology",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CE3420": {
+    "name": "Concrete Technology",
+    "slot": "D",
+    "venue": "BSB 312"
+  },
+  "CE4050": {
+    "name": "Under graduate Project I",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CE4060": {
+    "name": "Under graduate Project II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CE4803": {
+    "name": "Project - Even Semester",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CE4901": {
+    "name": "Undergraduate Research - I",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CE4902": {
+    "name": "Undergraduate Research - II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CE4903": {
+    "name": "Undergraduate Research - III",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CE5011": {
+    "name": "Design of Masonry Structures",
+    "slot": "F",
+    "venue": "STR 301"
+  },
+  "CE5013": {
+    "name": "Bituminous Technology",
+    "slot": "K",
+    "venue": "BSB 377"
+  },
+  "CE5040": {
+    "name": "Construction,Methods & Equipment",
+    "slot": "K",
+    "venue": "BSB 206"
+  },
+  "CE5090": {
+    "name": "Construction Materials Lab",
+    "slot": "P",
+    "venue": "Other"
+  },
+  "CE5100": {
+    "name": "Construction Software Lab",
+    "slot": "Q",
+    "venue": "Other"
+  },
+  "CE5105": {
+    "name": "Environmental Toxicology and Risk Assessment",
+    "slot": "A",
+    "venue": "NAC II 331"
+  },
+  "CE5111": {
+    "name": "Geophysical Exploration Methods",
+    "slot": "G",
+    "venue": "Other"
+  },
+  "CE5160": {
+    "name": "Biological Process Design for Wastewater Treatment",
+    "slot": "D",
+    "venue": "NAC II 331"
+  },
+  "CE5180": {
+    "name": "Air Pollution and Control Engineering",
+    "slot": "B",
+    "venue": "NAC II 331"
+  },
+  "CE5200": {
+    "name": "Environment Process Lab",
+    "slot": "P",
+    "venue": "Other"
+  },
+  "CE5220": {
+    "name": "Environmental Engineering Seminar",
+    "slot": "R",
+    "venue": "Other"
+  },
+  "CE5225": {
+    "name": "Numerical techniques in civil engineering",
+    "slot": "E",
+    "venue": "Other"
+  },
+  "CE5260": {
+    "name": "Models of Water & Air Quality",
+    "slot": "C",
+    "venue": "NAC II 331"
+  },
+  "CE5290": {
+    "name": "Transportation Network Analysis",
+    "slot": "D",
+    "venue": "BSB 377"
+  },
+  "CE5480": {
+    "name": "Water Resources Planning and Management",
+    "slot": "A",
+    "venue": "Other"
+  },
+  "CE5490": {
+    "name": "Hydraulic Engg Lab",
+    "slot": "P",
+    "venue": "NA"
+  },
+  "CE5500": {
+    "name": "Hydroinformatics",
+    "slot": "C",
+    "venue": "Other"
+  },
+  "CE5520": {
+    "name": "Hyd. & Water Resources Engg. Seminar",
+    "slot": "S",
+    "venue": "Other"
+  },
+  "CE5690": {
+    "name": "Theory and Design of Plates and Shells",
+    "slot": "J",
+    "venue": "STR 301"
+  },
+  "CE5710": {
+    "name": "Prestressed concrete structures",
+    "slot": "D",
+    "venue": "STR 301"
+  },
+  "CE5720": {
+    "name": "Structural stability",
+    "slot": "E",
+    "venue": "STR 301"
+  },
+  "CE5730": {
+    "name": "Probability Methods in Civil Engg",
+    "slot": "K",
+    "venue": "STR 301"
+  },
+  "CE5800": {
+    "name": "Pavement Analysis and Design",
+    "slot": "B",
+    "venue": "BSB 377"
+  },
+  "CE5831": {
+    "name": "Transportation Engg. Studio",
+    "slot": "S",
+    "venue": "NA"
+  },
+  "CE5850": {
+    "name": "Pavement Materials and Evaluation Lab",
+    "slot": "P",
+    "venue": "NA"
+  },
+  "CE5900": {
+    "name": "Intelligent Transportation Systems",
+    "slot": "E",
+    "venue": "BSB 377"
+  },
+  "CE6013": {
+    "name": "River Engineering",
+    "slot": "B",
+    "venue": "Other"
+  },
+  "CE6018": {
+    "name": "Seismic Data Analytics",
+    "slot": "L",
+    "venue": "STR 301"
+  },
+  "CE6030": {
+    "name": "Construction economics and finance",
+    "slot": "A",
+    "venue": "BSB 202"
+  },
+  "CE6040": {
+    "name": "Cement Chemistry",
+    "slot": "C",
+    "venue": "BSB 206"
+  },
+  "CE6051": {
+    "name": "Machine Learning in Civil Engineering",
+    "slot": "F",
+    "venue": "BSB 204"
+  },
+  "CE6070": {
+    "name": "Construction Project Modelling",
+    "slot": "G",
+    "venue": "BSB 206"
+  },
+  "CE6110": {
+    "name": "Advanced Concrete Technology",
+    "slot": "B",
+    "venue": "BSB 206"
+  },
+  "CE6123": {
+    "name": "Project - Even Semester (building technology and construction management)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CE6180": {
+    "name": "Environmental Impact Assessment",
+    "slot": "E",
+    "venue": "NAC II 331"
+  },
+  "CE6293": {
+    "name": "Project - Even semester (Environmental Engineering)",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CE6400": {
+    "name": "\"Hydrologic Data Analysis and Modeling",
+    "slot": "G",
+    "venue": ""
+  },
+  "CE6480": {
+    "name": "Contaminant Transport Modelling",
+    "slot": "F",
+    "venue": "Other"
+  },
+  "CE6493": {
+    "name": "Project - Even semester (Hydraulics and Water Resources Engineering)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CE6520": {
+    "name": "Simulation Modelling in Water Resources",
+    "slot": "D",
+    "venue": "Other"
+  },
+  "CE6710": {
+    "name": "Bridge Engineering",
+    "slot": "G",
+    "venue": "STR 301"
+  },
+  "CE6730": {
+    "name": "Structural optimization",
+    "slot": "F",
+    "venue": "STR 401"
+  },
+  "CE6740": {
+    "name": "Advanced analysis and design for wind and earthquake effects",
+    "slot": "C",
+    "venue": "STR 301"
+  },
+  "CE6933": {
+    "name": "Project - Even semester (Transportation Engineering)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CE6999": {
+    "name": "Special Topics in Civil Engineering",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CE7026": {
+    "name": "Displacement-based Earthquake Resistant Design of Structures",
+    "slot": "J",
+    "venue": "STR 401"
+  },
+  "CE7120": {
+    "name": "Advanced topics in structural concrete",
+    "slot": "E",
+    "venue": "STR 401"
+  },
+  "CE7200": {
+    "name": "Fracture mechanics of concrete",
+    "slot": "L",
+    "venue": "STR 401"
+  },
+  "CE7640": {
+    "name": "Elastic and plastic stress analysis",
+    "slot": "L",
+    "venue": "BSB 204"
+  },
+  "CE7999": {
+    "name": "Special topics in Civil Engineering",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CH1020": {
+    "name": "Principles & Calculations in Chemical",
+    "slot": "B",
+    "venue": "FFT Terrace Hall"
+  },
+  "CH2014": {
+    "name": "Fundamentals of Heat and Mass Transfer",
+    "slot": "B",
+    "venue": "MSB 355"
+  },
+  "CH2015": {
+    "name": "Fluid and Particle Mechanics",
+    "slot": "D",
+    "venue": "MSB 355"
+  },
+  "CH2017": {
+    "name": "Properties and variables measurements laboratory",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CH3522": {
+    "name": "Unit Operations Lab",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CH4170": {
+    "name": "Catalyst Science & Technology",
+    "slot": "M",
+    "venue": "MSB 123"
+  },
+  "CH4250": {
+    "name": "Process Engineering",
+    "slot": "",
+    "venue": "MSB 355"
+  },
+  "CH4560": {
+    "name": "Project II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CH4901": {
+    "name": "Undergraduate Research 1",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CH4902": {
+    "name": "Undergraduate Research 2",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CH4999": {
+    "name": "Undergraduate Research",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CH5000": {
+    "name": "Membrane Science and Technology",
+    "slot": "E",
+    "venue": "MSB 235"
+  },
+  "CH5002": {
+    "name": "Engineering Principles in Mammalian Systems and Synthetic Biology",
+    "slot": "H",
+    "venue": "MSB 355"
+  },
+  "CH5003": {
+    "name": "Machine learning for molecular simulations",
+    "slot": "E",
+    "venue": "MSB 240"
+  },
+  "CH5014": {
+    "name": "Interfacial Science and Engineering",
+    "slot": "F",
+    "venue": "MSB 355"
+  },
+  "CH5023": {
+    "name": "Unconventional Oil and Gas Resources",
+    "slot": "F",
+    "venue": "MSB 356"
+  },
+  "CH5029": {
+    "name": "Sustainable Plastics",
+    "slot": "F",
+    "venue": "Other"
+  },
+  "CH5030": {
+    "name": "Transport Phenomena",
+    "slot": "A",
+    "venue": "MSB 355"
+  },
+  "CH5060": {
+    "name": "Seminar",
+    "slot": "T",
+    "venue": "MSB 240"
+  },
+  "CH5100": {
+    "name": "Multiphase Systems",
+    "slot": "G",
+    "venue": "MSB 123"
+  },
+  "CH5110": {
+    "name": "Fundamentals of Adsorption and Catalysis",
+    "slot": "H",
+    "venue": "MSB 235"
+  },
+  "CH5130": {
+    "name": "Rheology of Complex Materials",
+    "slot": "E",
+    "venue": "MSB 356"
+  },
+  "CH5140": {
+    "name": "Process Modelling Simulation and Analysis",
+    "slot": "F",
+    "venue": "MSB 240"
+  },
+  "CH5200": {
+    "name": "Battery Manufacturing, Recycling and Circularity",
+    "slot": "G",
+    "venue": "MSB 355"
+  },
+  "CH5205": {
+    "name": "Natural Gas Engineering",
+    "slot": "D",
+    "venue": "MSB 235"
+  },
+  "CH5270": {
+    "name": "Soft robotics",
+    "slot": "K",
+    "venue": "MSB 123"
+  },
+  "CH5400": {
+    "name": "Microelectronic Fabrication",
+    "slot": "G",
+    "venue": "MSB 240"
+  },
+  "CH5415": {
+    "name": "Constructal Design in Engineering Systems",
+    "slot": "K",
+    "venue": "CRC 203"
+  },
+  "CH5460": {
+    "name": "Unit Operation and Processes in Env.Engg.",
+    "slot": "D",
+    "venue": "MSB 240"
+  },
+  "CH5530": {
+    "name": "Process Simulation Lab",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CH5541": {
+    "name": "Advanced Topics in Momentum Transfer",
+    "slot": "M",
+    "venue": "CRC 203"
+  },
+  "CH5562": {
+    "name": "Project II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CH5650": {
+    "name": "Molecular Data Science and Informatics",
+    "slot": "D",
+    "venue": "MSB 356"
+  },
+  "CH6021": {
+    "name": "Introduction to Research",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CH6022": {
+    "name": "Microwave Processing in Materials, Food and Medical Sciences",
+    "slot": "L",
+    "venue": "CRC 203"
+  },
+  "CH6060": {
+    "name": "Numerical Tech for Engrs",
+    "slot": "H",
+    "venue": "CRC 203"
+  },
+  "CH6103": {
+    "name": "Mathematical modelling of biological systems",
+    "slot": "M",
+    "venue": "MSB 235"
+  },
+  "CH6999": {
+    "name": "Special Topics in Chemical Engineering",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CH7320": {
+    "name": "Intro.to Statistical Thermodynamics",
+    "slot": "K",
+    "venue": "CRC 202"
+  },
+  "CH7999": {
+    "name": "Special Topics in Chemical Engineering",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CS1100": {
+    "name": "Introduction to Programming",
+    "slot": "F",
+    "venue": "RJN 202"
+  },
+  "CS1202": {
+    "name": "Discrete Mathematics II",
+    "slot": "E",
+    "venue": "SSB 134"
+  },
+  "CS1234": {
+    "name": "Small-Scale Application Development",
+    "slot": "D",
+    "venue": "SSB 134"
+  },
+  "CS2200": {
+    "name": "Language Machines and Computations",
+    "slot": "C",
+    "venue": "CS 15"
+  },
+  "CS2600": {
+    "name": "Computer Organization and Architecture",
+    "slot": "B",
+    "venue": "CS 15"
+  },
+  "CS2610": {
+    "name": "Computer Organization and Architecture Lab",
+    "slot": "P",
+    "venue": "Other"
+  },
+  "CS2800": {
+    "name": "Design and Analysis of Algorithms",
+    "slot": "E",
+    "venue": "CS 15"
+  },
+  "CS2810": {
+    "name": "Object-Oriented Algorithms Implementation and Analysis Lab",
+    "slot": "Q",
+    "venue": "Other"
+  },
+  "CS3100": {
+    "name": "Paradigms of Programming",
+    "slot": "D",
+    "venue": "CS 15"
+  },
+  "CS3205": {
+    "name": "Introduction to Computer Networks",
+    "slot": "D",
+    "venue": "CS 25"
+  },
+  "CS3666": {
+    "name": "Industrial Training",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CS3700": {
+    "name": "Introduction to Database Systems",
+    "slot": "A",
+    "venue": "SSB 134"
+  },
+  "CS4700": {
+    "name": "Advanced Data Stuctures",
+    "slot": "G",
+    "venue": "CS 34"
+  },
+  "CS4805": {
+    "name": "B. Tech. Project",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CS4900": {
+    "name": "Undergraduate Research in Computer Science - I",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CS4910": {
+    "name": "Undergraduate Research in Computer Science - II",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CS5030": {
+    "name": "Automated Program Verification",
+    "slot": "C",
+    "venue": "CS 24"
+  },
+  "CS5130": {
+    "name": "Mathematical Tools for Theoretical Computer Science",
+    "slot": "J",
+    "venue": "CS 34"
+  },
+  "CS5691": {
+    "name": "Pattern Recognition and Machine Learning",
+    "slot": "B",
+    "venue": "SSB 134"
+  },
+  "CS5705": {
+    "name": "Dual Degree Project I",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CS5815": {
+    "name": "Dual Degree Project III",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CS5931": {
+    "name": "M. Tech Project Phase I",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CS5932": {
+    "name": "M. Tech Project Phase II",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CS6024": {
+    "name": "Algorithmic Approaches to Computational Biology",
+    "slot": "F",
+    "venue": "CS 24"
+  },
+  "CS6026": {
+    "name": "Information-theoretic Cryptography",
+    "slot": "H",
+    "venue": "CS 36"
+  },
+  "CS6117": {
+    "name": "Can Cryptography Safeguard Machine Learning?",
+    "slot": "K",
+    "venue": "CS 34"
+  },
+  "CS6210": {
+    "name": "Performance Evaluation of Computer Systems",
+    "slot": "H",
+    "venue": "CS 26"
+  },
+  "CS6225": {
+    "name": "Programs and Proofs",
+    "slot": "G",
+    "venue": "CS 26"
+  },
+  "CS6235": {
+    "name": "Analysis of Parallel Programs",
+    "slot": "F",
+    "venue": "CS 26"
+  },
+  "CS6260": {
+    "name": "Automated Planning and Learning (AUPL)",
+    "slot": "H",
+    "venue": "CS 15"
+  },
+  "CS6360": {
+    "name": "Computer Graphics",
+    "slot": "J",
+    "venue": "CS 36"
+  },
+  "CS6370": {
+    "name": "Natural Language Processing",
+    "slot": "A",
+    "venue": "CS 15"
+  },
+  "CS6464": {
+    "name": "Concepts in statistical learning theory",
+    "slot": "G",
+    "venue": "CS 36"
+  },
+  "CS6500": {
+    "name": "Network Security",
+    "slot": "D",
+    "venue": "CS 24"
+  },
+  "CS6570": {
+    "name": "Secure Systems Engineering",
+    "slot": "E",
+    "venue": "CS 24"
+  },
+  "CS6651": {
+    "name": "Recent Topics in IoT-based Sensing",
+    "slot": "K",
+    "venue": "CS 24"
+  },
+  "CS6780": {
+    "name": "Algorithmic Game Theory",
+    "slot": "F",
+    "venue": "CS 34"
+  },
+  "CS6841": {
+    "name": "Approximation Algorithms",
+    "slot": "C",
+    "venue": "CS 34"
+  },
+  "CS6845": {
+    "name": "Pseudorandomness",
+    "slot": "E",
+    "venue": "CS 36"
+  },
+  "CS6847": {
+    "name": "Cloud Computing",
+    "slot": "B",
+    "venue": "CS 24"
+  },
+  "CS6850": {
+    "name": "Topics in Complexity Theory",
+    "slot": "A",
+    "venue": "CS 36"
+  },
+  "CS6852": {
+    "name": "Theory and Applications of Ontologies",
+    "slot": "H",
+    "venue": "CS 24"
+  },
+  "CS6856": {
+    "name": "Topics in Multi-Agent Systems",
+    "slot": "K",
+    "venue": "CS 26"
+  },
+  "CS6900": {
+    "name": "Postgraduate Research Credits in CS",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CS6910": {
+    "name": "Fundamentals of Deep Learning",
+    "slot": "L",
+    "venue": "CS 15"
+  },
+  "CS6999": {
+    "name": "Special Topics in Computer Science and Engineering",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CS7011": {
+    "name": "Topics in Reinforcement Learning",
+    "slot": "J",
+    "venue": "CS 24"
+  },
+  "CS7999": {
+    "name": "Special Topics in Computer Science and Engineering",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CV1020": {
+    "name": "Solid and Fluid Mechanics",
+    "slot": "A",
+    "venue": ""
+  },
+  "CV2020": {
+    "name": "Construction Engineering",
+    "slot": "A",
+    "venue": ""
+  },
+  "CV2040": {
+    "name": "Geotechnical Engineering",
+    "slot": "C",
+    "venue": ""
+  },
+  "CV2060": {
+    "name": "Transportation Engineering",
+    "slot": "D",
+    "venue": ""
+  },
+  "CV2080": {
+    "name": "Structural Design",
+    "slot": "B",
+    "venue": "Other"
+  },
+  "CV3020": {
+    "name": "Design of Reinforced Concrete Structures",
+    "slot": "C",
+    "venue": "BSB 204"
+  },
+  "CV3040": {
+    "name": "Design of Steel Structures",
+    "slot": "B",
+    "venue": "BSB 312"
+  },
+  "CV5102": {
+    "name": "COMPUTATIONAL MODELLING FOR STRUCTURAL ENGINEERS",
+    "slot": "P",
+    "venue": "STR 301"
+  },
+  "CV5104": {
+    "name": "BEHAVIOUR & DESIGN OF CONCRETE STRUCTURES",
+    "slot": "B",
+    "venue": "STR 301"
+  },
+  "CV5106": {
+    "name": "BEHAVIOUR & DESIGN OF METAL STRUCTURES",
+    "slot": "A",
+    "venue": "STR 301"
+  },
+  "CV5252": {
+    "name": "Environmental, Social, and Governance",
+    "slot": "G",
+    "venue": "NAC II 331"
+  },
+  "CV5300": {
+    "name": "Applied Soil Mechanics",
+    "slot": "A",
+    "venue": "BSB 370"
+  },
+  "CV5311": {
+    "name": "Experimental Geotechnics",
+    "slot": "P",
+    "venue": "Other"
+  },
+  "CV5340": {
+    "name": "Finite Element Method: Concepts and Applications in Geomechanics",
+    "slot": "B",
+    "venue": "BSB 370"
+  },
+  "CV5350": {
+    "name": "Geosynthetics & Reinforced Soil Structures",
+    "slot": "L",
+    "venue": "BSB 370"
+  },
+  "CV5520": {
+    "name": "Construction Quality and Sustainability",
+    "slot": "D",
+    "venue": "BSB 206"
+  },
+  "CV6102": {
+    "name": "Project - Even Semester (Structural Engineering)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CV6143": {
+    "name": "Project Phase-2",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CV6215": {
+    "name": "Environment, Health, and Safety",
+    "slot": "F",
+    "venue": "NAC II 331"
+  },
+  "CV6310": {
+    "name": "Earthquake Geotechnics: Principles and Applications",
+    "slot": "K",
+    "venue": "BSB 370"
+  },
+  "CV6333": {
+    "name": "Project – Even Semester (Geotechnical Engineering)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "CV6340": {
+    "name": "Ground Improvement Techniques",
+    "slot": "E",
+    "venue": "BSB 370"
+  },
+  "CY1001": {
+    "name": "Chemistry I: Structure, Bonding & Reactivity",
+    "slot": "C",
+    "venue": ""
+  },
+  "CY1002": {
+    "name": "Chemistry Lab I",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CY1020": {
+    "name": "Basic Organic Chemistry",
+    "slot": "A",
+    "venue": "CB 321"
+  },
+  "CY1022": {
+    "name": "Mathematics-II",
+    "slot": "C",
+    "venue": "CB 321"
+  },
+  "CY1024": {
+    "name": "Biochemistry",
+    "slot": "B",
+    "venue": "CB 321"
+  },
+  "CY1026": {
+    "name": "Organic Laboratory I",
+    "slot": "S",
+    "venue": "Other"
+  },
+  "CY1050": {
+    "name": "Macromolecules as Engineering Materials",
+    "slot": "A",
+    "venue": "CRC 203"
+  },
+  "CY1051": {
+    "name": "Chemistry II: Introduction to Spectroscopic Methods​",
+    "slot": "C",
+    "venue": "RMN 101"
+  },
+  "CY2010": {
+    "name": "Kinetics and Catalysis",
+    "slot": "E",
+    "venue": "MSB 355"
+  },
+  "CY2020": {
+    "name": "Organometallic Chemistry of Transition Metals",
+    "slot": "B",
+    "venue": "CB 218"
+  },
+  "CY2022": {
+    "name": "Reactive Intermediates in Organic Chemistry",
+    "slot": "C",
+    "venue": "CB 218"
+  },
+  "CY2024": {
+    "name": "Chemical Kinetics and Dynamics",
+    "slot": "D",
+    "venue": "CB 218"
+  },
+  "CY2026": {
+    "name": "Solid State Chemistry",
+    "slot": "A",
+    "venue": "CB 218"
+  },
+  "CY2028": {
+    "name": "Organic Laboratory II",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CY5012": {
+    "name": "Main Group Chemistry and Spectroscopic Characterization of Inorganic Compounds",
+    "slot": "A",
+    "venue": "CB 250"
+  },
+  "CY5014": {
+    "name": "Reactive Intermediates and Concerted Reactions",
+    "slot": "B",
+    "venue": "CB 250"
+  },
+  "CY5016": {
+    "name": "Kinetics and Reaction Dynamics",
+    "slot": "E",
+    "venue": "CB 250"
+  },
+  "CY5018": {
+    "name": "Chemical Bonding and Group Theory",
+    "slot": "C",
+    "venue": "CB 250"
+  },
+  "CY5020": {
+    "name": "Analytical Chemistry: Principles, Practices and Applications",
+    "slot": "D",
+    "venue": "CB 250"
+  },
+  "CY5022": {
+    "name": "Inorganic Chemistry Laboratory",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CY5024": {
+    "name": "Physical Chemistry Laboratory",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CY6021": {
+    "name": "Introduction to Research",
+    "slot": "",
+    "venue": "CB 150"
+  },
+  "CY6026": {
+    "name": "Project II",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CY6102": {
+    "name": "Advanced Bioinorganic Chemistry",
+    "slot": "A",
+    "venue": "NCCR308"
+  },
+  "CY6104": {
+    "name": "Molecular Clusters",
+    "slot": "B",
+    "venue": "CB 150"
+  },
+  "CY6106": {
+    "name": "Organometallic Chemistry for Organic Synthesis",
+    "slot": "D",
+    "venue": "NCCR308"
+  },
+  "CY6108": {
+    "name": "Medicinal Chemistry",
+    "slot": "F",
+    "venue": "CB 150"
+  },
+  "CY6119": {
+    "name": "Group Theory and Molecular Spectroscopy",
+    "slot": "B",
+    "venue": "NCCR308"
+  },
+  "CY6121": {
+    "name": "Advanced Electronic Structure and Density Functional Theories for Molecules",
+    "slot": "C",
+    "venue": "NCCR308"
+  },
+  "CY6123": {
+    "name": "Asymmetric Organic synthesis",
+    "slot": "G",
+    "venue": "CB 150"
+  },
+  "CY6126": {
+    "name": "Green Organic Synthesis: Principles and Applications",
+    "slot": "C",
+    "venue": "CB 150"
+  },
+  "CY6127": {
+    "name": "Chemical Processes at Surfaces and Interfaces",
+    "slot": "E",
+    "venue": "NCCR308"
+  },
+  "CY6128": {
+    "name": "Computational Quantum Chemistry and Molecular Simulations",
+    "slot": "H",
+    "venue": "Other"
+  },
+  "CY6205": {
+    "name": "Basic Concepts in X-ray Crystallography and Data Refinements",
+    "slot": "D",
+    "venue": "CB 150"
+  },
+  "CY6215": {
+    "name": "Chemistry of Alkali Metal Ion Batteries and Capacitors",
+    "slot": "G",
+    "venue": "NCCR308"
+  },
+  "CY6216": {
+    "name": "Advanced Main Group Chemistry",
+    "slot": "E",
+    "venue": "CB 150"
+  },
+  "CY6218": {
+    "name": "Protein Biophysical Chemistry",
+    "slot": "A",
+    "venue": "CB 150"
+  },
+  "CY6999": {
+    "name": "Special Topics in Chemistry",
+    "slot": "",
+    "venue": "Other"
+  },
+  "CY7999": {
+    "name": "Special Topics in Chemistry-II",
+    "slot": "",
+    "venue": "Other"
+  },
+  "DA1002": {
+    "name": "Optimization for Engineers",
+    "slot": "B",
+    "venue": "NAC 632"
+  },
+  "DA1003": {
+    "name": "Optimization Lab",
+    "slot": "P",
+    "venue": "NAC 632"
+  },
+  "DA1004": {
+    "name": "Probability & Statistics for Engineers",
+    "slot": "C",
+    "venue": "NAC 632"
+  },
+  "DA1302": {
+    "name": "Computational Methods for Data Science",
+    "slot": "E",
+    "venue": "NAC 632"
+  },
+  "DA1303": {
+    "name": "Algorithms for Data Science",
+    "slot": "D",
+    "venue": "CRC 102"
+  },
+  "DA2303": {
+    "name": "Algorithms for Data Science",
+    "slot": "D",
+    "venue": "CRC 102"
+  },
+  "DA2304": {
+    "name": "Introduction to Computer Systems",
+    "slot": "E",
+    "venue": "NAC 631"
+  },
+  "DA2403": {
+    "name": "Artificial Intelligence",
+    "slot": "C",
+    "venue": "NAC 631"
+  },
+  "DA2404": {
+    "name": "Artificial Intelligence Lab",
+    "slot": "T",
+    "venue": "NAC 631"
+  },
+  "DA4901": {
+    "name": "Undergraduate Research Project",
+    "slot": "",
+    "venue": "601"
+  },
+  "DA4911": {
+    "name": "Capstone Project I",
+    "slot": "",
+    "venue": "601"
+  },
+  "DA4912": {
+    "name": "Capstone Project II",
+    "slot": "",
+    "venue": "601"
+  },
+  "DA5031": {
+    "name": "Advanced Visual Intelligence",
+    "slot": "J",
+    "venue": "NAC 632"
+  },
+  "DA5041": {
+    "name": "Learning on graphs",
+    "slot": "E",
+    "venue": "NAC 633"
+  },
+  "DA5051": {
+    "name": "Surgical AI: Perception and Simulation",
+    "slot": "H",
+    "venue": "NAC 633"
+  },
+  "DA5402": {
+    "name": "Machine Learning Operations Lab",
+    "slot": "F",
+    "venue": "CRC 102"
+  },
+  "DA6336": {
+    "name": "Privacy in AI",
+    "slot": "J",
+    "venue": "NAC 631"
+  },
+  "DA6360": {
+    "name": "Advanced Optimisation for Machine Learning",
+    "slot": "M",
+    "venue": "NAC 631"
+  },
+  "DA6400": {
+    "name": "Introduction to Reinforcement Learning",
+    "slot": "H",
+    "venue": "CRC 101"
+  },
+  "DA6401": {
+    "name": "Introduction to Deep Learning",
+    "slot": "C",
+    "venue": ""
+  },
+  "DA6701": {
+    "name": "Data Science and AI in Finance",
+    "slot": "A",
+    "venue": "NAC 633"
+  },
+  "DA6900": {
+    "name": "Project-I Summer",
+    "slot": "",
+    "venue": "601"
+  },
+  "DA6902": {
+    "name": "Project-III",
+    "slot": "",
+    "venue": "601"
+  },
+  "DA6999": {
+    "name": "Special Topics in Data Science and Artificial Intelligence",
+    "slot": "",
+    "venue": "601"
+  },
+  "DA7999": {
+    "name": "Special Topics in Data Science and Artificial Intelligence",
+    "slot": "",
+    "venue": "601"
+  },
+  "ED1011": {
+    "name": "Functional and Conceptual Design",
+    "slot": "B",
+    "venue": "ED 108"
+  },
+  "ED1033": {
+    "name": "Form and Aesthetics in Design I",
+    "slot": "F",
+    "venue": "ED 107"
+  },
+  "ED1091": {
+    "name": "Japanese Language",
+    "slot": "H",
+    "venue": "ED 109"
+  },
+  "ED2040": {
+    "name": "Control Systems",
+    "slot": "D",
+    "venue": "ED 207"
+  },
+  "ED2141": {
+    "name": "Physics of Measurement",
+    "slot": "C",
+    "venue": "ED 207"
+  },
+  "ED3040": {
+    "name": "Aesthetics in Design",
+    "slot": "S",
+    "venue": "ED 107"
+  },
+  "ED4040": {
+    "name": "Design of Thermal and Fluid Systems",
+    "slot": "B",
+    "venue": "ED 207"
+  },
+  "ED4060": {
+    "name": "Design of Mechanical Systems 2",
+    "slot": "A",
+    "venue": "ED 207"
+  },
+  "ED4571": {
+    "name": "Introduction to Chinese Language",
+    "slot": "L",
+    "venue": "ED 108"
+  },
+  "ED4572": {
+    "name": "Chinese Language II",
+    "slot": "K",
+    "venue": "ED 109"
+  },
+  "ED4901": {
+    "name": "Undergraduate Research Project",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ED5013": {
+    "name": "Analytical and Experimental Techniques in Vibration",
+    "slot": "A",
+    "venue": "ED 109"
+  },
+  "ED5015": {
+    "name": "Computational Methods in Design",
+    "slot": "B",
+    "venue": "ED 306"
+  },
+  "ED5016": {
+    "name": "Biomedical Micro/Nano Devices and Applications",
+    "slot": "J",
+    "venue": "ED 306"
+  },
+  "ED5018": {
+    "name": "Business Excellence and Quality Management",
+    "slot": "R",
+    "venue": "ED 307"
+  },
+  "ED5020": {
+    "name": "Design of Implantable and Surgical Devices",
+    "slot": "M",
+    "venue": "ED 107"
+  },
+  "ED5021": {
+    "name": "Battery Charging Technology",
+    "slot": "H",
+    "venue": "ED 307"
+  },
+  "ED5052": {
+    "name": "Electromagnetic Compatibility for Product Design",
+    "slot": "H",
+    "venue": "ED 108"
+  },
+  "ED5070": {
+    "name": "Design of Monitoring and Diagnostic System (L&P)",
+    "slot": "E",
+    "venue": "ED 109"
+  },
+  "ED5120": {
+    "name": "Seminar",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ED5212": {
+    "name": "EMobility Lab – 2",
+    "slot": "R",
+    "venue": "Other"
+  },
+  "ED5215": {
+    "name": "Introduction to Motion Planning",
+    "slot": "F",
+    "venue": "ED 108"
+  },
+  "ED5220": {
+    "name": "Vehicle Dynamics",
+    "slot": "D",
+    "venue": "ED 306"
+  },
+  "ED5321": {
+    "name": "Science of musical instruments",
+    "slot": "M",
+    "venue": "ED 109"
+  },
+  "ED5340": {
+    "name": "Data Science: Theory and practice",
+    "slot": "G",
+    "venue": "ED 207"
+  },
+  "ED5345": {
+    "name": "Powertrain and Fuels",
+    "slot": "K",
+    "venue": "ED 306"
+  },
+  "ED5350": {
+    "name": "Electric Vehicle Engineering and Development",
+    "slot": "E",
+    "venue": "ED 108"
+  },
+  "ED5516": {
+    "name": "Design and Control of AC Machines for Electrified Vehicles",
+    "slot": "B",
+    "venue": "ED 109"
+  },
+  "ED5601": {
+    "name": "Project I (Industry)",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ED5602": {
+    "name": "Project II",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ED5603": {
+    "name": "Project III",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ED5900": {
+    "name": "Project II",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ED6007": {
+    "name": "Mechanics of Robots",
+    "slot": "H",
+    "venue": "ED 306"
+  },
+  "EE1100": {
+    "name": "Basic Electrical Engineering",
+    "slot": "E",
+    "venue": ""
+  },
+  "EE1101": {
+    "name": "Signals and Systems",
+    "slot": "E",
+    "venue": "RJN 201"
+  },
+  "EE2002": {
+    "name": "Digital Systems",
+    "slot": "B",
+    "venue": ""
+  },
+  "EE2004": {
+    "name": "Digital Signal Processing",
+    "slot": "D",
+    "venue": ""
+  },
+  "EE2006": {
+    "name": "Electrical Machines",
+    "slot": "A",
+    "venue": ""
+  },
+  "EE2007": {
+    "name": "Analog Systems",
+    "slot": "E",
+    "venue": "ESB 127"
+  },
+  "EE2702": {
+    "name": "Digital Systems Lab",
+    "slot": "P",
+    "venue": "Annex IE Lab"
+  },
+  "EE2706": {
+    "name": "Electrical Machines Lab",
+    "slot": "P",
+    "venue": "Other"
+  },
+  "EE2707": {
+    "name": "Analog Systems Lab",
+    "slot": "T",
+    "venue": ""
+  },
+  "EE3001": {
+    "name": "Solid State Devices",
+    "slot": "C",
+    "venue": ""
+  },
+  "EE3005": {
+    "name": "Communication Systems",
+    "slot": "B",
+    "venue": "ESB 128"
+  },
+  "EE3007": {
+    "name": "RF and Optical Communication",
+    "slot": "A",
+    "venue": "ESB 106"
+  },
+  "EE3110": {
+    "name": "Probability Foundations for Electrical Engineers",
+    "slot": "B",
+    "venue": "ESB 207A"
+  },
+  "EE3111": {
+    "name": "Statistics for Electrical Engineers",
+    "slot": "G",
+    "venue": "ESB 106"
+  },
+  "EE3203": {
+    "name": "Power Electronics",
+    "slot": "C",
+    "venue": ""
+  },
+  "EE3500": {
+    "name": "Industrial Training (summer)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "EE4502": {
+    "name": "Optics for Engineers",
+    "slot": "E",
+    "venue": "ESB 234"
+  },
+  "EE4900": {
+    "name": "B.Tech Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "EE4901": {
+    "name": "Mini Project 1",
+    "slot": "",
+    "venue": "NA"
+  },
+  "EE4902": {
+    "name": "Mini Project 2",
+    "slot": "",
+    "venue": "NA"
+  },
+  "EE4903": {
+    "name": "Mini Project 3",
+    "slot": "",
+    "venue": "NA"
+  },
+  "EE5004": {
+    "name": "Seminar on the history of Electrical Engineering",
+    "slot": "",
+    "venue": "NA"
+  },
+  "EE5113": {
+    "name": "Detection and Estimation Theory",
+    "slot": "C",
+    "venue": "ESB 207B"
+  },
+  "EE5141": {
+    "name": "Introduction to Wireless and Cellular Communication",
+    "slot": "F",
+    "venue": "ESB 242"
+  },
+  "EE5143": {
+    "name": "Information Theory",
+    "slot": "H",
+    "venue": "ESB 106"
+  },
+  "EE5144": {
+    "name": "AI and ML for Communication Systems and Networks",
+    "slot": "M",
+    "venue": "ESB 128"
+  },
+  "EE5150": {
+    "name": "Communication Networks",
+    "slot": "G",
+    "venue": "ESB 129"
+  },
+  "EE5159": {
+    "name": "Fundamentals of Distributed Computing",
+    "slot": "H",
+    "venue": "ESB 128"
+  },
+  "EE5160": {
+    "name": "Error Control Coding",
+    "slot": "K",
+    "venue": "ESB 242"
+  },
+  "EE5175": {
+    "name": "Image Signal Processing",
+    "slot": "B",
+    "venue": "ESB 129"
+  },
+  "EE5178": {
+    "name": "Modern Computer Vision",
+    "slot": "G",
+    "venue": "ESB 127"
+  },
+  "EE5180": {
+    "name": "Introduction to Machine Learning",
+    "slot": "J",
+    "venue": "ESB 129"
+  },
+  "EE5203": {
+    "name": "Switched Mode Power Conversion",
+    "slot": "G",
+    "venue": "ESB 242"
+  },
+  "EE5254": {
+    "name": "High Voltage Technology",
+    "slot": "C",
+    "venue": "ESB 207A"
+  },
+  "EE5262": {
+    "name": "Distributed Generation and Microgrid Systems",
+    "slot": "E",
+    "venue": "ESB 350"
+  },
+  "EE5314": {
+    "name": "Microelectronics Lab",
+    "slot": "T",
+    "venue": "ESB 213B"
+  },
+  "EE5320": {
+    "name": "Analog IC Design",
+    "slot": "D",
+    "venue": "ESB 242"
+  },
+  "EE5328": {
+    "name": "Integrated Circuits for Power Management",
+    "slot": "A",
+    "venue": "ESB 350"
+  },
+  "EE5332": {
+    "name": "Mapping Signal Processing Algorithms to DSP Architectures",
+    "slot": "L",
+    "venue": "ESB 127"
+  },
+  "EE5333": {
+    "name": "Introduction to Physical Design Automation",
+    "slot": "E",
+    "venue": "ESB 207B"
+  },
+  "EE5340": {
+    "name": "Micro Electro Mechanical Systems",
+    "slot": "E",
+    "venue": "ESB 129"
+  },
+  "EE5342": {
+    "name": "Compound Semiconductors - Properties and Applications",
+    "slot": "B",
+    "venue": "ESB 207B"
+  },
+  "EE5343": {
+    "name": "Solar Cell Device Physics and Materials Technology",
+    "slot": "F",
+    "venue": "ESB 350"
+  },
+  "EE5351": {
+    "name": "Linear Algebra Techniques for data analysis and modelling",
+    "slot": "E",
+    "venue": "ESB 207A"
+  },
+  "EE5402": {
+    "name": "Industrial Internet-of-Things (IoT)",
+    "slot": "F",
+    "venue": "ESB 127"
+  },
+  "EE5410": {
+    "name": "Introduction to Digital Signal Processing",
+    "slot": "D",
+    "venue": "ESB 128"
+  },
+  "EE5419": {
+    "name": "Advanced Control Laboratory",
+    "slot": "L",
+    "venue": "ESB 129"
+  },
+  "EE5502": {
+    "name": "Optical Engineering",
+    "slot": "E",
+    "venue": "ESB 234"
+  },
+  "EE5504": {
+    "name": "Fiber Optic Communication Technology",
+    "slot": "B",
+    "venue": "ESB 213B"
+  },
+  "EE5507": {
+    "name": "RF Systems Laboratory",
+    "slot": "R",
+    "venue": "NA"
+  },
+  "EE5702": {
+    "name": "Power Laboratory",
+    "slot": "R",
+    "venue": "Other"
+  },
+  "EE5708": {
+    "name": "Data Analytics Laboratory",
+    "slot": "S",
+    "venue": "ESB 106"
+  },
+  "EE6000": {
+    "name": "Seminar",
+    "slot": "",
+    "venue": "NA"
+  },
+  "EE6112": {
+    "name": "Topics in Random Processes and Concentrations",
+    "slot": "L",
+    "venue": "ESB 242"
+  },
+  "EE6130": {
+    "name": "Advanced Topics in Signal Processing",
+    "slot": "H",
+    "venue": "ESB 129"
+  },
+  "EE6150": {
+    "name": "Stochastic Modeling and the Theory of Queues",
+    "slot": "F",
+    "venue": "ESB 128"
+  },
+  "EE6180": {
+    "name": "Advanced Topics in Artificial Intelligence",
+    "slot": "E",
+    "venue": "ESB 128"
+  },
+  "EE6255": {
+    "name": "Power System Protection",
+    "slot": "D",
+    "venue": "ESB 213B"
+  },
+  "EE6262": {
+    "name": "Advanced Motor Control",
+    "slot": "F",
+    "venue": "ESB 207A"
+  },
+  "EE6320": {
+    "name": "RF Integrated Circuits",
+    "slot": "H",
+    "venue": "ESB 242"
+  },
+  "EE6321": {
+    "name": "VLSI Data Conversion Circuits",
+    "slot": "J",
+    "venue": "ESB 242"
+  },
+  "EE6332": {
+    "name": "Modeling and Optimization in VLSI",
+    "slot": "J",
+    "venue": "ESB 127"
+  },
+  "EE6345": {
+    "name": "Advanced Memory Technology",
+    "slot": "C",
+    "venue": "ESB 350"
+  },
+  "EE6346": {
+    "name": "Advanced CMOS Devices and Technology",
+    "slot": "A",
+    "venue": "ESB 213B"
+  },
+  "EE6362": {
+    "name": "Advanced Topics in Microelectronics and MEMS",
+    "slot": "D",
+    "venue": "ESB 350"
+  },
+  "EE6402": {
+    "name": "Biomedical Electronic Systems",
+    "slot": "F",
+    "venue": "ESB 129"
+  },
+  "EE6403": {
+    "name": "Transducers",
+    "slot": "E",
+    "venue": "New IE Lab"
+  },
+  "EE6408": {
+    "name": "Non-invasive Sensing & Signal Processing for Human Health",
+    "slot": "B",
+    "venue": "ESB 350"
+  },
+  "EE6412": {
+    "name": "Optimal Control",
+    "slot": "B",
+    "venue": "ESB 314"
+  },
+  "EE6415": {
+    "name": "Nonlinear Systems Analysis",
+    "slot": "D",
+    "venue": "ESB 106"
+  },
+  "EE6417": {
+    "name": "Incentive-Cenetred Design (Advanced Topics in Control)",
+    "slot": "H",
+    "venue": "ESB 207B"
+  },
+  "EE6430": {
+    "name": "Fundamentals of  Linear Optimization",
+    "slot": "J",
+    "venue": "ESB 207B"
+  },
+  "EE6431": {
+    "name": "Nonsmooth analysis in control and optimization",
+    "slot": "A",
+    "venue": "ESB 207A"
+  },
+  "EE6500": {
+    "name": "Integrated Optoelectronics Devices and Circuits",
+    "slot": "F",
+    "venue": "ESB 213B"
+  },
+  "EE6502": {
+    "name": "Optical Signal Processing and Quantum Communication",
+    "slot": "",
+    "venue": "ESB 207A"
+  },
+  "EE6904": {
+    "name": "M.Tech Project 40",
+    "slot": "",
+    "venue": "NA"
+  },
+  "EE6999": {
+    "name": "Special Topics in Electrical Engineering",
+    "slot": "",
+    "venue": "NA"
+  },
+  "EE7999": {
+    "name": "Special Topics in Electrical Engineering",
+    "slot": "",
+    "venue": "NA"
+  },
+  "EP2210": {
+    "name": "Principles of Quantum Mechanics",
+    "slot": "A",
+    "venue": "HSB PH 263"
+  },
+  "EP3100": {
+    "name": "Atomic & Molecular Spectroscopy",
+    "slot": "D",
+    "venue": "HSB 317"
+  },
+  "EP3190": {
+    "name": "Engineering Physics Lab II",
+    "slot": "P",
+    "venue": "NA"
+  },
+  "EP3220": {
+    "name": "Solid State Physics",
+    "slot": "A",
+    "venue": "HSB 210"
+  },
+  "EP4150": {
+    "name": "Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "GN1102": {
+    "name": "Life Skills 2",
+    "slot": "",
+    "venue": "Other"
+  },
+  "GN5002": {
+    "name": "Discovering Creativity",
+    "slot": "",
+    "venue": "CRC 305"
+  },
+  "GN5004": {
+    "name": "Research Skills",
+    "slot": "N",
+    "venue": "NA"
+  },
+  "GN5005": {
+    "name": "Nurturing Women’s Leadership Potential",
+    "slot": "",
+    "venue": "Newton Hall"
+  },
+  "GN5007": {
+    "name": "Becoming an effective corporate leader through Indian Knowledge Systems",
+    "slot": "",
+    "venue": ""
+  },
+  "GN5008": {
+    "name": "Leadership Lessons from Indian Knowledge Systems",
+    "slot": "S",
+    "venue": "CRC 304"
+  },
+  "GN5009": {
+    "name": "Self-Mastery through Indian Tales",
+    "slot": "R",
+    "venue": "CRC 304"
+  },
+  "GN6001": {
+    "name": "Integral Karmayoga",
+    "slot": "S",
+    "venue": "Other"
+  },
+  "GN6002": {
+    "name": "Lets Play to Learn",
+    "slot": "S",
+    "venue": ""
+  },
+  "GN6006": {
+    "name": "Happiness Habits and Success 2",
+    "slot": "",
+    "venue": "NA"
+  },
+  "GN6101": {
+    "name": "Strategies for Professional growth - Getting ready for a corporate life",
+    "slot": "",
+    "venue": "CRC 305"
+  },
+  "GN6106": {
+    "name": "Happiness, Habits and Success",
+    "slot": "",
+    "venue": ""
+  },
+  "GN6107": {
+    "name": "Cross Cultural Understanding",
+    "slot": "",
+    "venue": "CRC 305"
+  },
+  "GN6109": {
+    "name": "Fostering Enriching Relationships",
+    "slot": "P",
+    "venue": "CRC 204"
+  },
+  "GN6120": {
+    "name": "Flow for Performance",
+    "slot": "",
+    "venue": "CRC 103"
+  },
+  "GN6130": {
+    "name": "Systems Thinking for Engineers (Cultivating Wisdom)",
+    "slot": "Q",
+    "venue": "CRC 305"
+  },
+  "HS1020": {
+    "name": "Aspects of Western Philosophy",
+    "slot": "D",
+    "venue": "CRC 305"
+  },
+  "HS1091": {
+    "name": "TAMIL FOR BEGINNERS",
+    "slot": "F",
+    "venue": "HSB 334"
+  },
+  "HS1100": {
+    "name": "German II",
+    "slot": "D",
+    "venue": "HSB 354"
+  },
+  "HS2040": {
+    "name": "Indian National Movement",
+    "slot": "D",
+    "venue": "KCB 318"
+  },
+  "HS2200": {
+    "name": "Introduction to Indian Philosophy",
+    "slot": "D",
+    "venue": "HSB 335"
+  },
+  "HS3002": {
+    "name": "Principles of Economics",
+    "slot": "D",
+    "venue": "HSB 334"
+  },
+  "HS3050": {
+    "name": "Professional Ethics",
+    "slot": "Q",
+    "venue": "CLT"
+  },
+  "HS3060": {
+    "name": "Social History of Medicine in Colonial India",
+    "slot": "F",
+    "venue": "HSB 335"
+  },
+  "HS4850": {
+    "name": "Astronomy in India",
+    "slot": "F",
+    "venue": "CRC 204"
+  },
+  "HS4860": {
+    "name": "Mathematics in India",
+    "slot": "D",
+    "venue": "CRC 204"
+  },
+  "HS5004": {
+    "name": "Environmental Economics and Policy",
+    "slot": "D",
+    "venue": "CRC 304"
+  },
+  "HS5006": {
+    "name": "Science and Technology in the 20th Century",
+    "slot": "E",
+    "venue": "HSB 335"
+  },
+  "HS5012": {
+    "name": "Urbanization and Development",
+    "slot": "J",
+    "venue": "HSB 352"
+  },
+  "HS5022": {
+    "name": "Introduction to Cultural Studies",
+    "slot": "C",
+    "venue": "HSB 336"
+  },
+  "HS5062": {
+    "name": "An Introduction to Tirukkural",
+    "slot": "F",
+    "venue": "HSB 354"
+  },
+  "HS5080": {
+    "name": "Human Rights and Justice",
+    "slot": "F",
+    "venue": "CRC 305"
+  },
+  "HS5360": {
+    "name": "Public Economics",
+    "slot": "H",
+    "venue": "HSB 335"
+  },
+  "HS5444": {
+    "name": "Introduction to Sociology",
+    "slot": "D",
+    "venue": "Other"
+  },
+  "HS5502": {
+    "name": "Climate Change, Technology and Sustainable Development",
+    "slot": "K",
+    "venue": "HSB 334"
+  },
+  "HS5503": {
+    "name": "Development and Ethics",
+    "slot": "M",
+    "venue": "HSB 354"
+  },
+  "HS5504": {
+    "name": "State-Making, Governance and Development",
+    "slot": "H",
+    "venue": "HSB 337"
+  },
+  "HS5507": {
+    "name": "International Relations: Theory and Practice",
+    "slot": "D",
+    "venue": "HSB 336"
+  },
+  "HS5550": {
+    "name": "Research Methodology",
+    "slot": "L",
+    "venue": "HSB 334"
+  },
+  "HS5561": {
+    "name": "Introduction to Cultural Anthropology",
+    "slot": "J",
+    "venue": "HSB 334"
+  },
+  "HS5600": {
+    "name": "Language and Education Policy in India",
+    "slot": "C",
+    "venue": "HSB 355"
+  },
+  "HS5606": {
+    "name": "Romantic Literature and Philosophy",
+    "slot": "J",
+    "venue": "HSB 336"
+  },
+  "HS5607": {
+    "name": "Victorian Realism",
+    "slot": "B",
+    "venue": "HSB 335"
+  },
+  "HS5608": {
+    "name": "20th Century Modernisms",
+    "slot": "H",
+    "venue": "HSB 352"
+  },
+  "HS5609": {
+    "name": "Indian Aesthetic Thought",
+    "slot": "M",
+    "venue": "HSB 336"
+  },
+  "HS5620": {
+    "name": "American Literature",
+    "slot": "D",
+    "venue": "HSB 337"
+  },
+  "HS5654": {
+    "name": "Literature, Technology and Medicine",
+    "slot": "F",
+    "venue": "HSB 352"
+  },
+  "HS5656": {
+    "name": "Indian Writing in English",
+    "slot": "L",
+    "venue": "HSB 335"
+  },
+  "HS5660": {
+    "name": "Literature and Embodiment",
+    "slot": "M",
+    "venue": "HSB 335"
+  },
+  "HS5662": {
+    "name": "Film Theory & Practice",
+    "slot": "D",
+    "venue": "HSB 352"
+  },
+  "HS5706": {
+    "name": "Microeconomics 2",
+    "slot": "B",
+    "venue": "HSB 336"
+  },
+  "HS5707": {
+    "name": "Macroeconomics 2",
+    "slot": "A",
+    "venue": "HSB 335"
+  },
+  "HS5708": {
+    "name": "Econometrics 1",
+    "slot": "C",
+    "venue": "HSB 335"
+  },
+  "HS5709": {
+    "name": "Indian Economy",
+    "slot": "D",
+    "venue": "HSB 355"
+  },
+  "HS5711": {
+    "name": "Ethics",
+    "slot": "M",
+    "venue": "HSB 352"
+  },
+  "HS5712": {
+    "name": "Advanced Topics in Economic Development",
+    "slot": "G",
+    "venue": "HSB 334"
+  },
+  "HS5759": {
+    "name": "Applied Industrial Organization",
+    "slot": "H",
+    "venue": "HSB 334"
+  },
+  "HS5812": {
+    "name": "Feminist Writing",
+    "slot": "G",
+    "venue": "HSB 352"
+  },
+  "HS5813": {
+    "name": "Post Colonial & New Writings",
+    "slot": "B",
+    "venue": "HSB 352"
+  },
+  "HS5855": {
+    "name": "Memory, History and Literature",
+    "slot": "E",
+    "venue": "HSB 334"
+  },
+  "HS5930": {
+    "name": "War and Peace in West Asia",
+    "slot": "G",
+    "venue": "HSB 335"
+  },
+  "HS5952": {
+    "name": "Governance and Institutions in India",
+    "slot": "G",
+    "venue": "HSB 336"
+  },
+  "HS5960": {
+    "name": "Seminar",
+    "slot": "",
+    "venue": "NA"
+  },
+  "HS5970": {
+    "name": "Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "HS5980": {
+    "name": "Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "HS5986": {
+    "name": "Meditation and Conscious Living",
+    "slot": "M",
+    "venue": "HSB 355"
+  },
+  "HS6021": {
+    "name": "Introduction to Research",
+    "slot": "",
+    "venue": "HSB 354"
+  },
+  "HS6060": {
+    "name": "Disability, Literature, and Culture",
+    "slot": "D",
+    "venue": "CRC 205"
+  },
+  "HS6140": {
+    "name": "Production Economics: Efficiency and Productivity Analysis",
+    "slot": "J",
+    "venue": "HSB 335"
+  },
+  "HS6210": {
+    "name": "Financial Economics",
+    "slot": "K",
+    "venue": "HSB 352"
+  },
+  "HS6550": {
+    "name": "International Economics",
+    "slot": "M",
+    "venue": "HSB 334"
+  },
+  "HS6750": {
+    "name": "Applied Linguistics",
+    "slot": "K",
+    "venue": "HSB 337"
+  },
+  "ID1200": {
+    "name": "Ecology and Environment",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ID1302": {
+    "name": "Recreation Course-II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ID1337": {
+    "name": "Introduction to Data Science",
+    "slot": "P",
+    "venue": "CS 37"
+  },
+  "ID4100": {
+    "name": "Creative Engineering Project",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ID4200": {
+    "name": "Creative Engineering Project II",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ID4900": {
+    "name": "Undergraduate Research Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ID4901": {
+    "name": "Undergraduate Research Project (YRF)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ID4951": {
+    "name": "B.Tech. Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ID5005": {
+    "name": "Teaching Assistantship Orientation",
+    "slot": "N",
+    "venue": "Other"
+  },
+  "ID5011": {
+    "name": "A Hybrid Course on Water Quality – An approach to People’s Water Data",
+    "slot": "",
+    "venue": "CRC 203"
+  },
+  "ID5030": {
+    "name": "Machine Learning for Engineering and Science Applications",
+    "slot": "L",
+    "venue": "ED 306"
+  },
+  "ID5035": {
+    "name": "Climate Change and Society",
+    "slot": "L",
+    "venue": "Other"
+  },
+  "ID5060": {
+    "name": "First Principles tools in Engineering",
+    "slot": "R",
+    "venue": "Newton Hall"
+  },
+  "ID5070": {
+    "name": "Energy Economics",
+    "slot": "G",
+    "venue": "HSB 337"
+  },
+  "ID5083": {
+    "name": "IDDD QF project Phase 3",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ID5104": {
+    "name": "Stochastic Calculus for Mathematical Finance",
+    "slot": "E",
+    "venue": "DoMS 251"
+  },
+  "ID5127": {
+    "name": "Introduction to Atmospheric and Climate Sciences",
+    "slot": "G",
+    "venue": "CRC 202"
+  },
+  "ID5192": {
+    "name": "Project III",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ID5200": {
+    "name": "Introduction of Biomimicry",
+    "slot": "",
+    "venue": "CRC 304"
+  },
+  "ID5201": {
+    "name": "Robotics Seminar",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ID5392": {
+    "name": "Project III",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ID5490": {
+    "name": "Project I",
+    "slot": "",
+    "venue": "601"
+  },
+  "ID5492": {
+    "name": "Project III",
+    "slot": "",
+    "venue": "601"
+  },
+  "ID5690": {
+    "name": "Project I",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ID5692": {
+    "name": "Project III",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ID5792": {
+    "name": "Project III",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ID5841": {
+    "name": "Quantum Computing Lab",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ID5843": {
+    "name": "Experimental techniques for quantum computation and metrology",
+    "slot": "L",
+    "venue": "NA"
+  },
+  "ID5892": {
+    "name": "Project III",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ID5990": {
+    "name": "IDDD EV Project I",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ID5992": {
+    "name": "IDDD EV Project III",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ID6020": {
+    "name": "Introduction of Research (Institute Module)",
+    "slot": "S",
+    "venue": ""
+  },
+  "ID6070": {
+    "name": "Mechanics of Viscoelastic Materials",
+    "slot": "E",
+    "venue": "RMN 102"
+  },
+  "ID6071": {
+    "name": "Robot control",
+    "slot": "E",
+    "venue": "ED 207"
+  },
+  "ID6080": {
+    "name": "Impact Mechanics",
+    "slot": "A",
+    "venue": "CR 1"
+  },
+  "ID6100": {
+    "name": "Robotics Laboratory",
+    "slot": "R",
+    "venue": "Other"
+  },
+  "ID6106": {
+    "name": "Materials for energy storage and conversion",
+    "slot": "G",
+    "venue": "KCB 205"
+  },
+  "ID6107": {
+    "name": "\"Perturbation Methods for Engineering Problems\"",
+    "slot": "E",
+    "venue": "NAC II 322"
+  },
+  "ID7020": {
+    "name": "Finite Elasticity",
+    "slot": "G",
+    "venue": "MDS 306"
+  },
+  "MA1001": {
+    "name": "Foundations in Mathematics",
+    "slot": "A",
+    "venue": "KCB 505"
+  },
+  "MA1101": {
+    "name": "Calculus",
+    "slot": "B",
+    "venue": ""
+  },
+  "MA2101": {
+    "name": "Linear Algebra via Matrices",
+    "slot": "A",
+    "venue": ""
+  },
+  "MA2102": {
+    "name": "Differential Equations",
+    "slot": "A",
+    "venue": ""
+  },
+  "MA2103": {
+    "name": "Probability, Stochastic Processes & Statistics",
+    "slot": "A",
+    "venue": ""
+  },
+  "MA5014": {
+    "name": "Applied Stochastic Processes",
+    "slot": "A",
+    "venue": "KCB 504"
+  },
+  "MA5017": {
+    "name": "Representation Theory",
+    "slot": "J",
+    "venue": "KCB 505"
+  },
+  "MA5115": {
+    "name": "Regression and Time Series Analysis",
+    "slot": "C",
+    "venue": "KCB 504"
+  },
+  "MA5200": {
+    "name": "Enumerative Combinatorics",
+    "slot": "C",
+    "venue": "KCB 519"
+  },
+  "MA5316": {
+    "name": "Combinatorial Topology",
+    "slot": "H",
+    "venue": "KCB 506"
+  },
+  "MA5340": {
+    "name": "Measure and Integration",
+    "slot": "E",
+    "venue": "KCB 519"
+  },
+  "MA5360": {
+    "name": "Complex Analysis",
+    "slot": "A",
+    "venue": "KCB 519"
+  },
+  "MA5380": {
+    "name": "Topology",
+    "slot": "B",
+    "venue": "KCB 519"
+  },
+  "MA5401": {
+    "name": "Introduction to Probability",
+    "slot": "D",
+    "venue": "KCB 519"
+  },
+  "MA5490": {
+    "name": "Fluid Dynamics",
+    "slot": "E",
+    "venue": "KCB 506"
+  },
+  "MA5895": {
+    "name": "Numerical Optimization",
+    "slot": "B",
+    "venue": "KCB 504"
+  },
+  "MA5990": {
+    "name": "Project",
+    "slot": "",
+    "venue": "KCB 505"
+  },
+  "MA6002": {
+    "name": "Approximation Theory",
+    "slot": "J",
+    "venue": "KCB 506"
+  },
+  "MA6003": {
+    "name": "Theory of Wavelets",
+    "slot": "K",
+    "venue": "KCB 505"
+  },
+  "MA6016": {
+    "name": "Numerical Solutions to Partial Differential Equations",
+    "slot": "F",
+    "venue": "KCB 506"
+  },
+  "MA6072": {
+    "name": "Complexity and Algorithm Design",
+    "slot": "D",
+    "venue": "KCB 506"
+  },
+  "MA6078": {
+    "name": "Brownian Motion and Martingales",
+    "slot": "G",
+    "venue": "KCB 506"
+  },
+  "MA6090": {
+    "name": "Sobolev Spaces and PDE",
+    "slot": "L",
+    "venue": "KCB 505"
+  },
+  "MA6150": {
+    "name": "Basic Operator Theory",
+    "slot": "M",
+    "venue": "KCB 506"
+  },
+  "MA6180": {
+    "name": "Introduction to Algebraic Geometry",
+    "slot": "F",
+    "venue": "KCB 505"
+  },
+  "MA6181": {
+    "name": "Introduction to Lie Algebras",
+    "slot": "L",
+    "venue": "KCB 506"
+  },
+  "MA6312": {
+    "name": "Mathematical Theory of Games",
+    "slot": "J",
+    "venue": "KCB 504"
+  },
+  "MA6490": {
+    "name": "Introduction to Algebraic Number Theory",
+    "slot": "K",
+    "venue": "KCB 506"
+  },
+  "MA6650": {
+    "name": "Project",
+    "slot": "",
+    "venue": "KCB 506"
+  },
+  "MA7001": {
+    "name": "Nonparametric Inference",
+    "slot": "H",
+    "venue": "KCB 505"
+  },
+  "MA7830": {
+    "name": "Advanced Algebra (for Ph.D Scholars)",
+    "slot": "D",
+    "venue": "KCB 505"
+  },
+  "MA7860": {
+    "name": "Discrete Mathematics",
+    "slot": "E",
+    "venue": "KCB 505"
+  },
+  "MA7880": {
+    "name": "Advanced Stochastic Processes",
+    "slot": "F",
+    "venue": "KCB 504"
+  },
+  "MA7890": {
+    "name": "Advanced Algebraic Topology",
+    "slot": "G",
+    "venue": "KCB 505"
+  },
+  "MD1004": {
+    "name": "Medical Biochemistry",
+    "slot": "G",
+    "venue": "533"
+  },
+  "MD1005": {
+    "name": "Mathematical Modelling in Physiology and Medicine",
+    "slot": "D",
+    "venue": "533"
+  },
+  "MD2003": {
+    "name": "Fluid Mechanics for Physiology",
+    "slot": "C",
+    "venue": "533"
+  },
+  "MD2004": {
+    "name": "Electrical Circuits and Bioelectricity",
+    "slot": "B",
+    "venue": "533"
+  },
+  "MD2005": {
+    "name": "Medical Microbiology, Immunology and Pathology",
+    "slot": "A",
+    "venue": "533"
+  },
+  "MD3002": {
+    "name": "Basics of Pharmacology",
+    "slot": "E",
+    "venue": "531"
+  },
+  "MD3004": {
+    "name": "Physiology of the Sensory System – Vision, Smell, Taste and Hearing",
+    "slot": "A",
+    "venue": "532"
+  },
+  "MD3005": {
+    "name": "Introduction to Reproductive System",
+    "slot": "H",
+    "venue": "532"
+  },
+  "MD4001": {
+    "name": "Pharmacokinetics and Pharmacodynamics",
+    "slot": "D",
+    "venue": "532"
+  },
+  "MD5002": {
+    "name": "Introduction to Nephrology and Gastroenternology",
+    "slot": "A",
+    "venue": "531"
+  },
+  "MD5003": {
+    "name": "Finite Element Method for Physiologists",
+    "slot": "C",
+    "venue": "531"
+  },
+  "MD5004": {
+    "name": "Medical Image Analysis",
+    "slot": "D",
+    "venue": "531"
+  },
+  "MD5005": {
+    "name": "Cardiovascular & Respiratory Mechanics & Hemodynamics",
+    "slot": "B",
+    "venue": "532"
+  },
+  "MD5015": {
+    "name": "Understanding Data for Clinicians",
+    "slot": "",
+    "venue": "564"
+  },
+  "MD5016": {
+    "name": "Engineering Organoid Models for Human Diseases, Drug Discovery, and Treatment",
+    "slot": "P",
+    "venue": "534"
+  },
+  "MD5020": {
+    "name": "Clinical Diagnostics",
+    "slot": "G",
+    "venue": "531"
+  },
+  "MD5023": {
+    "name": "Advanced Magnetic Resonance Imaging",
+    "slot": "M",
+    "venue": "532"
+  },
+  "MD5025": {
+    "name": "Design and Development of Biosensors",
+    "slot": "F",
+    "venue": "531"
+  },
+  "ME1480": {
+    "name": "Engineering Drawing",
+    "slot": "",
+    "venue": ""
+  },
+  "ME2102": {
+    "name": "Foundations of Thermal Engineering-1",
+    "slot": "D",
+    "venue": ""
+  },
+  "ME2200": {
+    "name": "Materials and Design",
+    "slot": "E",
+    "venue": ""
+  },
+  "ME2302": {
+    "name": "Manufacturing Technology-I",
+    "slot": "F",
+    "venue": ""
+  },
+  "ME2400": {
+    "name": "Measurements,Instrumentation and Control",
+    "slot": "C",
+    "venue": ""
+  },
+  "ME2482": {
+    "name": "Mechanical Engineering Lab I",
+    "slot": "",
+    "venue": "Other"
+  },
+  "ME4001": {
+    "name": "Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ME4010": {
+    "name": "Control Systems",
+    "slot": "G",
+    "venue": "MSB 242"
+  },
+  "ME4490": {
+    "name": "B.Tech. Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ME4901": {
+    "name": "Undergraduate Research Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ME4902": {
+    "name": "Undergraduate Research Project II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ME5002": {
+    "name": "Finite Volume Method in CFD",
+    "slot": "D",
+    "venue": "CRC 103"
+  },
+  "ME5010": {
+    "name": "Hybrid and Electric Vehicle Technology",
+    "slot": "F",
+    "venue": "MSB 245"
+  },
+  "ME5015": {
+    "name": "Mathematical Methods in Mechanical Engineering",
+    "slot": "D",
+    "venue": "MSB 358"
+  },
+  "ME5020": {
+    "name": "Professional Communication Skills",
+    "slot": "",
+    "venue": "MSB 304"
+  },
+  "ME5107": {
+    "name": "Numerical Methods in Thermal Engg",
+    "slot": "C",
+    "venue": "MSB 245"
+  },
+  "ME5109": {
+    "name": "Measurement in Thermal Engg",
+    "slot": "A",
+    "venue": "CRC 205"
+  },
+  "ME5110": {
+    "name": "Machine Learning and Bayesian Methods in Inverse Heat Transfer",
+    "slot": "C",
+    "venue": "CRC 102"
+  },
+  "ME5115": {
+    "name": "Surfaces and Interfaces",
+    "slot": "E",
+    "venue": "NAC II 229"
+  },
+  "ME5130": {
+    "name": "Principles of Turbomachinery",
+    "slot": "E",
+    "venue": "NAC II 321"
+  },
+  "ME5131": {
+    "name": "Nanoscale Thermofluidics: Theory and Computation",
+    "slot": "G",
+    "venue": "NAC II 322"
+  },
+  "ME5172": {
+    "name": "Industrial Practices in Computational Fluid Dynamics",
+    "slot": "F",
+    "venue": "CRC 101"
+  },
+  "ME5204": {
+    "name": "Finite Element Analysis",
+    "slot": "A",
+    "venue": "MSB 357"
+  },
+  "ME5207": {
+    "name": "Design with Advanced Engineering Materials",
+    "slot": "B",
+    "venue": "MDS 217"
+  },
+  "ME5235": {
+    "name": "Signal Processing of Mechanical Systems",
+    "slot": "D",
+    "venue": "RJN 301"
+  },
+  "ME5238": {
+    "name": "Mechanics and Reliability of Semiconductor Packaging",
+    "slot": "J",
+    "venue": "NAC II 229"
+  },
+  "ME5280": {
+    "name": "Design Practice using CAD tools",
+    "slot": "P",
+    "venue": "Other"
+  },
+  "ME5304": {
+    "name": "Manufacturing Metrology",
+    "slot": "D",
+    "venue": "MSB 243"
+  },
+  "ME5308": {
+    "name": "Smart Manufacturing",
+    "slot": "B",
+    "venue": "MSB 242"
+  },
+  "ME5310": {
+    "name": "Dispersed Multi-phase Flows",
+    "slot": "G",
+    "venue": "NAC II 229"
+  },
+  "ME5380": {
+    "name": "Manufacturing & Precision Engg Lab",
+    "slot": "P",
+    "venue": "Other"
+  },
+  "ME5404": {
+    "name": "Data Structures and Algorithms",
+    "slot": "A",
+    "venue": "MSB 245"
+  },
+  "ME5406": {
+    "name": "Systems-based modeling and design",
+    "slot": "B",
+    "venue": "MES 200"
+  },
+  "ME5481": {
+    "name": "Mechanical Systems Simulation Lab",
+    "slot": "R",
+    "venue": "Other"
+  },
+  "ME5525": {
+    "name": "Engineering Design with Polymers",
+    "slot": "E",
+    "venue": "MSB 304"
+  },
+  "ME5580": {
+    "name": "Thermal Desalination Technologies",
+    "slot": "B",
+    "venue": "HTTP 200B"
+  },
+  "ME6011": {
+    "name": "Complex Fluids and Soft Materials",
+    "slot": "F",
+    "venue": "NAC II 323"
+  },
+  "ME6060": {
+    "name": "Fundamentals of Combustion",
+    "slot": "F",
+    "venue": "NAC II 228"
+  },
+  "ME6121": {
+    "name": "Microfluidics and Microsystems",
+    "slot": "F",
+    "venue": "NAC II 322"
+  },
+  "ME6122": {
+    "name": "Jet Flow and Acoustics",
+    "slot": "G",
+    "venue": "NAC II 228"
+  },
+  "ME6123": {
+    "name": "Cavitation",
+    "slot": "G",
+    "venue": "NAC II 321"
+  },
+  "ME6131": {
+    "name": "Boiling Condensation and Two Phase Flow",
+    "slot": "G",
+    "venue": "HTTP 200B"
+  },
+  "ME6134": {
+    "name": "Airconditioning & Ventilation",
+    "slot": "E",
+    "venue": "NAC II 228"
+  },
+  "ME6148": {
+    "name": "Renewable Energy Technology",
+    "slot": "D",
+    "venue": "MSB 357"
+  },
+  "ME6152": {
+    "name": "Micro & Nanoscale Energy Transport",
+    "slot": "E",
+    "venue": "HTTP 200B"
+  },
+  "ME6162": {
+    "name": "IC Engine Combustion and Pollution",
+    "slot": "G",
+    "venue": "Other"
+  },
+  "ME6198": {
+    "name": "MTech Project Phase III (Thermal Stream)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ME6201": {
+    "name": "Robot Learning from Manipulation",
+    "slot": "H",
+    "venue": "NAC II 228"
+  },
+  "ME6222": {
+    "name": "Design of Mechanical Transmission systems",
+    "slot": "C",
+    "venue": "MDS 217"
+  },
+  "ME6223": {
+    "name": "Design for Manufacture and Assembly",
+    "slot": "G",
+    "venue": "MDS 217"
+  },
+  "ME6225": {
+    "name": "Failure Analysis and  Design",
+    "slot": "F",
+    "venue": "MDS 217"
+  },
+  "ME6226": {
+    "name": "Product Reliability",
+    "slot": "M",
+    "venue": "MDS 217"
+  },
+  "ME6230": {
+    "name": "Mechanics of Human Movement",
+    "slot": "D",
+    "venue": "NAC II 228"
+  },
+  "ME6234": {
+    "name": "Elastic Waves and Ultrasonics",
+    "slot": "F",
+    "venue": "NAC II 229"
+  },
+  "ME6236": {
+    "name": "Mechanics of Slender Structures",
+    "slot": "Q",
+    "venue": "MDS 306"
+  },
+  "ME6238": {
+    "name": "Advanced Methods in Vibration Analysis",
+    "slot": "F",
+    "venue": "NAC II 321"
+  },
+  "ME6298": {
+    "name": "M.Tech Project Phase III (Design Stream)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ME6320": {
+    "name": "Micro Manufacturing Technology",
+    "slot": "G",
+    "venue": "MES 200"
+  },
+  "ME6324": {
+    "name": "Artificial Intelligence in Mfg.",
+    "slot": "G",
+    "venue": "MSB 357"
+  },
+  "ME6331": {
+    "name": "Treatment of Material",
+    "slot": "K",
+    "venue": "MSB 357"
+  },
+  "ME6333": {
+    "name": "Machining Science & Technology",
+    "slot": "E",
+    "venue": "MES 200"
+  },
+  "ME6334": {
+    "name": "Advanced Sheet Metal Forming",
+    "slot": "A",
+    "venue": "MES 200"
+  },
+  "ME6355": {
+    "name": "Topology optimization",
+    "slot": "F",
+    "venue": "MDS 306"
+  },
+  "ME6398": {
+    "name": "MTech Project Phase III (Manufacturing Stream)",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ME6493": {
+    "name": "Project - Phase III",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ME6593": {
+    "name": "Project - Phase III",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ME6693": {
+    "name": "Project - Phase III",
+    "slot": "",
+    "venue": "NA"
+  },
+  "ME6999": {
+    "name": "Special Topics in Mechanical Engineering",
+    "slot": "",
+    "venue": "NAC II 229"
+  },
+  "ME7122": {
+    "name": "Droplet and Spray Dynamics",
+    "slot": "F",
+    "venue": "Other"
+  },
+  "ME7223": {
+    "name": "Optimization Methods for Mechanical Design",
+    "slot": "D",
+    "venue": "MSB 242"
+  },
+  "ME7227": {
+    "name": "Nonlinear Finite Element Analysis of Solid Continua",
+    "slot": "D",
+    "venue": "MDS 217"
+  },
+  "ME7234": {
+    "name": "Introduction to Fracture Mechanics",
+    "slot": "C",
+    "venue": "RMN 102"
+  },
+  "ME7790": {
+    "name": "Heat and  Fluid Flow in Porous Media",
+    "slot": "F",
+    "venue": "HTTP 200B"
+  },
+  "ME7999": {
+    "name": "Special Topics in Mechanical Engineering",
+    "slot": "",
+    "venue": "NAC II 229"
+  },
+  "MM1003": {
+    "name": "Thermodynamics of Materials",
+    "slot": "C",
+    "venue": "CRC 201"
+  },
+  "MM2080": {
+    "name": "Principles of Extractive Metallurgy",
+    "slot": "C",
+    "venue": "KCB 204"
+  },
+  "MM3010": {
+    "name": "Physics of Materials",
+    "slot": "B",
+    "venue": "CRC 201"
+  },
+  "MM3014": {
+    "name": "Undergraduate Research in Materials - 1",
+    "slot": "",
+    "venue": "KCB 204"
+  },
+  "MM3030": {
+    "name": "Materials Characterization",
+    "slot": "D",
+    "venue": "KCB 205"
+  },
+  "MM3041": {
+    "name": "Deformation Processing and Forming",
+    "slot": "C",
+    "venue": "KCB 205"
+  },
+  "MM3070": {
+    "name": "Solidification Processing and Casting",
+    "slot": "D",
+    "venue": "KCB 222"
+  },
+  "MM3100": {
+    "name": "Materials Characterisation Lab",
+    "slot": "R",
+    "venue": "KCB 204"
+  },
+  "MM3200": {
+    "name": "Surface Modifications",
+    "slot": "E",
+    "venue": "KCB 222"
+  },
+  "MM4030": {
+    "name": "Undergraduate Research in Materials - 2",
+    "slot": "",
+    "venue": "KCB 204"
+  },
+  "MM4120": {
+    "name": "Project II",
+    "slot": "",
+    "venue": "KCB 222"
+  },
+  "MM5003": {
+    "name": "Atomistic Modeling of Materials",
+    "slot": "J",
+    "venue": "KCB 204"
+  },
+  "MM5019": {
+    "name": "Materials science for sustainability",
+    "slot": "F",
+    "venue": "KCB 204"
+  },
+  "MM5020": {
+    "name": "Modern Techniques of Material Characterization",
+    "slot": "B",
+    "venue": "KCB 205"
+  },
+  "MM5021": {
+    "name": "Deformation and Failure of Materials at Elevated Temperatures",
+    "slot": "F",
+    "venue": "KCB 134"
+  },
+  "MM5022": {
+    "name": "Fundamentals of Iron & Steel Making",
+    "slot": "J",
+    "venue": "KCB 124"
+  },
+  "MM5023": {
+    "name": "Iron & Steel Making Technology",
+    "slot": "G",
+    "venue": "KCB 124"
+  },
+  "MM5024": {
+    "name": "Numerical Methods for Metallurgists",
+    "slot": "D",
+    "venue": "KCB 204"
+  },
+  "MM5032": {
+    "name": "Materials and Methods in Electronic Device Fabrication",
+    "slot": "C",
+    "venue": "CRC 202"
+  },
+  "MM5034": {
+    "name": "Thermoelectric Materials & Devices for Energy Sustainability",
+    "slot": "L",
+    "venue": "KCB 205"
+  },
+  "MM5041": {
+    "name": "Medical Materials",
+    "slot": "K",
+    "venue": "KCB 124"
+  },
+  "MM5090": {
+    "name": "Dual Degree Project Summer Phase",
+    "slot": "",
+    "venue": "KCB 222"
+  },
+  "MM5092": {
+    "name": "Dual Degree Project Phase II",
+    "slot": "",
+    "venue": ""
+  },
+  "MM5101": {
+    "name": "Semiconductor Materials Lab",
+    "slot": "P",
+    "venue": "KCB 222"
+  },
+  "MM5130": {
+    "name": "Materials under Extreme Environments",
+    "slot": "E",
+    "venue": "KCB 204"
+  },
+  "MM5140": {
+    "name": "Metallurgical Failure Analysis",
+    "slot": "B",
+    "venue": "KCB 124"
+  },
+  "MM5180": {
+    "name": "Non-Destructive Evaluation",
+    "slot": "K",
+    "venue": "KCB 134"
+  },
+  "MM5201": {
+    "name": "Microstructural Development in Materials Processing",
+    "slot": "A",
+    "venue": "KCB 124"
+  },
+  "MM5210": {
+    "name": "X-Ray Diffraction Techniques",
+    "slot": "G",
+    "venue": "KCB 222"
+  },
+  "MM5250": {
+    "name": "Additive Manufacturing",
+    "slot": "D",
+    "venue": "KCB 134"
+  },
+  "MM5290": {
+    "name": "Stability of Microstructures",
+    "slot": "K",
+    "venue": "KCB 222"
+  },
+  "MM5320": {
+    "name": "Corrosion Engineering",
+    "slot": "K",
+    "venue": "KCB 204"
+  },
+  "MM5410": {
+    "name": "Ceramic Science & Technology",
+    "slot": "E",
+    "venue": "KCB 134"
+  },
+  "MM5450": {
+    "name": "Computational Materials Engineering Lab",
+    "slot": "Q",
+    "venue": "KCB 204"
+  },
+  "MM5460": {
+    "name": "Physical Ceramics",
+    "slot": "L",
+    "venue": "KCB 204"
+  },
+  "MM5520": {
+    "name": "Solidification Phenomena",
+    "slot": "G",
+    "venue": "KCB 204"
+  },
+  "MM5530": {
+    "name": "Hydrogen assisted Green Steelmaking",
+    "slot": "F",
+    "venue": "KCB 205"
+  },
+  "MM5565": {
+    "name": "Machine Learning in Materials Science",
+    "slot": "C",
+    "venue": "KCB 222"
+  },
+  "MM5566": {
+    "name": "Finite Element Method in Materials Engineering",
+    "slot": "D",
+    "venue": "KCB 124"
+  },
+  "MM5640": {
+    "name": "Sheet Metal Forming",
+    "slot": "K",
+    "venue": "KCB 205"
+  },
+  "MM5770": {
+    "name": "Materials Joining Laboratory",
+    "slot": "P",
+    "venue": "KCB 222"
+  },
+  "MM6010": {
+    "name": "Computational Materials Thermodynamics",
+    "slot": "J",
+    "venue": "KCB 222"
+  },
+  "MM6011": {
+    "name": "Field Emission Sciences and Atom Probe Tomography",
+    "slot": "F",
+    "venue": "KCB 222"
+  },
+  "MM6020": {
+    "name": "Fatigue of Materials",
+    "slot": "E",
+    "venue": "KCB 124"
+  },
+  "MM6021": {
+    "name": "Introduction to Research",
+    "slot": "",
+    "venue": "KCB 222"
+  },
+  "MM6999": {
+    "name": "Special Topics in Metallurgical and Materials Engineering",
+    "slot": "",
+    "venue": "KCB 204"
+  },
+  "MM7999": {
+    "name": "Special Topics in Metallurgical and Materials Engineering",
+    "slot": "N",
+    "venue": "KCB 205"
+  },
+  "MS4810": {
+    "name": "Marketing for Successful Startups",
+    "slot": "",
+    "venue": "CRC 101"
+  },
+  "MS5032": {
+    "name": "Financial Markets and Derivatives",
+    "slot": "",
+    "venue": "DoMS 401"
+  },
+  "MS5110": {
+    "name": "Micro Economics",
+    "slot": "",
+    "venue": "DOMS 101"
+  },
+  "MS5112": {
+    "name": "Sustainable Operations",
+    "slot": "",
+    "venue": "DoMS 253"
+  },
+  "MS5210": {
+    "name": "Legal Aspects of Business",
+    "slot": "",
+    "venue": "DOMS 101"
+  },
+  "MS5230": {
+    "name": "Operations Management",
+    "slot": "",
+    "venue": "DOMS 101"
+  },
+  "MS5251": {
+    "name": "Marketing Research",
+    "slot": "",
+    "venue": "DOMS 101"
+  },
+  "MS5310": {
+    "name": "Digital Technologies in Business",
+    "slot": "",
+    "venue": "DOMS 101"
+  },
+  "MS5311": {
+    "name": "Capital Markets",
+    "slot": "",
+    "venue": "DOMS 101"
+  },
+  "MS5320": {
+    "name": "Human Resource Management",
+    "slot": "",
+    "venue": "DOMS 101"
+  },
+  "MS5321": {
+    "name": "Business Intelligence",
+    "slot": "",
+    "venue": "DOMS 101"
+  },
+  "MS5323": {
+    "name": "Professional Development Workshop",
+    "slot": "",
+    "venue": "DOMS 101"
+  },
+  "MS5326": {
+    "name": "Innovations in Finance",
+    "slot": "",
+    "venue": "DOMS 101"
+  },
+  "MS5327": {
+    "name": "Sustainable Business Models",
+    "slot": "",
+    "venue": "DOMS 101"
+  },
+  "MS5550": {
+    "name": "Operations Research Applications",
+    "slot": "",
+    "venue": "DoMS 251"
+  },
+  "MS5642": {
+    "name": "Managing the future: AI, Cyber Security and the Innovative Leader",
+    "slot": "",
+    "venue": "DoMS 401"
+  },
+  "MS5680": {
+    "name": "International Finance",
+    "slot": "",
+    "venue": "DoMS 252"
+  },
+  "MS5715": {
+    "name": "Marketing at the Bottom of the Pyramid (BoP)",
+    "slot": "",
+    "venue": "DoMS 252"
+  },
+  "MS5725": {
+    "name": "Service Failure and Complaint Management",
+    "slot": "",
+    "venue": "DoMS 251"
+  },
+  "MS5729": {
+    "name": "Social Media Computing",
+    "slot": "",
+    "venue": "DoMS 253"
+  },
+  "MS5754": {
+    "name": "Nurturing the Inner You: Developing Positive Capacities",
+    "slot": "",
+    "venue": "DoMS 252"
+  },
+  "MS6010": {
+    "name": "Strategic Management",
+    "slot": "",
+    "venue": "DOMS 101"
+  },
+  "MS6015": {
+    "name": "Multivariate Statistical Methods for Business",
+    "slot": "G",
+    "venue": "DoMS 251"
+  },
+  "MS6310": {
+    "name": "Contemporary Issues in Management",
+    "slot": "",
+    "venue": "DoMS 401"
+  },
+  "MS6590": {
+    "name": "Customer Relationship Marketing",
+    "slot": "",
+    "venue": "DoMS 252"
+  },
+  "MS6621": {
+    "name": "Corporate Finance",
+    "slot": "E",
+    "venue": "DoMS 104"
+  },
+  "MS6710": {
+    "name": "Financial Risk Management",
+    "slot": "",
+    "venue": "DoMS 253"
+  },
+  "MS6720": {
+    "name": "Industrial & Services Marketing",
+    "slot": "",
+    "venue": "DoMS 252"
+  },
+  "MS6930": {
+    "name": "Enterpreneurship",
+    "slot": "",
+    "venue": "DoMS 104"
+  },
+  "MS6990": {
+    "name": "Management Research Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "MS6991": {
+    "name": "Management Research Project II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "MS6999": {
+    "name": "Special Topics in Management Studies",
+    "slot": "",
+    "venue": "NA"
+  },
+  "MS7080": {
+    "name": "Research Methodology in Business and Management",
+    "slot": "",
+    "venue": "DoMS 252"
+  },
+  "MS7999": {
+    "name": "Special Topics in Management Studies",
+    "slot": "",
+    "venue": "NA"
+  },
+  "MS8020": {
+    "name": "Empirical research -1",
+    "slot": "",
+    "venue": "DoMS 251"
+  },
+  "MS8021": {
+    "name": "Empirical research -2",
+    "slot": "",
+    "venue": "DoMS 251"
+  },
+  "OB2201": {
+    "name": "Database Management Systems",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB2202": {
+    "name": "Programming, Data Structures and Algorithms using Python",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB2203": {
+    "name": "Modern Application Development I",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB2204": {
+    "name": "Machine Learning Foundations",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB2205": {
+    "name": "Programming Concepts using Java",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB2206": {
+    "name": "Modern Application Development II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB2207": {
+    "name": "Machine Learning Techniques",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB2208": {
+    "name": "Machine Learning Practice",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB3201": {
+    "name": "Software Engineering",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB3202": {
+    "name": "Software Testing",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB3203": {
+    "name": "AI: Search Methods for Problem Solving",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB3204": {
+    "name": "Deep Learning",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB3214": {
+    "name": "Deep Learning for Computer Vision",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OB5101": {
+    "name": "Deep Learning Practice",
+    "slot": "",
+    "venue": "NA"
+  },
+  "OE1100": {
+    "name": "Modern scientific computing in programming language",
+    "slot": "B",
+    "venue": "NAC II 201"
+  },
+  "OE1201": {
+    "name": "Ship Hydrostatics and Stability",
+    "slot": "A",
+    "venue": "NAC II 201"
+  },
+  "OE2201": {
+    "name": "Analysis of Structures",
+    "slot": "B",
+    "venue": "NAC II 202"
+  },
+  "OE2202": {
+    "name": "Dynamics of marine structures",
+    "slot": "D",
+    "venue": "NAC II 201"
+  },
+  "OE2203": {
+    "name": "Ship Resistance and Propulsion",
+    "slot": "F",
+    "venue": "NAC II 202"
+  },
+  "OE2204": {
+    "name": "Ocean Wave Hydrodynamics",
+    "slot": "E",
+    "venue": "NAC II 201"
+  },
+  "OE3026": {
+    "name": "Shipyard Training",
+    "slot": "",
+    "venue": "NAC II 208"
+  },
+  "OE4052": {
+    "name": "Naval Architecture and Ocean Engineering BTech Project - Phase II",
+    "slot": "",
+    "venue": "NAC II 208"
+  },
+  "OE4300": {
+    "name": "Ocean Energy",
+    "slot": "E",
+    "venue": "NAC II 202"
+  },
+  "OE4912": {
+    "name": "BTech/ DD Undergraduate Research Project -II",
+    "slot": "",
+    "venue": "NAC II 208"
+  },
+  "OE5005": {
+    "name": "Marine Autonomous Vehicles",
+    "slot": "F",
+    "venue": "NAC II 201"
+  },
+  "OE5011": {
+    "name": "Marine Robotics",
+    "slot": "G",
+    "venue": "NAC II 201"
+  },
+  "OE5012": {
+    "name": "Deep Sea Technology",
+    "slot": "G",
+    "venue": "NAC II 202"
+  },
+  "OE5080": {
+    "name": "Marine Instrumentation",
+    "slot": "C",
+    "venue": "NAC II 202"
+  },
+  "OE5300": {
+    "name": "Advanced Dynamics of Floating Bodies",
+    "slot": "A",
+    "venue": "NAC II 202"
+  },
+  "OE5340": {
+    "name": "Ocean Environment Policy &  Coastal Zone Mgmt.",
+    "slot": "D",
+    "venue": "NAC II 202"
+  },
+  "OE5373": {
+    "name": "Naval Architecture and Ocean Engineering DD Project - Phase III",
+    "slot": "",
+    "venue": "NAC II 206"
+  },
+  "OE5400": {
+    "name": "Port and  Harbour Structures",
+    "slot": "C",
+    "venue": "NAC II 201"
+  },
+  "OE5450": {
+    "name": "Numerical Techniques in Ocean Hydrodynamics",
+    "slot": "E",
+    "venue": "NAC II 203"
+  },
+  "OE5500": {
+    "name": "FEM Applied to Ocean Engineering",
+    "slot": "C",
+    "venue": "NAC II 203"
+  },
+  "OE5546": {
+    "name": "Underwater Acoustics and Instruments",
+    "slot": "F",
+    "venue": "NAC II 208"
+  },
+  "OE5555": {
+    "name": "Summer training in computer modeling and simulation",
+    "slot": "",
+    "venue": "NAC II 208"
+  },
+  "OE5600": {
+    "name": "Advanced Wave Dynamics",
+    "slot": "B",
+    "venue": "NAC II 203"
+  },
+  "OE5800": {
+    "name": "Coastal Engineering",
+    "slot": "G",
+    "venue": "NAC II 203"
+  },
+  "OE6001": {
+    "name": "Materials and fabrication of ship and offshore structures",
+    "slot": "F",
+    "venue": "NAC II 203"
+  },
+  "OE6002": {
+    "name": "Installation of Offshore Structures",
+    "slot": "G",
+    "venue": "NAC II 206"
+  },
+  "OE6004": {
+    "name": "Numerical Modelling of Offshore Structures",
+    "slot": "E",
+    "venue": "NAC II 206"
+  },
+  "OE6200": {
+    "name": "Design of Fixed Offshore Structures",
+    "slot": "A",
+    "venue": "NAC II 206"
+  },
+  "OE6330": {
+    "name": "Seakeeping and Maneuvering of Marine Vehicles",
+    "slot": "G",
+    "venue": "NAC II 208"
+  },
+  "OE6906": {
+    "name": "M. Tech ocean Structures project - Phase II",
+    "slot": "",
+    "venue": "NAC II 208"
+  },
+  "OE6912": {
+    "name": "MTech Ocean Technology Project - Phase II",
+    "slot": "",
+    "venue": "NAC II 203"
+  },
+  "OE6999": {
+    "name": "Special Topics in Ocean Engineering",
+    "slot": "",
+    "venue": "NAC II 206"
+  },
+  "OE7999": {
+    "name": "Special Topics in Ocean Engineering",
+    "slot": "",
+    "venue": "NAC II 206"
+  },
+  "PE5030": {
+    "name": "Artificial Lift Technologies for Oil and Gas Production",
+    "slot": "B",
+    "venue": "NAC II 206"
+  },
+  "PE5100": {
+    "name": "Petroleum Production Engineering and Flow Assurance",
+    "slot": "F",
+    "venue": "NAC II 206"
+  },
+  "PE6031": {
+    "name": "Reservoir Simulation",
+    "slot": "D",
+    "venue": "NAC II 206"
+  },
+  "PE6040": {
+    "name": "Advanced Seismic data analysis and Interpretation",
+    "slot": "C",
+    "venue": "NAC II 206"
+  },
+  "PE6203": {
+    "name": "MTech Petroleum Engineering Project - Phase III",
+    "slot": "",
+    "venue": "NAC II 206"
+  },
+  "PE6312": {
+    "name": "Enhanced Oil Recovery",
+    "slot": "A",
+    "venue": "NAC II 208"
+  },
+  "PH1010": {
+    "name": "Physics I",
+    "slot": "D",
+    "venue": "NA"
+  },
+  "PH1020": {
+    "name": "Physics II",
+    "slot": "D",
+    "venue": "NA"
+  },
+  "PH1030": {
+    "name": "Physics Laboratory I",
+    "slot": "",
+    "venue": "NA"
+  },
+  "PH1040": {
+    "name": "Physics Laboratory II",
+    "slot": "R",
+    "venue": "NA"
+  },
+  "PH2070": {
+    "name": "Introduction to Biological Physics",
+    "slot": "B",
+    "venue": "HSB 210"
+  },
+  "PH2080": {
+    "name": "Physics Lab IV",
+    "slot": "R",
+    "venue": "NA"
+  },
+  "PH4999": {
+    "name": "Undergraduate Research Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "PH5020": {
+    "name": "Electromagnetic Theory",
+    "slot": "C",
+    "venue": "HSB 310"
+  },
+  "PH5080": {
+    "name": "Statistical Physics",
+    "slot": "F",
+    "venue": "HSB 210"
+  },
+  "PH5120": {
+    "name": "Physics Lab II (PG)",
+    "slot": "R",
+    "venue": "NA"
+  },
+  "PH5160": {
+    "name": "Condensed Matter Physics I",
+    "slot": "B",
+    "venue": "HSB 310"
+  },
+  "PH5170": {
+    "name": "Quantum Mechanics II",
+    "slot": "E",
+    "venue": "HSB 310"
+  },
+  "PH5223": {
+    "name": "Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "PH5230": {
+    "name": "Seminar",
+    "slot": "",
+    "venue": "NA"
+  },
+  "PH5250": {
+    "name": "Advanced Electronics & Lab",
+    "slot": "A",
+    "venue": "NA"
+  },
+  "PH5292": {
+    "name": "Project II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "PH5340": {
+    "name": "Dielectric,Magnetic &Optical Materials",
+    "slot": "G",
+    "venue": "HSB 217"
+  },
+  "PH5350": {
+    "name": "Laboratory for Physical Property Measurement and Transducer / Sensor Element Characteristics of Func",
+    "slot": "R",
+    "venue": "NA"
+  },
+  "PH5362": {
+    "name": "Project II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "PH5365": {
+    "name": "Project II",
+    "slot": "",
+    "venue": "NA"
+  },
+  "PH5380": {
+    "name": "Seminar",
+    "slot": "",
+    "venue": "NA"
+  },
+  "PH5400": {
+    "name": "Viva Voce",
+    "slot": "",
+    "venue": "NA"
+  },
+  "PH5462": {
+    "name": "Magnetism in Solids",
+    "slot": "F",
+    "venue": "HSB 211"
+  },
+  "PH5481": {
+    "name": "Quantum Field Theory 2",
+    "slot": "G",
+    "venue": "HSB 310"
+  },
+  "PH5590": {
+    "name": "Microwave Physics",
+    "slot": "G",
+    "venue": "HSB 211"
+  },
+  "PH5620": {
+    "name": "Coherent and  Quantum Optics",
+    "slot": "F",
+    "venue": "HSB PH 263"
+  },
+  "PH5680": {
+    "name": "Superconductivity & Its Applications",
+    "slot": "B",
+    "venue": "HSB 317"
+  },
+  "PH5720": {
+    "name": "Numerical Methods and Programming Lab",
+    "slot": "A",
+    "venue": "HSB 310"
+  },
+  "PH5730": {
+    "name": "Methods of Computational Physics",
+    "slot": "",
+    "venue": "NA"
+  },
+  "PH5810": {
+    "name": "Introduction to Softmatter Physics",
+    "slot": "F",
+    "venue": "HSB 317"
+  },
+  "PH5811": {
+    "name": "Advanced Particle Physics",
+    "slot": "C",
+    "venue": "HSB 317"
+  },
+  "PH5813": {
+    "name": "Principles of Nanophotonics",
+    "slot": "G",
+    "venue": "HSB 317"
+  },
+  "PH5816": {
+    "name": "Physics of Active and Living Matter (PALM)",
+    "slot": "L",
+    "venue": "HSB 210"
+  },
+  "PH5820": {
+    "name": "Classical Physics",
+    "slot": "E",
+    "venue": "HSB PH 263"
+  },
+  "PH5830": {
+    "name": "Advanced Dynamical Systems",
+    "slot": "E",
+    "venue": "HSB 210"
+  },
+  "PH5842": {
+    "name": "Advanced topics in Quantum Computation and Quantum Information",
+    "slot": "H",
+    "venue": "HSB 210"
+  },
+  "PH5875": {
+    "name": "Advanced General Relativity",
+    "slot": "F",
+    "venue": "HSB 217"
+  },
+  "PH5890": {
+    "name": "Ultrafast lasers and Applications",
+    "slot": "E",
+    "venue": "HSB 217"
+  },
+  "PH5910": {
+    "name": "Mini Project",
+    "slot": "",
+    "venue": "NA"
+  },
+  "PH6011": {
+    "name": "Nanomaterials and Nanotechnology",
+    "slot": "D",
+    "venue": "HSB 210"
+  },
+  "PH6012": {
+    "name": "Fundamentals of Semiconductor Physics and Devices",
+    "slot": "F",
+    "venue": "HSB 310"
+  },
+  "PH6013": {
+    "name": "Functional Materials Sensors and Transducers",
+    "slot": "C",
+    "venue": "HSB 211"
+  },
+  "PH6015": {
+    "name": "Advanced Materials and Nanotechnology Lab",
+    "slot": "R",
+    "venue": "HSB 211"
+  },
+  "PH6021": {
+    "name": "Introduction to Research",
+    "slot": "",
+    "venue": "HSB PH 263"
+  },
+  "PH6999": {
+    "name": "Special Topics in Physics",
+    "slot": "",
+    "venue": "NA"
+  },
+  "PH7080": {
+    "name": "Foundations in Theoretical Physics",
+    "slot": "C",
+    "venue": "HSB PH 263"
+  },
+  "PH7090": {
+    "name": "Foundations in Experiemntal Physics",
+    "slot": "B",
+    "venue": "HSB PH 263"
+  },
+  "PH7999": {
+    "name": "Special Topics in Physics",
+    "slot": "",
+    "venue": "NA"
+  },
+  "WS1302": {
+    "name": "Workshop-II",
+    "slot": "",
+    "venue": "NA"
+  }
+}
